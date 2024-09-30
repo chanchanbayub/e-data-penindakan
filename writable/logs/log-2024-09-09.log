@@ -1,0 +1,22 @@
+INFO - 2024-09-09 04:50:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 04:50:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 04:50:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 04:50:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 04:50:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 04:50:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 04:51:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 04:51:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 04:51:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-09 04:51:47 --> ErrorException: Undefined variable: total_penindakan
+in APPPATH/Views/landing_page/landing_page_v.php on line 33.
+ 1 APPPATH/Views/landing_page/landing_page_v.php(33): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: total_penindakan', '/Volumes/mf480 - Data/sidak_angkot/app/Views/landing_page/landing_page_v.php', 33, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/landing_page/landing_page_v.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('landing_page/landing_page_v', [], true)
+ 5 APPPATH/Controllers/Home.php(12): view('landing_page/landing_page_v', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Home->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-09 04:52:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

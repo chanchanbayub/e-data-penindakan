@@ -1,0 +1,273 @@
+INFO - 2024-09-27 06:22:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:22:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:22:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:22:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:22:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:23:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-27 06:23:58 --> mysqli_sql_exception: Table 'sidak_angkot.data_penindakan_table' doesn't exist in /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `data_pe...', 0)
+#1 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data_pe...')
+#2 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data_pe...')
+#3 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_pe...', Array, false)
+#4 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+#5 /Volumes/mf480 - Data/sidak_angkot/app/Models/Admin/DataPenindakanModel.php(43): CodeIgniter\Model->__call('get', Array)
+#6 /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/DataPenindakanController.php(56): App\Models\Admin\DataPenindakanModel->getDataPenindakan('1')
+#7 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Admin\DataPenindakanController->index()
+#8 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DataPenindakanController))
+#9 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Volumes/mf480 - Data/sidak_angkot/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 ...')
+#12 {main}
+CRITICAL - 2024-09-27 06:23:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sidak_angkot.data_penindakan_table' doesn't exist
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`ukpd_id` = :data_penindakan_table.ukpd_id:
+ORDER BY `data_penindakan_table`.`id` desc', [...], false)
+ 2 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Models/Admin/DataPenindakanModel.php(43): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH/Controllers/Admin/DataPenindakanController.php(56): App\Models\Admin\DataPenindakanModel->getDataPenindakan('1')
+ 5 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\DataPenindakanController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DataPenindakanController))
+ 7 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-27 06:23:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sidak_angkot.data_penindakan_table' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 311.
+ 1 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`id` desc')
+ 2 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`id` desc')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`ukpd_id` = :data_penindakan_table.ukpd_id:
+ORDER BY `data_penindakan_table`.`id` desc', [...], false)
+ 4 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Models/Admin/DataPenindakanModel.php(43): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH/Controllers/Admin/DataPenindakanController.php(56): App\Models\Admin\DataPenindakanModel->getDataPenindakan('1')
+ 7 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\DataPenindakanController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DataPenindakanController))
+ 9 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-27 06:23:58 --> [Caused by] mysqli_sql_exception: Table 'sidak_angkot.data_penindakan_table' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 306.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`id` desc', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`id` desc')
+ 3 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`id` desc')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`ukpd_id` = :data_penindakan_table.ukpd_id:
+ORDER BY `data_penindakan_table`.`id` desc', [...], false)
+ 5 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Models/Admin/DataPenindakanModel.php(43): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH/Controllers/Admin/DataPenindakanController.php(56): App\Models\Admin\DataPenindakanModel->getDataPenindakan('1')
+ 8 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\DataPenindakanController->index()
+ 9 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DataPenindakanController))
+10 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+ERROR - 2024-09-27 06:24:15 --> mysqli_sql_exception: Can't create table `sidak_angkot`.`data_penindakan_table` (errno: 150 "Foreign key constraint is incorrectly formed") in /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query('CREATE TABLE `d...', 0)
+#1 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `d...')
+#2 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `d...')
+#3 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/Forge.php(555): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `d...')
+#4 /Volumes/mf480 - Data/sidak_angkot/app/Database/Migrations/2024-08-07-064205_DataPenindakan.php(132): CodeIgniter\Database\Forge->createTable('data_penindakan...', false, Array)
+#5 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(865): App\Database\Migrations\DataPenindakan->up()
+#6 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(181): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CLI/Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Volumes/mf480 - Data/sidak_angkot/spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+INFO - 2024-09-27 06:25:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:26:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-27 06:28:27 --> mysqli_sql_exception: Table 'status_kendaraan_table' already exists in /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query('CREATE TABLE `s...', 0)
+#1 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `s...')
+#2 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `s...')
+#3 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/Forge.php(555): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `s...')
+#4 /Volumes/mf480 - Data/sidak_angkot/app/Database/Migrations/2024-08-06-075648_StatusKendaraan.php(33): CodeIgniter\Database\Forge->createTable('status_kendaraa...', false, Array)
+#5 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(865): App\Database\Migrations\StatusKendaraan->up()
+#6 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(181): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CLI/Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Volumes/mf480 - Data/sidak_angkot/spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+INFO - 2024-09-27 06:31:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-27 06:31:47 --> mysqli_sql_exception: Table 'sidak_angkot.users_management_table' doesn't exist in /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `users_m...', 0)
+#1 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users_m...')
+#2 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users_m...')
+#3 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users_m...', Array, false)
+#4 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+#5 /Volumes/mf480 - Data/sidak_angkot/app/Models/Admin/UsersManagementModel.php(37): CodeIgniter\Model->__call('get', Array)
+#6 /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/UsersManagementController.php(34): App\Models\Admin\UsersManagementModel->getUsersManagement('1')
+#7 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Admin\UsersManagementController->index()
+#8 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UsersManagementController))
+#9 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Volumes/mf480 - Data/sidak_angkot/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 ...')
+#12 {main}
+CRITICAL - 2024-09-27 06:31:47 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sidak_angkot.users_management_table' doesn't exist
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users_management_table`.`id`, `users_management_table`.`ukpd_id`, `users_management_table`.`nama`, `users_management_table`.`email`, `users_management_table`.`nip`, `ukpd_table`.`ukpd`, `role_management_table`.`role_management`
+FROM `users_management_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `users_management_table`.`ukpd_id`
+JOIN `role_management_table` ON `role_management_table`.`id` = `users_management_table`.`role_management_id`
+WHERE `users_management_table`.`ukpd_id` = :users_management_table.ukpd_id:
+ORDER BY `id` desc', [...], false)
+ 2 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Models/Admin/UsersManagementModel.php(37): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH/Controllers/Admin/UsersManagementController.php(34): App\Models\Admin\UsersManagementModel->getUsersManagement('1')
+ 5 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\UsersManagementController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UsersManagementController))
+ 7 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-27 06:31:47 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sidak_angkot.users_management_table' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 311.
+ 1 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users_management_table`.`id`, `users_management_table`.`ukpd_id`, `users_management_table`.`nama`, `users_management_table`.`email`, `users_management_table`.`nip`, `ukpd_table`.`ukpd`, `role_management_table`.`role_management`
+FROM `users_management_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `users_management_table`.`ukpd_id`
+JOIN `role_management_table` ON `role_management_table`.`id` = `users_management_table`.`role_management_id`
+WHERE `users_management_table`.`ukpd_id` = \'1\'
+ORDER BY `id` desc')
+ 2 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users_management_table`.`id`, `users_management_table`.`ukpd_id`, `users_management_table`.`nama`, `users_management_table`.`email`, `users_management_table`.`nip`, `ukpd_table`.`ukpd`, `role_management_table`.`role_management`
+FROM `users_management_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `users_management_table`.`ukpd_id`
+JOIN `role_management_table` ON `role_management_table`.`id` = `users_management_table`.`role_management_id`
+WHERE `users_management_table`.`ukpd_id` = \'1\'
+ORDER BY `id` desc')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users_management_table`.`id`, `users_management_table`.`ukpd_id`, `users_management_table`.`nama`, `users_management_table`.`email`, `users_management_table`.`nip`, `ukpd_table`.`ukpd`, `role_management_table`.`role_management`
+FROM `users_management_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `users_management_table`.`ukpd_id`
+JOIN `role_management_table` ON `role_management_table`.`id` = `users_management_table`.`role_management_id`
+WHERE `users_management_table`.`ukpd_id` = :users_management_table.ukpd_id:
+ORDER BY `id` desc', [...], false)
+ 4 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Models/Admin/UsersManagementModel.php(37): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH/Controllers/Admin/UsersManagementController.php(34): App\Models\Admin\UsersManagementModel->getUsersManagement('1')
+ 7 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\UsersManagementController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UsersManagementController))
+ 9 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-27 06:31:47 --> [Caused by] mysqli_sql_exception: Table 'sidak_angkot.users_management_table' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 306.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `users_management_table`.`id`, `users_management_table`.`ukpd_id`, `users_management_table`.`nama`, `users_management_table`.`email`, `users_management_table`.`nip`, `ukpd_table`.`ukpd`, `role_management_table`.`role_management`
+FROM `users_management_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `users_management_table`.`ukpd_id`
+JOIN `role_management_table` ON `role_management_table`.`id` = `users_management_table`.`role_management_id`
+WHERE `users_management_table`.`ukpd_id` = \'1\'
+ORDER BY `id` desc', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users_management_table`.`id`, `users_management_table`.`ukpd_id`, `users_management_table`.`nama`, `users_management_table`.`email`, `users_management_table`.`nip`, `ukpd_table`.`ukpd`, `role_management_table`.`role_management`
+FROM `users_management_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `users_management_table`.`ukpd_id`
+JOIN `role_management_table` ON `role_management_table`.`id` = `users_management_table`.`role_management_id`
+WHERE `users_management_table`.`ukpd_id` = \'1\'
+ORDER BY `id` desc')
+ 3 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users_management_table`.`id`, `users_management_table`.`ukpd_id`, `users_management_table`.`nama`, `users_management_table`.`email`, `users_management_table`.`nip`, `ukpd_table`.`ukpd`, `role_management_table`.`role_management`
+FROM `users_management_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `users_management_table`.`ukpd_id`
+JOIN `role_management_table` ON `role_management_table`.`id` = `users_management_table`.`role_management_id`
+WHERE `users_management_table`.`ukpd_id` = \'1\'
+ORDER BY `id` desc')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users_management_table`.`id`, `users_management_table`.`ukpd_id`, `users_management_table`.`nama`, `users_management_table`.`email`, `users_management_table`.`nip`, `ukpd_table`.`ukpd`, `role_management_table`.`role_management`
+FROM `users_management_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `users_management_table`.`ukpd_id`
+JOIN `role_management_table` ON `role_management_table`.`id` = `users_management_table`.`role_management_id`
+WHERE `users_management_table`.`ukpd_id` = :users_management_table.ukpd_id:
+ORDER BY `id` desc', [...], false)
+ 5 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Models/Admin/UsersManagementModel.php(37): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH/Controllers/Admin/UsersManagementController.php(34): App\Models\Admin\UsersManagementModel->getUsersManagement('1')
+ 8 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\UsersManagementController->index()
+ 9 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UsersManagementController))
+10 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-27 06:35:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:35:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:35:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:36:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:36:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:36:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:36:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:36:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:36:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:36:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:36:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:37:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:37:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:37:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:37:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:38:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:38:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 06:38:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 07:50:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 07:51:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 07:51:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 07:51:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 07:52:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 07:52:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 07:53:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-27 07:53:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

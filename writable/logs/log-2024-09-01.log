@@ -1,0 +1,1456 @@
+ERROR - 2024-09-01 06:27:46 --> Error connecting to the database: mysqli_sql_exception: Connection refused in /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:185
+Stack trace:
+#0 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(185): mysqli->real_connect('127.0.0.1', 'root', '', 'sidak_angkot', 3306, '', 0)
+#1 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_pe...', Array, false)
+#4 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+#5 /Volumes/mf480 - Data/sidak_angkot/app/Models/Admin/DataPenindakanModel.php(29): CodeIgniter\Model->__call('get', Array)
+#6 /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/DataPenindakanController.php(46): App\Models\Admin\DataPenindakanModel->getDataPenindakan()
+#7 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Admin\DataPenindakanController->index()
+#8 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DataPenindakanController))
+#9 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Volumes/mf480 - Data/sidak_angkot/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 ...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Connection refused in /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_pe...', Array, false)
+#3 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+#4 /Volumes/mf480 - Data/sidak_angkot/app/Models/Admin/DataPenindakanModel.php(29): CodeIgniter\Model->__call('get', Array)
+#5 /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/DataPenindakanController.php(46): App\Models\Admin\DataPenindakanModel->getDataPenindakan()
+#6 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Admin\DataPenindakanController->index()
+#7 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DataPenindakanController))
+#8 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Volumes/mf480 - Data/sidak_angkot/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 ...')
+#11 {main}
+CRITICAL - 2024-09-01 06:27:46 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+ORDER BY `data_penindakan_table`.`id` desc', [], false)
+ 3 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/Admin/DataPenindakanModel.php(29): CodeIgniter\Model->__call('get', [])
+ 5 APPPATH/Controllers/Admin/DataPenindakanController.php(46): App\Models\Admin\DataPenindakanModel->getDataPenindakan()
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\DataPenindakanController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DataPenindakanController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 06:28:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:28:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:28:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:29:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:29:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:29:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:29:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:29:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:29:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:30:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:30:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:30:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:30:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:30:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 06:34:56 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "auth/login_v.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('auth/login_v.php')
+ 2 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('auth/login_v', [], true)
+ 3 APPPATH/Controllers/Auth/AuthController.php(26): view('auth/login_v', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Auth\AuthController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\AuthController))
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 06:38:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:41:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:41:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:42:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:44:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:45:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:46:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:47:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:47:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:47:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:47:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:48:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:48:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:48:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 06:54:45 --> BadMethodCallException: Call to undefined method App\Models\Admin\UsersManagementModel::getUserManagementData
+in SYSTEMPATH/Model.php on line 879.
+ 1 APPPATH/Controllers/Auth/AuthController.php(58): CodeIgniter\Model->__call('getUserManagementData', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Auth\AuthController->cek_login()
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\AuthController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 06:55:35 --> ErrorException: Undefined property: stdClass::$role_management_id
+in APPPATH/Controllers/Auth/AuthController.php on line 66.
+ 1 APPPATH/Controllers/Auth/AuthController.php(66): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$role_management_id', '/Volumes/mf480 - Data/sidak_angkot/app/Controllers/Auth/AuthController.php', 66, [...])
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Auth\AuthController->cek_login()
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\AuthController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 06:57:43 --> ErrorException: Undefined property: stdClass::$nama_lengkap
+in APPPATH/Controllers/Auth/AuthController.php on line 70.
+ 1 APPPATH/Controllers/Auth/AuthController.php(70): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$nama_lengkap', '/Volumes/mf480 - Data/sidak_angkot/app/Controllers/Auth/AuthController.php', 70, [...])
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Auth\AuthController->cek_login()
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\AuthController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 06:58:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 06:58:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:00:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:01:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:01:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:02:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:02:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:02:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:03:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:03:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:04:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:04:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:05:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:05:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:06:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:07:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:07:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:07:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:07:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:07:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:08:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:08:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:09:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:11:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:11:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:11:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:11:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:12:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:13:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:15:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:15:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:16:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:18:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:19:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:19:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:19:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:20:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:20:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:20:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:20:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:21:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 07:23:28 --> ArgumentCountError: Too few arguments to function App\Models\Admin\UkpdModel::getUkpd(), 0 passed in /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/PengeluaranKendaraanController.php on line 49 and exactly 1 expected
+in APPPATH/Models/Admin/UkpdModel.php on line 20.
+ 1 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(49): App\Models\Admin\UkpdModel->getUkpd()
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 07:25:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:27:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 07:27:08 --> ArgumentCountError: Too few arguments to function App\Models\Admin\PengeluaranKendaraanModel::getPengeluaranKendaraan(), 0 passed in /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/PengeluaranKendaraanController.php on line 64 and exactly 1 expected
+in APPPATH/Models/Admin/PengeluaranKendaraanModel.php on line 20.
+ 1 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(64): App\Models\Admin\PengeluaranKendaraanModel->getPengeluaranKendaraan()
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 07:28:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:31:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:32:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:32:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:32:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:32:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:37:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:37:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-01 07:37:44 --> mysqli_sql_exception: Unknown column 'data_penindakan_status_kendaraan_id' in 'where clause' in /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `data_pe...', 0)
+#1 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data_pe...')
+#2 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data_pe...')
+#3 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_pe...', Array, false)
+#4 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+#5 /Volumes/mf480 - Data/sidak_angkot/app/Models/Admin/DataPenindakanModel.php(117): CodeIgniter\Model->__call('get', Array)
+#6 /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/PengeluaranKendaraanController.php(126): App\Models\Admin\DataPenindakanModel->searchKendaraanSO('1', 'b', '2581', 'qo')
+#7 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->search()
+#8 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+#9 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Volumes/mf480 - Data/sidak_angkot/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 ...')
+#12 {main}
+CRITICAL - 2024-09-01 07:37:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'data_penindakan_status_kendaraan_id' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = :data_penindakan_table.kode_wilayah_awal:
+AND `data_penindakan_table`.`nomor_kendaraan` = :data_penindakan_table.nomor_kendaraan:
+AND `data_penindakan_table`.`kode_wilayah_akhir` = :data_penindakan_table.kode_wilayah_akhir:
+AND `data_penindakan_table`.`jenis_penindakan_id` = :data_penindakan_table.jenis_penindakan_id:
+AND `data_penindakan_status_kendaraan_id` = :data_penindakan_status_kendaraan_id:
+AND `data_penindakan_ukpd_id` = :data_penindakan_ukpd_id:
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc', [...], false)
+ 2 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Models/Admin/DataPenindakanModel.php(117): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(126): App\Models\Admin\DataPenindakanModel->searchKendaraanSO('1', 'b', '2581', 'qo')
+ 5 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->search()
+ 6 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 7 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 07:37:44 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'data_penindakan_status_kendaraan_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 311.
+ 1 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2581\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'qo\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc')
+ 2 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2581\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'qo\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = :data_penindakan_table.kode_wilayah_awal:
+AND `data_penindakan_table`.`nomor_kendaraan` = :data_penindakan_table.nomor_kendaraan:
+AND `data_penindakan_table`.`kode_wilayah_akhir` = :data_penindakan_table.kode_wilayah_akhir:
+AND `data_penindakan_table`.`jenis_penindakan_id` = :data_penindakan_table.jenis_penindakan_id:
+AND `data_penindakan_status_kendaraan_id` = :data_penindakan_status_kendaraan_id:
+AND `data_penindakan_ukpd_id` = :data_penindakan_ukpd_id:
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc', [...], false)
+ 4 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Models/Admin/DataPenindakanModel.php(117): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(126): App\Models\Admin\DataPenindakanModel->searchKendaraanSO('1', 'b', '2581', 'qo')
+ 7 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->search()
+ 8 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 9 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 07:37:44 --> [Caused by] mysqli_sql_exception: Unknown column 'data_penindakan_status_kendaraan_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 306.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2581\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'qo\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2581\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'qo\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc')
+ 3 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2581\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'qo\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = :data_penindakan_table.kode_wilayah_awal:
+AND `data_penindakan_table`.`nomor_kendaraan` = :data_penindakan_table.nomor_kendaraan:
+AND `data_penindakan_table`.`kode_wilayah_akhir` = :data_penindakan_table.kode_wilayah_akhir:
+AND `data_penindakan_table`.`jenis_penindakan_id` = :data_penindakan_table.jenis_penindakan_id:
+AND `data_penindakan_status_kendaraan_id` = :data_penindakan_status_kendaraan_id:
+AND `data_penindakan_ukpd_id` = :data_penindakan_ukpd_id:
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc', [...], false)
+ 5 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Models/Admin/DataPenindakanModel.php(117): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(126): App\Models\Admin\DataPenindakanModel->searchKendaraanSO('1', 'b', '2581', 'qo')
+ 8 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->search()
+ 9 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+10 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 07:38:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-01 07:38:16 --> mysqli_sql_exception: Unknown column 'data_penindakan_status_kendaraan_id' in 'where clause' in /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `data_pe...', 0)
+#1 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data_pe...')
+#2 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data_pe...')
+#3 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_pe...', Array, false)
+#4 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+#5 /Volumes/mf480 - Data/sidak_angkot/app/Models/Admin/DataPenindakanModel.php(117): CodeIgniter\Model->__call('get', Array)
+#6 /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/PengeluaranKendaraanController.php(126): App\Models\Admin\DataPenindakanModel->searchKendaraanSO('1', 'b', '2439', 'vt')
+#7 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->search()
+#8 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+#9 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Volumes/mf480 - Data/sidak_angkot/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 ...')
+#12 {main}
+CRITICAL - 2024-09-01 07:38:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'data_penindakan_status_kendaraan_id' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = :data_penindakan_table.kode_wilayah_awal:
+AND `data_penindakan_table`.`nomor_kendaraan` = :data_penindakan_table.nomor_kendaraan:
+AND `data_penindakan_table`.`kode_wilayah_akhir` = :data_penindakan_table.kode_wilayah_akhir:
+AND `data_penindakan_table`.`jenis_penindakan_id` = :data_penindakan_table.jenis_penindakan_id:
+AND `data_penindakan_status_kendaraan_id` = :data_penindakan_status_kendaraan_id:
+AND `data_penindakan_ukpd_id` = :data_penindakan_ukpd_id:
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc', [...], false)
+ 2 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Models/Admin/DataPenindakanModel.php(117): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(126): App\Models\Admin\DataPenindakanModel->searchKendaraanSO('1', 'b', '2439', 'vt')
+ 5 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->search()
+ 6 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 7 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 07:38:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'data_penindakan_status_kendaraan_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 311.
+ 1 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2439\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'vt\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc')
+ 2 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2439\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'vt\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = :data_penindakan_table.kode_wilayah_awal:
+AND `data_penindakan_table`.`nomor_kendaraan` = :data_penindakan_table.nomor_kendaraan:
+AND `data_penindakan_table`.`kode_wilayah_akhir` = :data_penindakan_table.kode_wilayah_akhir:
+AND `data_penindakan_table`.`jenis_penindakan_id` = :data_penindakan_table.jenis_penindakan_id:
+AND `data_penindakan_status_kendaraan_id` = :data_penindakan_status_kendaraan_id:
+AND `data_penindakan_ukpd_id` = :data_penindakan_ukpd_id:
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc', [...], false)
+ 4 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Models/Admin/DataPenindakanModel.php(117): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(126): App\Models\Admin\DataPenindakanModel->searchKendaraanSO('1', 'b', '2439', 'vt')
+ 7 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->search()
+ 8 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 9 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 07:38:16 --> [Caused by] mysqli_sql_exception: Unknown column 'data_penindakan_status_kendaraan_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 306.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2439\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'vt\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2439\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'vt\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc')
+ 3 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2439\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'vt\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = :data_penindakan_table.kode_wilayah_awal:
+AND `data_penindakan_table`.`nomor_kendaraan` = :data_penindakan_table.nomor_kendaraan:
+AND `data_penindakan_table`.`kode_wilayah_akhir` = :data_penindakan_table.kode_wilayah_akhir:
+AND `data_penindakan_table`.`jenis_penindakan_id` = :data_penindakan_table.jenis_penindakan_id:
+AND `data_penindakan_status_kendaraan_id` = :data_penindakan_status_kendaraan_id:
+AND `data_penindakan_ukpd_id` = :data_penindakan_ukpd_id:
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc', [...], false)
+ 5 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Models/Admin/DataPenindakanModel.php(117): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(126): App\Models\Admin\DataPenindakanModel->searchKendaraanSO('1', 'b', '2439', 'vt')
+ 8 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->search()
+ 9 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+10 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 07:38:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:38:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-01 07:38:54 --> mysqli_sql_exception: Unknown column 'data_penindakan_status_kendaraan_id' in 'where clause' in /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `data_pe...', 0)
+#1 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data_pe...')
+#2 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data_pe...')
+#3 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_pe...', Array, false)
+#4 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+#5 /Volumes/mf480 - Data/sidak_angkot/app/Models/Admin/DataPenindakanModel.php(117): CodeIgniter\Model->__call('get', Array)
+#6 /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/PengeluaranKendaraanController.php(126): App\Models\Admin\DataPenindakanModel->searchKendaraanSO('1', 'b', '2439', 'vt')
+#7 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->search()
+#8 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+#9 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Volumes/mf480 - Data/sidak_angkot/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 ...')
+#12 {main}
+CRITICAL - 2024-09-01 07:38:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'data_penindakan_status_kendaraan_id' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = :data_penindakan_table.kode_wilayah_awal:
+AND `data_penindakan_table`.`nomor_kendaraan` = :data_penindakan_table.nomor_kendaraan:
+AND `data_penindakan_table`.`kode_wilayah_akhir` = :data_penindakan_table.kode_wilayah_akhir:
+AND `data_penindakan_table`.`jenis_penindakan_id` = :data_penindakan_table.jenis_penindakan_id:
+AND `data_penindakan_status_kendaraan_id` = :data_penindakan_status_kendaraan_id:
+AND `data_penindakan_ukpd_id` = :data_penindakan_ukpd_id:
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc', [...], false)
+ 2 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Models/Admin/DataPenindakanModel.php(117): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(126): App\Models\Admin\DataPenindakanModel->searchKendaraanSO('1', 'b', '2439', 'vt')
+ 5 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->search()
+ 6 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 7 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 07:38:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'data_penindakan_status_kendaraan_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 311.
+ 1 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2439\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'vt\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc')
+ 2 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2439\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'vt\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = :data_penindakan_table.kode_wilayah_awal:
+AND `data_penindakan_table`.`nomor_kendaraan` = :data_penindakan_table.nomor_kendaraan:
+AND `data_penindakan_table`.`kode_wilayah_akhir` = :data_penindakan_table.kode_wilayah_akhir:
+AND `data_penindakan_table`.`jenis_penindakan_id` = :data_penindakan_table.jenis_penindakan_id:
+AND `data_penindakan_status_kendaraan_id` = :data_penindakan_status_kendaraan_id:
+AND `data_penindakan_ukpd_id` = :data_penindakan_ukpd_id:
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc', [...], false)
+ 4 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Models/Admin/DataPenindakanModel.php(117): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(126): App\Models\Admin\DataPenindakanModel->searchKendaraanSO('1', 'b', '2439', 'vt')
+ 7 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->search()
+ 8 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 9 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 07:38:54 --> [Caused by] mysqli_sql_exception: Unknown column 'data_penindakan_status_kendaraan_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 306.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2439\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'vt\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2439\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'vt\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc')
+ 3 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = \'b\'
+AND `data_penindakan_table`.`nomor_kendaraan` = \'2439\'
+AND `data_penindakan_table`.`kode_wilayah_akhir` = \'vt\'
+AND `data_penindakan_table`.`jenis_penindakan_id` = 1
+AND `data_penindakan_status_kendaraan_id` = 1
+AND `data_penindakan_ukpd_id` = \'1\'
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `data_penindakan_table`.`id`, `data_penindakan_table`.`ukpd_id`, `data_penindakan_table`.`nomor_bap`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`jenis_kendaraan_id`, `data_penindakan_table`.`jenis_penindakan_id`, `data_penindakan_table`.`tanggal_penindakan`, `data_penindakan_table`.`nama_petugas`, `data_penindakan_table`.`tanggal_sidang`, `data_penindakan_table`.`jenis_pelanggaran`, `data_penindakan_table`.`type_kendaraan_id`, `data_penindakan_table`.`kode_trayek`, `data_penindakan_table`.`tahun_perakitan`, `data_penindakan_table`.`lokasi_penindakan`, `data_penindakan_table`.`nama_pemilik`, `data_penindakan_table`.`lokasi_sidang_id`, `ukpd_table`.`ukpd`, `jenis_kendaraan_table`.`jenis_kendaraan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `jenis_penindakan_table`.`jenis_penindakan`, `type_kendaraan_table`.`type_kendaraan`, `lokasi_sidang_table`.`lokasi_sidang`, `status_kendaraan_table`.`status_kendaraan`
+FROM `data_penindakan_table`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+JOIN `type_kendaraan_table` ON `type_kendaraan_table`.`id` = `data_penindakan_table`.`type_kendaraan_id`
+JOIN `lokasi_sidang_table` ON `lokasi_sidang_table`.`id` = `data_penindakan_table`.`lokasi_sidang_id`
+JOIN `status_kendaraan_table` ON `status_kendaraan_table`.`id` = `data_penindakan_table`.`status_kendaraan_id`
+WHERE `data_penindakan_table`.`kode_wilayah_awal` = :data_penindakan_table.kode_wilayah_awal:
+AND `data_penindakan_table`.`nomor_kendaraan` = :data_penindakan_table.nomor_kendaraan:
+AND `data_penindakan_table`.`kode_wilayah_akhir` = :data_penindakan_table.kode_wilayah_akhir:
+AND `data_penindakan_table`.`jenis_penindakan_id` = :data_penindakan_table.jenis_penindakan_id:
+AND `data_penindakan_status_kendaraan_id` = :data_penindakan_status_kendaraan_id:
+AND `data_penindakan_ukpd_id` = :data_penindakan_ukpd_id:
+ORDER BY `data_penindakan_table`.`tanggal_penindakan` desc', [...], false)
+ 5 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Models/Admin/DataPenindakanModel.php(117): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(126): App\Models\Admin\DataPenindakanModel->searchKendaraanSO('1', 'b', '2439', 'vt')
+ 8 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->search()
+ 9 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+10 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 07:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:40:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:43:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:44:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:44:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:44:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:45:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:45:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:46:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 07:46:11 --> ArgumentCountError: Too few arguments to function App\Models\Admin\UkpdModel::getUkpd(), 0 passed in /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/PengeluaranKendaraanController.php on line 146 and exactly 1 expected
+in APPPATH/Models/Admin/UkpdModel.php on line 20.
+ 1 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(146): App\Models\Admin\UkpdModel->getUkpd()
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->form_insert('260')
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 07:46:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:47:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:48:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:48:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 07:48:30 --> ArgumentCountError: Too few arguments to function App\Models\Admin\UkpdModel::getUkpd(), 0 passed in /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/PengeluaranKendaraanController.php on line 146 and exactly 1 expected
+in APPPATH/Models/Admin/UkpdModel.php on line 20.
+ 1 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(146): App\Models\Admin\UkpdModel->getUkpd()
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->form_insert('260')
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 07:48:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:49:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:50:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:50:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:50:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 07:50:41 --> ArgumentCountError: Too few arguments to function App\Models\Admin\UkpdModel::getUkpd(), 0 passed in /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/PengeluaranKendaraanController.php on line 146 and exactly 1 expected
+in APPPATH/Models/Admin/UkpdModel.php on line 20.
+ 1 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(146): App\Models\Admin\UkpdModel->getUkpd()
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->form_insert('33')
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 07:50:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:51:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:52:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:52:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 07:52:49 --> ArgumentCountError: Too few arguments to function App\Models\Admin\UkpdModel::getUkpd(), 0 passed in /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/PengeluaranKendaraanController.php on line 146 and exactly 1 expected
+in APPPATH/Models/Admin/UkpdModel.php on line 20.
+ 1 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(146): App\Models\Admin\UkpdModel->getUkpd()
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->form_insert('47')
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 07:52:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:53:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:53:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:53:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:54:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:54:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:55:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:55:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:55:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 07:55:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 07:55:49 --> ArgumentCountError: Too few arguments to function App\Models\Admin\UkpdModel::getUkpd(), 0 passed in /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/PengeluaranKendaraanController.php on line 146 and exactly 1 expected
+in APPPATH/Models/Admin/UkpdModel.php on line 20.
+ 1 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(146): App\Models\Admin\UkpdModel->getUkpd()
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->form_insert('47')
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 08:00:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:01:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:01:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:01:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:02:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:02:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:03:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:03:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:03:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:04:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 08:04:36 --> ArgumentCountError: Too few arguments to function App\Models\Admin\UkpdModel::getUkpd(), 0 passed in /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/UsersManagementController.php on line 29 and exactly 1 expected
+in APPPATH/Models/Admin/UkpdModel.php on line 20.
+ 1 APPPATH/Controllers/Admin/UsersManagementController.php(29): App\Models\Admin\UkpdModel->getUkpd()
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\UsersManagementController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UsersManagementController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 08:06:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:06:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 08:06:51 --> ArgumentCountError: Too few arguments to function App\Models\Admin\UkpdModel::getUkpd(), 0 passed in /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/UkpdController.php on line 23 and exactly 1 expected
+in APPPATH/Models/Admin/UkpdModel.php on line 20.
+ 1 APPPATH/Controllers/Admin/UkpdController.php(23): App\Models\Admin\UkpdModel->getUkpd()
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\UkpdController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UkpdController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 08:07:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:07:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:07:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:08:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:08:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:08:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:08:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:09:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:09:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:09:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:09:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 08:09:29 --> ArgumentCountError: Too few arguments to function App\Models\Admin\UkpdModel::getUkpd(), 0 passed in /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/PengeluaranKendaraanController.php on line 147 and exactly 1 expected
+in APPPATH/Models/Admin/UkpdModel.php on line 20.
+ 1 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(147): App\Models\Admin\UkpdModel->getUkpd()
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->form_insert('1127')
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 08:10:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:10:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:13:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:13:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:17:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:18:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:18:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:20:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:20:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:21:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:21:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:21:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:22:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:22:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:22:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:22:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 08:25:05 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/dashboard_v.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/dashboard_v.php')
+ 2 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('admin/dashboard_v', [], true)
+ 3 APPPATH/Controllers/Admin/DashboardController.php(16): view('admin/dashboard_v', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\DashboardController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 08:25:13 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/dashboard_v.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/dashboard_v.php')
+ 2 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('admin/dashboard_v', [], true)
+ 3 APPPATH/Controllers/Admin/DashboardController.php(16): view('admin/dashboard_v', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\DashboardController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 08:26:42 --> ErrorException: Undefined variable: mitra_pengajar
+in APPPATH/Views/admin/dashboard_v.php on line 32.
+ 1 APPPATH/Views/admin/dashboard_v.php(32): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: mitra_pengajar', '/Volumes/mf480 - Data/sidak_angkot/app/Views/admin/dashboard_v.php', 32, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/admin/dashboard_v.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('admin/dashboard_v', [], true)
+ 5 APPPATH/Controllers/Admin/DashboardController.php(16): view('admin/dashboard_v', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\DashboardController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 08:27:44 --> ErrorException: Undefined variable: peserta_didik_aktif
+in APPPATH/Views/admin/dashboard_v.php on line 125.
+ 1 APPPATH/Views/admin/dashboard_v.php(125): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: peserta_didik_aktif', '/Volumes/mf480 - Data/sidak_angkot/app/Views/admin/dashboard_v.php', 125, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/admin/dashboard_v.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('admin/dashboard_v', [], true)
+ 5 APPPATH/Controllers/Admin/DashboardController.php(16): view('admin/dashboard_v', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\DashboardController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 08:27:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:27:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:27:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:28:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:29:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:30:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:30:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:30:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:30:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:31:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:31:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:31:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:31:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:31:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:32:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:35:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:35:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 08:35:44 --> ErrorException: Array to string conversion
+in APPPATH/Views/admin/dashboard_v.php on line 31.
+ 1 APPPATH/Views/admin/dashboard_v.php(31): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string conversion', '/Volumes/mf480 - Data/sidak_angkot/app/Views/admin/dashboard_v.php', 31, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/admin/dashboard_v.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('admin/dashboard_v', [], true)
+ 5 APPPATH/Controllers/Admin/DashboardController.php(32): view('admin/dashboard_v', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\DashboardController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 08:36:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:39:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 08:40:40 --> ErrorException: Array to string conversion
+in APPPATH/Views/admin/dashboard_v.php on line 48.
+ 1 APPPATH/Views/admin/dashboard_v.php(48): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string conversion', '/Volumes/mf480 - Data/sidak_angkot/app/Views/admin/dashboard_v.php', 48, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/admin/dashboard_v.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('admin/dashboard_v', [], true)
+ 5 APPPATH/Controllers/Admin/DashboardController.php(37): view('admin/dashboard_v', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\DashboardController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 08:40:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:42:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:42:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:43:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:43:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:44:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:44:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:44:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:44:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:44:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:45:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:45:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:45:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:46:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:46:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:47:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:47:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:50:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:52:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:53:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:54:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:54:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:56:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:57:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:57:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:57:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:57:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:57:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 08:58:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:00:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:00:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:02:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 09:02:40 --> ErrorException: Undefined property: stdClass::$status_kendaraan
+in APPPATH/Views/admin/data_penindakan_v.php on line 60.
+ 1 APPPATH/Views/admin/data_penindakan_v.php(60): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$status_kendaraan', '/Volumes/mf480 - Data/sidak_angkot/app/Views/admin/data_penindakan_v.php', 60, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/admin/data_penindakan_v.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('admin/data_penindakan_v', [], true)
+ 5 APPPATH/Controllers/Admin/DataPenindakanController.php(76): view('admin/data_penindakan_v', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\DataPenindakanController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DataPenindakanController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 09:04:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:05:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:05:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:06:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:08:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:08:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:09:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:09:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:10:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:10:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:11:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:11:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:11:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:13:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:13:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:15:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:16:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:16:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:16:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 09:16:57 --> BadMethodCallException: Call to undefined method App\Models\Admin\DataPenindakanModel::getKendaraanStatusKendaraan3
+in SYSTEMPATH/Model.php on line 879.
+ 1 APPPATH/Controllers/Admin/DashboardController.php(40): CodeIgniter\Model->__call('getKendaraanStatusKendaraan3', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\DashboardController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 09:17:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:17:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:18:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:19:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:20:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:23:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:23:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 09:23:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:18:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:18:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 12:18:28 --> ArgumentCountError: Too few arguments to function App\Models\Admin\UkpdModel::getUkpd(), 0 passed in /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Admin/PejabatController.php on line 26 and exactly 1 expected
+in APPPATH/Models/Admin/UkpdModel.php on line 20.
+ 1 APPPATH/Controllers/Admin/PejabatController.php(26): App\Models\Admin\UkpdModel->getUkpd()
+ 2 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PejabatController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PejabatController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 12:20:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:20:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:22:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 12:22:51 --> ErrorException: Undefined property: stdClass::$status_kendaraan_id
+in APPPATH/Views/admin/pengeluaran_kendaraan_v.php on line 68.
+ 1 APPPATH/Views/admin/pengeluaran_kendaraan_v.php(68): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$status_kendaraan_id', '/Volumes/mf480 - Data/sidak_angkot/app/Views/admin/pengeluaran_kendaraan_v.php', 68, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/admin/pengeluaran_kendaraan_v.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('admin/pengeluaran_kendaraan_v', [], true)
+ 5 APPPATH/Controllers/Admin/PengeluaranKendaraanController.php(79): view('admin/pengeluaran_kendaraan_v', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\PengeluaranKendaraanController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\PengeluaranKendaraanController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 12:23:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:24:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:24:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:24:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:25:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:25:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:26:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:27:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:29:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:29:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:30:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:30:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:41:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:49:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:50:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:51:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:51:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:52:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:52:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:53:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:53:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:53:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:54:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 12:54:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 13:00:25 --> ErrorException: Trying to access array offset on value of type null
+in APPPATH/Views/pdf/spk_pdf.php on line 186.
+ 1 APPPATH/Views/pdf/spk_pdf.php(186): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', '/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php', 186, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('pdf/spk_pdf', [], true)
+ 5 APPPATH/Controllers/Pdf/PdfController.php(40): view('pdf/spk_pdf', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 13:04:12 --> ErrorException: Trying to get property 'nomor_surat_pengeluaran' of non-object
+in APPPATH/Views/pdf/spk_pdf.php on line 186.
+ 1 APPPATH/Views/pdf/spk_pdf.php(186): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get property \'nomor_surat_pengeluaran\' of non-object', '/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php', 186, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('pdf/spk_pdf', [], true)
+ 5 APPPATH/Controllers/Pdf/PdfController.php(40): view('pdf/spk_pdf', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 13:05:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 13:05:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 13:05:30 --> ErrorException: Undefined property: stdClass::$tempat_penyimpanan
+in APPPATH/Views/pdf/spk_pdf.php on line 223.
+ 1 APPPATH/Views/pdf/spk_pdf.php(223): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$tempat_penyimpanan', '/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php', 223, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('pdf/spk_pdf', [], true)
+ 5 APPPATH/Controllers/Pdf/PdfController.php(36): view('pdf/spk_pdf', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+ERROR - 2024-09-01 13:06:42 --> mysqli_sql_exception: Unknown column 'type_kendaraan_table.type' in 'field list' in /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `pengelu...', 0)
+#1 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pengelu...')
+#2 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pengelu...')
+#3 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `pengelu...', Array, false)
+#4 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+#5 /Volumes/mf480 - Data/sidak_angkot/app/Models/Admin/PengeluaranKendaraanModel.php(54): CodeIgniter\Model->__call('get', Array)
+#6 /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Pdf/PdfController.php(29): App\Models\Admin\PengeluaranKendaraanModel->getPengeluaranKendaraanWhereId('383')
+#7 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+#8 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+#9 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Volumes/mf480 - Data/sidak_angkot/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 ...')
+#12 {main}
+CRITICAL - 2024-09-01 13:06:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'type_kendaraan_table.type' in 'field list'
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = :pengeluaran_kendaraan_table.id:
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc', [...], false)
+ 2 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Models/Admin/PengeluaranKendaraanModel.php(54): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH/Controllers/Pdf/PdfController.php(29): App\Models\Admin\PengeluaranKendaraanModel->getPengeluaranKendaraanWhereId('383')
+ 5 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 6 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 7 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 13:06:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'type_kendaraan_table.type' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 311.
+ 1 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = \'383\'
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc')
+ 2 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = \'383\'
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = :pengeluaran_kendaraan_table.id:
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc', [...], false)
+ 4 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Models/Admin/PengeluaranKendaraanModel.php(54): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH/Controllers/Pdf/PdfController.php(29): App\Models\Admin\PengeluaranKendaraanModel->getPengeluaranKendaraanWhereId('383')
+ 7 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 8 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 9 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 13:06:42 --> [Caused by] mysqli_sql_exception: Unknown column 'type_kendaraan_table.type' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 306.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = \'383\'
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = \'383\'
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc')
+ 3 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = \'383\'
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = :pengeluaran_kendaraan_table.id:
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc', [...], false)
+ 5 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Models/Admin/PengeluaranKendaraanModel.php(54): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH/Controllers/Pdf/PdfController.php(29): App\Models\Admin\PengeluaranKendaraanModel->getPengeluaranKendaraanWhereId('383')
+ 8 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 9 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+10 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+ERROR - 2024-09-01 13:06:51 --> mysqli_sql_exception: Unknown column 'type_kendaraan_table.type_kendaraan' in 'field list' in /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `pengelu...', 0)
+#1 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pengelu...')
+#2 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pengelu...')
+#3 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `pengelu...', Array, false)
+#4 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+#5 /Volumes/mf480 - Data/sidak_angkot/app/Models/Admin/PengeluaranKendaraanModel.php(54): CodeIgniter\Model->__call('get', Array)
+#6 /Volumes/mf480 - Data/sidak_angkot/app/Controllers/Pdf/PdfController.php(29): App\Models\Admin\PengeluaranKendaraanModel->getPengeluaranKendaraanWhereId('383')
+#7 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+#8 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+#9 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Volumes/mf480 - Data/sidak_angkot/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Volumes/mf480 - Data/sidak_angkot/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 ...')
+#12 {main}
+CRITICAL - 2024-09-01 13:06:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'type_kendaraan_table.type_kendaraan' in 'field list'
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type_kendaraan`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = :pengeluaran_kendaraan_table.id:
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc', [...], false)
+ 2 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Models/Admin/PengeluaranKendaraanModel.php(54): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH/Controllers/Pdf/PdfController.php(29): App\Models\Admin\PengeluaranKendaraanModel->getPengeluaranKendaraanWhereId('383')
+ 5 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 6 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 7 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 13:06:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'type_kendaraan_table.type_kendaraan' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 311.
+ 1 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type_kendaraan`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = \'383\'
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc')
+ 2 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type_kendaraan`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = \'383\'
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type_kendaraan`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = :pengeluaran_kendaraan_table.id:
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc', [...], false)
+ 4 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Models/Admin/PengeluaranKendaraanModel.php(54): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH/Controllers/Pdf/PdfController.php(29): App\Models\Admin\PengeluaranKendaraanModel->getPengeluaranKendaraanWhereId('383')
+ 7 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 8 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 9 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 13:06:51 --> [Caused by] mysqli_sql_exception: Unknown column 'type_kendaraan_table.type_kendaraan' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 306.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(306): mysqli->query('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type_kendaraan`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = \'383\'
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type_kendaraan`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = \'383\'
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc')
+ 3 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type_kendaraan`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = \'383\'
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `pengeluaran_kendaraan_table`.`id`, `pengeluaran_kendaraan_table`.`data_penindakan_id`, `pengeluaran_kendaraan_table`.`tanggal_keluar`, `pengeluaran_kendaraan_table`.`nomor_rangka`, `pengeluaran_kendaraan_table`.`nomor_mesin`, `pengeluaran_kendaraan_table`.`nomor_surat_pengeluaran`, `pengeluaran_kendaraan_table`.`alamat_pemilik_kendaraan`, `pengeluaran_kendaraan_table`.`status_kendaraan_id`, `data_penindakan_table`.`kode_wilayah_awal`, `data_penindakan_table`.`kode_wilayah_akhir`, `data_penindakan_table`.`nomor_kendaraan`, `data_penindakan_table`.`tanggal_penindakan`, `tempat_penyimpanan_table`.`tempat_penyimpanan`, `type_kendaraan_table`.`type_kendaraan`
+FROM `pengeluaran_kendaraan_table`
+JOIN `data_penindakan_table` ON `data_penindakan_table`.`id` = `pengeluaran_kendaraan_table`.`data_penindakan_id`
+JOIN `ukpd_table` ON `ukpd_table`.`id` = `data_penindakan_table`.`ukpd_id`
+JOIN `jenis_kendaraan_table` ON `jenis_kendaraan_table`.`id` = `data_penindakan_table`.`jenis_kendaraan_id`
+JOIN `jenis_penindakan_table` ON `jenis_penindakan_table`.`id` = `data_penindakan_table`.`jenis_penindakan_id`
+JOIN `tempat_penyimpanan_table` ON `tempat_penyimpanan_table`.`id` = `data_penindakan_table`.`tempat_penyimpanan_id`
+WHERE `pengeluaran_kendaraan_table`.`id` = :pengeluaran_kendaraan_table.id:
+ORDER BY `pengeluaran_kendaraan_table`.`id` desc', [...], false)
+ 5 SYSTEMPATH/Model.php(877): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Models/Admin/PengeluaranKendaraanModel.php(54): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH/Controllers/Pdf/PdfController.php(29): App\Models\Admin\PengeluaranKendaraanModel->getPengeluaranKendaraanWhereId('383')
+ 8 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 9 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+10 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 13:07:47 --> ErrorException: Undefined property: stdClass::$nama_pemilik
+in APPPATH/Views/pdf/spk_pdf.php on line 280.
+ 1 APPPATH/Views/pdf/spk_pdf.php(280): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$nama_pemilik', '/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php', 280, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('pdf/spk_pdf', [], true)
+ 5 APPPATH/Controllers/Pdf/PdfController.php(35): view('pdf/spk_pdf', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 13:08:18 --> ErrorException: Undefined property: stdClass::$jenis_pelanggaran
+in APPPATH/Views/pdf/spk_pdf.php on line 298.
+ 1 APPPATH/Views/pdf/spk_pdf.php(298): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$jenis_pelanggaran', '/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php', 298, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('pdf/spk_pdf', [], true)
+ 5 APPPATH/Controllers/Pdf/PdfController.php(35): view('pdf/spk_pdf', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 13:08:40 --> ErrorException: Undefined property: stdClass::$lokasi_penindakan
+in APPPATH/Views/pdf/spk_pdf.php on line 307.
+ 1 APPPATH/Views/pdf/spk_pdf.php(307): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$lokasi_penindakan', '/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php', 307, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('pdf/spk_pdf', [], true)
+ 5 APPPATH/Controllers/Pdf/PdfController.php(35): view('pdf/spk_pdf', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 14:29:20 --> ErrorException: Undefined variable: data
+in APPPATH/Views/pdf/spk_pdf.php on line 312.
+ 1 APPPATH/Views/pdf/spk_pdf.php(312): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: data', '/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php', 312, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('pdf/spk_pdf', [], true)
+ 5 APPPATH/Controllers/Pdf/PdfController.php(35): view('pdf/spk_pdf', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+CRITICAL - 2024-09-01 14:29:41 --> ErrorException: Undefined property: stdClass::$tanggal_pelanggaran
+in APPPATH/Views/pdf/spk_pdf.php on line 312.
+ 1 APPPATH/Views/pdf/spk_pdf.php(312): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$tanggal_pelanggaran', '/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php', 312, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('pdf/spk_pdf', [], true)
+ 5 APPPATH/Controllers/Pdf/PdfController.php(35): view('pdf/spk_pdf', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 14:40:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 14:40:13 --> ErrorException: Trying to get property 'nama' of non-object
+in APPPATH/Views/pdf/spk_pdf.php on line 363.
+ 1 APPPATH/Views/pdf/spk_pdf.php(363): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get property \'nama\' of non-object', '/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php', 363, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('pdf/spk_pdf', [], true)
+ 5 APPPATH/Controllers/Pdf/PdfController.php(38): view('pdf/spk_pdf', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 14:40:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-01 14:40:42 --> ErrorException: Trying to get property 'nama' of non-object
+in APPPATH/Views/pdf/spk_pdf.php on line 363.
+ 1 APPPATH/Views/pdf/spk_pdf.php(363): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get property \'nama\' of non-object', '/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php', 363, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Volumes/mf480 - Data/sidak_angkot/app/Views/pdf/spk_pdf.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('pdf/spk_pdf', [], true)
+ 5 APPPATH/Controllers/Pdf/PdfController.php(38): view('pdf/spk_pdf', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Pdf\PdfController->index('383')
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pdf\PdfController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Volumes/mf480 - Data/sidak_angkot/public/index.php')
+INFO - 2024-09-01 14:40:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:41:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:41:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:42:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:42:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:42:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:42:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:43:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:43:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:44:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:44:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:44:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:45:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:45:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:46:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:48:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:49:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:49:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:49:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:49:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:49:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:49:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:50:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:50:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:50:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:50:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:50:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:50:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:51:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:51:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:51:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:51:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:52:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:52:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:52:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:53:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:53:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:53:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:54:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:55:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:55:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:56:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-01 14:56:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
