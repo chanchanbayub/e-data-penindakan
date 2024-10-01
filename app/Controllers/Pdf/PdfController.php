@@ -31,7 +31,7 @@ class PdfController extends BaseController
 
         $cetak_spk = $this->pengeluaranKendaraanModel->getPengeluaranKendaraanWhereId($id);
 
-        $pejabatPenandaTangan = $this->pejabatPenandaTanganModel->getPejabatPenandaTanganWhereUKPD(1);
+        $pejabatPenandaTangan = $this->pejabatPenandaTanganModel->getPejabatPenandaTanganWhereUKPDData(1);
         // dd($pejabatPenandaTangan);
 
         $data = [
