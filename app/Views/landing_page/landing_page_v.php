@@ -79,115 +79,147 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <!-- Sales Card -->
-                        <div class="col-md-2">
+                        <div class="col-xl col-sm-6 col-md-2">
                             <div class="card info-card sales-card">
-                                <div class="card-body">
-                                    <!-- <h6 class="card-title">Bidang Dalops <span>| Total Penindakan</span></h6> -->
-                                    <p class="card-title"> Bidang Dalops</span></p>
+                                <div class="card-header">
                                     <div class="d-flex align-items-center">
-                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="card-icon d-flex align-items-center justify-content-center">
                                             <i class="bi bi-car-front"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>145</h6>
-                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
+                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Bidang Dalops</span>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="nav nav-tabs nav-tabs-bordered d-flex" id="borderedTabJustified" role="tablist">
+                                        <li class="nav-item flex-fill" role="presentation">
+                                            <button class="nav-link w-100 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home" aria-selected="true">Stop Operasi</button>
+                                        </li>
+                                        <li class="nav-item flex-fill" role="presentation">
+                                            <button class="nav-link w-100" id="profile-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-profile" type="button" role="tab" aria-controls="profile" aria-selected="false">BAP / T</button>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content pt-2" id="borderedTabJustifiedContent">
+                                        <div class="tab-pane fade show active" id="bordered-justified-home" role="tabpanel" aria-labelledby="home-tab">
+                                            Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.
+                                        </div>
+                                        <div class="tab-pane fade" id="bordered-justified-profile" role="tabpanel" aria-labelledby="profile-tab">
+                                            Nesciunt totam et. Consequuntur magnam aliquid eos nulla dolor iure eos quia. Accusantium distinctio omnis et atque fugiat. Itaque doloremque aliquid sint quasi quia distinctio similique. Voluptate nihil recusandae mollitia dolores. Ut laboriosam voluptatum dicta.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-body-secondary">Last updated 3 mins ago</small>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-2">
+                        <div class="col-xl col-sm-6 col-md-2">
                             <div class="card info-card sales-card">
-                                <div class="card-body">
-                                    <!-- <h6 class="card-title">Bidang Dalops <span>| Total Penindakan</span></h6> -->
-                                    <p class="card-title"> Bidang Dalops</span></p>
+                                <div class="card-header">
                                     <div class="d-flex align-items-center">
-                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="card-icon d-flex align-items-center justify-content-center">
                                             <i class="bi bi-car-front"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>145</h6>
-                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
+                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Bidang Dalops</span>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card-body">
+
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-body-secondary">Last updated 3 mins ago</small>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-2">
+                        <div class="col-xl col-sm-6 col-md-2">
                             <div class="card info-card sales-card">
-                                <div class="card-body">
-                                    <!-- <h6 class="card-title">Bidang Dalops <span>| Total Penindakan</span></h6> -->
-                                    <p class="card-title"> Bidang Dalops</span></p>
+                                <div class="card-header">
                                     <div class="d-flex align-items-center">
-                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="card-icon d-flex align-items-center justify-content-center">
                                             <i class="bi bi-car-front"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>145</h6>
-                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
+                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Bidang Dalops</span>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card-body">
+
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-body-secondary">Last updated 3 mins ago</small>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-2">
+                        <div class="col-xl col-sm-6 col-md-2">
                             <div class="card info-card sales-card">
-                                <div class="card-body">
-                                    <!-- <h6 class="card-title">Bidang Dalops <span>| Total Penindakan</span></h6> -->
-                                    <p class="card-title"> Bidang Dalops</span></p>
+                                <div class="card-header">
                                     <div class="d-flex align-items-center">
-                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="card-icon d-flex align-items-center justify-content-center">
                                             <i class="bi bi-car-front"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>145</h6>
-                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
+                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Bidang Dalops</span>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card-body">
+
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-body-secondary">Last updated 3 mins ago</small>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-2">
+                        <div class="col-xl col-sm-6 col-md-2">
                             <div class="card info-card sales-card">
-                                <div class="card-body">
-                                    <!-- <h6 class="card-title">Bidang Dalops <span>| Total Penindakan</span></h6> -->
-                                    <p class="card-title"> Bidang Dalops</span></p>
+                                <div class="card-header">
                                     <div class="d-flex align-items-center">
-                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="card-icon d-flex align-items-center justify-content-center">
                                             <i class="bi bi-car-front"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>145</h6>
-                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
+                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Bidang Dalops</span>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card-body">
+
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-body-secondary">Last updated 3 mins ago</small>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-2">
+                        <div class="col-xl col-sm-6 col-md-2">
                             <div class="card info-card sales-card">
-                                <div class="card-body">
-                                    <!-- <h6 class="card-title">Bidang Dalops <span>| Total Penindakan</span></h6> -->
-                                    <p class="card-title"> Bidang Dalops</span></p>
+                                <div class="card-header">
                                     <div class="d-flex align-items-center">
-                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="card-icon d-flex align-items-center justify-content-center">
                                             <i class="bi bi-car-front"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>145</h6>
-                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
+                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Bidang Dalops</span>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card-body">
+
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-body-secondary">Last updated 3 mins ago</small>
                                 </div>
                             </div>
                         </div>
                         <!-- End Sales Card -->
-
 
                         <!-- Reports -->
                         <div class="col-12">

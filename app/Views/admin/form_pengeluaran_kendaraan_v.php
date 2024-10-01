@@ -345,7 +345,9 @@
                                 <label for="pejabat_id" class="col-form-label">Pejabat Penanda Tangan :</label>
                                 <select name="pejabat_id" id="pejabat_id" class="form-control">
                                     <option value="">--Silahkan Pilih--</option>
-                                    <option value="<?= $pejabat->id ?>"><?= $pejabat->nama ?></option>
+                                    <?php foreach ($pejabat as $pejabat) : ?>
+                                        <option value="<?= $pejabat->id ?>"><?= $pejabat->nama ?></option>
+                                    <?php endforeach; ?>
 
                                 </select>
                                 <div class="invalid-feedback error-pejabat">

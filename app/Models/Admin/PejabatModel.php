@@ -23,14 +23,14 @@ class PejabatModel extends Model
             return $this->table($this->table)
                 ->select('pejabat_table.id, pejabat_table.ukpd_id, pejabat_table.nama, pejabat_table.nip, ukpd_table.ukpd')
                 ->join('ukpd_table', 'ukpd_table.id = pejabat_table.ukpd_id')
-                ->orderBy('id desc')
+                ->orderBy('pejabat_table.id desc')
                 ->get()->getResultObject();
         } else {
             return $this->table($this->table)
                 ->select('pejabat_table.id, pejabat_table.ukpd_id, pejabat_table.nama, pejabat_table.nip, ukpd_table.ukpd')
                 ->join('ukpd_table', 'ukpd_table.id = pejabat_table.ukpd_id')
                 ->where(["pejabat_table.ukpd_id" => $ukpd_id])
-                ->orderBy('id desc')
+                ->orderBy('pejabat_table.id desc')
                 ->get()->getResultObject();
         }
     }
@@ -41,15 +41,15 @@ class PejabatModel extends Model
             return $this->table($this->table)
                 ->select('pejabat_table.id, pejabat_table.ukpd_id, pejabat_table.nama, pejabat_table.nip, ukpd_table.ukpd')
                 ->join('ukpd_table', 'ukpd_table.id = pejabat_table.ukpd_id')
-                ->orderBy('id desc')
-                ->get()->getRowObject();
+                ->orderBy('pejabat_table.id desc')
+                ->get()->getResult();
         } else {
             return $this->table($this->table)
                 ->select('pejabat_table.id, pejabat_table.ukpd_id, pejabat_table.nama, pejabat_table.nip, ukpd_table.ukpd')
                 ->join('ukpd_table', 'ukpd_table.id = pejabat_table.ukpd_id')
                 ->where(["pejabat_table.ukpd_id" => $ukpd_id])
-                ->orderBy('id desc')
-                ->get()->getRowObject();
+                ->orderBy('pejabat_table.id desc')
+                ->get()->getResult();
         }
     }
 }
