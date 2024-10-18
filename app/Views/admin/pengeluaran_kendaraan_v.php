@@ -351,6 +351,18 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label for="tempat_penyimpanan_id_edit" class="col-form-label">Tempat Penyimpanan :</label>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" name="tempat_penyimpanan_id_edit" id="tempat_penyimpanan_id_edit" class="text-capitalize form-control" disabled>
+                                </div>
+                            </div>
+                            <span class="invalid-feedback error-nama-pemilik"></span>
+                        </div>
+                    </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> <i class="bi bi-x-lg"></i> Batal</button>
                         <button type="submit" class="btn btn-primary update"> <i class="bi bi-send"></i> Ubah</button>
@@ -563,12 +575,14 @@
                 id: id,
             },
             success: function(response) {
+                console.log(response);
                 $("#id_edit").val(response.id);
                 $("#data_penindakan_id").val(response.data_penindakan_id);
                 $("#nomor_kendaraan_edit").val(`${response.kode_wilayah_awal} ${response.nomor_kendaraan} ${response.kode_wilayah_akhir}`);
 
                 $("#nama_pemilik_edit").val(`${response.nama_pemilik}`);
                 $("#ukpd_edit").val(`${response.ukpd}`);
+                $("#tempat_penyimpanan_id_edit").val(`${response.tempat_penyimpanan}`);
                 $("#jenis_kendaraan_edit").val(`${response.type_kendaraan}  - ${response.jenis_kendaraan}`);
 
                 $("#nomor_surat_pengeluaran").val(response.nomor_surat_pengeluaran);
