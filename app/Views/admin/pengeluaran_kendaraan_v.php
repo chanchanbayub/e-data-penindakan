@@ -420,11 +420,11 @@
     <div class="modal-dialog modal-dialog-scrollable modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Laporan Pengeluaran Kendaraan </h5>
+                <h5 class="modal-title">Download Laporan Pengeluaran Kendaraan </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form_laporan" autocomplete="off" class="row g-3">
+                <form id="form_laporan" autocomplete="off" class="row g-3" action="/admin/cetak_laporan" method="post">
                     <?= csrf_field(); ?>
 
                     <div class="col-md-6">
@@ -438,7 +438,7 @@
                     <br>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> <i class="bi bi-x-lg"></i> Batal</button>
-                        <button type="submit" class="btn btn-primary download-lap"> <i class="bi bi-download"></i> Download</button>
+                        <button type="submit" class="btn btn-primary download_laporan"> <i class="bi bi-download"></i> Download</button>
                     </div>
                 </form>
             </div>

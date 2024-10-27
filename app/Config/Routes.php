@@ -119,6 +119,8 @@ $routes->group('/admin', function ($routes) {
     $routes->post('pengeluaran_kendaraan/upload_pengantar', 'Admin\PengeluaranKendaraanController::upload_pengantar');
 
     $routes->get('cetak_pdf/(:any)', 'Pdf\PdfController::index/$1');
+
+    $routes->post('cetak_laporan/', 'Pdf\PdfController::cetak_laporan');
     // $routes->get('pengantar_sidang/(:any)', 'Pdf\PdfController::index/$1');
     $routes->get('cetak_pengantar/(:any)', 'Pdf\PdfController::cetak_pengantar/$1');
 });

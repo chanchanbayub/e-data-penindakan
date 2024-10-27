@@ -43,7 +43,7 @@ class PdfController extends BaseController
         $this->mpdf->WriteHTML($html);
 
         $this->response->setHeader('Content-Type', 'application/pdf');;
-        $this->mpdf->output('Invoice-' . 'Nomor Kendaraan' . '.pdf', 'I');
+        $this->mpdf->output('SPK -' . 'Nomor Kendaraan' . '.pdf', 'I');
     }
 
     public function cetak_pengantar($id)
@@ -69,5 +69,29 @@ class PdfController extends BaseController
 
         $this->response->setHeader('Content-Type', 'application/pdf');;
         $this->mpdf->output('Pengantar' . $cetak_pengantar->kode_wilayah_awal . $cetak_pengantar->nomor_kendaraan . $cetak_pengantar->kode_wilayah_akhir  . '.pdf', 'I');
+    }
+
+    public function cetak_laporan()
+    {
+        $this->mpdf->showImageErrors = true;
+
+        helper(['format']);
+
+        $tanggal_awal = $this->request->getVar('tanggal_awal');
+        $tanggal_akhir = $this->request->getVar('tanggal_akhir');
+
+        $laporan  = $this->pengeluaranKendaraanModel->getLaporanPengeluaranKendaraan($tanggal_awal, $tanggal_akhir);
+
+        $data = [
+            'laporan' => $laporan,
+            'tanggal_awal' => $tanggal_awal,
+            'tanggal_akhir' => $tanggal_akhir
+        ];
+
+        $html = view('pdf/laporan_pdf', $data);
+        $this->mpdf->WriteHTML($html);
+
+        $this->response->setHeader('Content-Type', 'application/pdf');;
+        $this->mpdf->output('Laporan - ' . 'Pengeluaran Kendaraan' . '.pdf', 'D');
     }
 }
