@@ -33,6 +33,7 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li><a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#smallModal" data-bs-whatever="@mdo"><i class="bi bi-plus"></i> Ajukan Pengeluaran Kendaraan</a></li>
+                                            <li><a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#laporanModal" data-bs-whatever="@mdo"><i class="bi bi-file-pdf"></i> Cetak Laporan Pengeluaran</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -412,6 +413,39 @@
         </div>
     </div>
 </div><!-- End tambah Modal-->
+
+
+<!-- Modal Download Pengeluaran -->
+<div class="modal fade" id="laporanModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Laporan Pengeluaran Kendaraan </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form_laporan" autocomplete="off" class="row g-3">
+                    <?= csrf_field(); ?>
+
+                    <div class="col-md-6">
+                        <label for="tanggal_awal" class="form-label">Tanggal Awal :</label>
+                        <input type="date" class="form-control" id="tanggal_awal" name="tanggal_awal" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="tanggal_akhir" class="form-label">Tanggal Akhir : </label>
+                        <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" required />
+                    </div>
+                    <br>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> <i class="bi bi-x-lg"></i> Batal</button>
+                        <button type="submit" class="btn btn-primary download-lap"> <i class="bi bi-download"></i> Download</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div><!-- End tambah Modal-->
+
 <script src="/assets/vendor/jquery/jquery.js"></script>
 
 
