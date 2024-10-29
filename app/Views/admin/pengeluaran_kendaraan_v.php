@@ -37,7 +37,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <table class="table table-bordered datatable">
+                                <table class="table table-bordered datatable text-uppercase">
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
