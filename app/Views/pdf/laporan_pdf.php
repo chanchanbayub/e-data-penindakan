@@ -58,7 +58,7 @@
                 <tr>
                     <td><?= $no++ ?></td>
                     <td><?= $laporan->ukpd ?></td>
-                    <td><?= $laporan->type_kendaraan ?></td>
+                    <td><?= $laporan->type_kendaraan ?> - <?= $laporan->jenis_kendaraan ?></td>
                     <td><?= $laporan->kode_wilayah_awal ?> <?= $laporan->nomor_kendaraan ?> <?= $laporan->kode_wilayah_akhir ?> </td>
                     <td><?= $laporan->tempat_penyimpanan ?> </td>
                 </tr>

@@ -13,6 +13,7 @@
     * {
         margin: 0 auto;
         box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     header {
@@ -92,7 +93,7 @@
     #noSuratKend,
     td {
         font-size: 14px;
-        font-family: Arial;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     .content-data {
@@ -121,7 +122,7 @@
         text-transform: capitalize;
         /* margin: 0 auto; */
         line-height: 25px;
-        font-family: Arial;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     .content-footer {
@@ -134,7 +135,7 @@
         text-transform: capitalize;
         padding-left: 70px;
         line-height: 25px;
-        font-family: Arial;
+        font-family: Arial, Helvetica, sans-serif;
         text-align: justify;
     }
 
@@ -154,7 +155,7 @@
     #footer {
         font-size: 12px;
         text-transform: capitalize;
-        font-family: Arial;
+        font-family: Arial, Helvetica, sans-serif;
     }
 </style>
 
@@ -273,13 +274,13 @@
     <div class="data_kendaraan">
         <table id="content-table">
             <tr>
-                <td style="width:40%">
+                <td style="width:40%;">
                     1. Nomor Kendaraan
                 </td>
                 <td style="width: 5%;">
                     :
                 </td>
-                <td> <span style="text-transform: uppercase;"> <?= $pengeluaran->kode_wilayah_awal ?> <?= $pengeluaran->nomor_kendaraan ?> <?= $pengeluaran->kode_wilayah_akhir ?> </span> </td>
+                <td> <span style="text-transform: uppercase; letter-spacing:2px"> <?= $pengeluaran->kode_wilayah_awal ?> <?= $pengeluaran->nomor_kendaraan ?> <?= $pengeluaran->kode_wilayah_akhir ?> </span> </td>
             </tr>
             <tr>
                 <td>
@@ -288,7 +289,7 @@
                 <td>
                     :
                 </td>
-                <td> <span style="text-transform: capitalize;"> <?= $pengeluaran->type_kendaraan ?> / <?= $pengeluaran->jenis_kendaraan ?> </span></td>
+                <td> <span style="text-transform: capitalize; letter-spacing:1px"> <?= $pengeluaran->type_kendaraan ?> / <?= $pengeluaran->jenis_kendaraan ?> </span></td>
             </tr>
             <tr>
                 <td>
@@ -318,10 +319,10 @@
                 <td> <span style="text-transform: capitalize;"> <?= $pengeluaran->nama_pemilik ?> </span></td>
             </tr>
             <tr>
-                <td>
+                <td style="vertical-align: top;">
                     6. Alamat
                 </td>
-                <td>
+                <td style="vertical-align: top;">
                     :
                 </td>
                 <td> <span style="text-transform: capitalize;"><?= $pengeluaran->alamat_pemilik_kendaraan ?></span> </td>
@@ -360,7 +361,7 @@
         <table id="paragraf-footer">
             <tr>
                 <td>
-                    <p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Bersama ini diberitahukan bahwa kendaraan tersebut diatas dapat dikeluarkan dari Terminal Mobil Barang Pool <span class="transform"> <?= $pengeluaran->tempat_penyimpanan ?></span>Dinas Perhubungan Provinsi DKI Jakarta, sehubungan yang bersangkutan telah :
+                    <p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Bersama ini diberitahukan bahwa kendaraan tersebut diatas dapat dikeluarkan dari Terminal Mobil Barang Pool <span class="transform"> <?= $pengeluaran->tempat_penyimpanan ?></span> Dinas Perhubungan Provinsi DKI Jakarta, sehubungan yang bersangkutan telah :
                         <br>
                         a. Membuat surat pernyataan;
                         <br>
@@ -368,7 +369,6 @@
                         <br>
                         c. Melengkapi surat-surat kendaraan dimaksud;
                         <br>
-
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Demikian untuk dimaklumi dan pelaksaan lebih lanjut.
                     </p>
                 </td>
