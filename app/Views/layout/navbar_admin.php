@@ -9,9 +9,11 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
+        <li class="nav-heading">Manajemen Data</li>
+
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-app"></i><span>Master Data </span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-clipboard-data"></i><span>Manajemen Data </span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -52,8 +54,6 @@
                     </a>
                 </li>
 
-
-
                 <li>
                     <a href="/admin/tempat_penyimpanan">
                         <i class="bi bi-circle"></i><span>Tempat Penyimpanan</span>
@@ -86,15 +86,20 @@
             </ul>
         </li><!-- End Components Nav -->
 
+        <li class="nav-heading">Data Penindakan</li>
+
         <li class="nav-item">
             <a class="nav-link collapsed" href="/admin/data_penindakan">
                 <i class="bi bi-car-front"></i>
                 <span>Input Data Penindakan</span>
             </a>
         </li>
+
+        <li class="nav-heading">Data Pengeluaran Kendaraan</li>
+
         <li class="nav-item">
             <a class="nav-link collapsed" href="/admin/pengeluaran_kendaraan">
-                <i class="bi bi-file-earmark-text"></i>
+                <i class="bi bi-clipboard-check"></i>
                 <span>Input Data Pengeluaran</span>
             </a>
         </li>
