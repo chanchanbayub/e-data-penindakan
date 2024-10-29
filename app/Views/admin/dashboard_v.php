@@ -17,7 +17,7 @@
             <!-- Left side columns -->
             <div class="col-lg-12">
                 <div class="copyright mb-2">
-                    | <strong> Data Penindakan <?= session()->get('ukpd') ?> periode 2 Januari 2024 s/d <?= date('d F Y') ?></strong></span>
+                    | <strong> Data Penindakan <?= session()->get('ukpd') ?> periode 2 Januari 2024 s/d <?= date_indo(date('Y-m-d')) ?></strong></span>
                 </div>
                 <div class="row">
                     <!-- Sales Card -->
@@ -84,7 +84,7 @@
             <!-- Left side columns -->
             <div class="col-lg-12">
                 <div class="copyright mb-2">
-                    | <strong> <span>| Data Pengeluaran Kendaraan yang di Stop Operasi <?= session()->get('ukpd') ?> periode 2 Januari 2024 s/d <?= date('d F Y') ?></span></strong></span>
+                    <strong> <span>| Data Pengeluaran Kendaraan yang di Stop Operasi <?= session()->get('ukpd') ?> periode 2 Januari 2024 s/d <?= date_indo(date('Y-m-d')) ?></span></strong></span>
                 </div>
                 <div class="row">
                     <!-- Sales Card -->

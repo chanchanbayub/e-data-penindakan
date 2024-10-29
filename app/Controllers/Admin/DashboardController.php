@@ -21,6 +21,7 @@ class DashboardController extends BaseController
 
     public function index()
     {
+        helper('format_helper');
         if (session()->get("role_management_id") == 2) {
             $data_penindakan = $this->dataPenindakanModel->getDataPenindakan(null);
             $total_penindakan = count($data_penindakan);
