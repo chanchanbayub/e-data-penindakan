@@ -77,7 +77,7 @@ class AuthController extends BaseController
                         session()->set($data);
                         $alert = [
                             'success' => 'Berhasil Login !',
-                            'url' => '/admin/dashboard'
+                            'url' => '/petugas/dashboard'
                         ];
                     } else if ($user_mangement->role_management_id == 2) {
                         $data = [

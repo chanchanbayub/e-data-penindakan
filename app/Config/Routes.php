@@ -12,8 +12,6 @@ $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 
 $routes->get('/', 'Home::index');
-$routes->get('/search', 'Users\DataPenindakanController::index');
-$routes->get('/detail', 'Users\DataPenindakanController::detail_data');
 
 $routes->group('/admin', function ($routes) {
     $routes->get('dashboard', 'Admin\DashboardController::index');
@@ -125,7 +123,31 @@ $routes->group('/admin', function ($routes) {
     $routes->get('cetak_pengantar/(:any)', 'Pdf\PdfController::cetak_pengantar/$1');
 });
 
+$routes->group('/petugas', function ($routes) {
+    $routes->get('dashboard', 'Petugas\DashboardController::index');
+    // Data Penindakan
+    $routes->get('data_penindakan', 'Petugas\DataPenindakanController::index');
+    $routes->get('data_penindakan/views/(:any)', 'Petugas\DataPenindakanController::views/$1');
+    $routes->get('data_penindakan/getTypeKendaraan', 'Petugas\DataPenindakanController::getTypeKendaraan');
+    $routes->get('data_penindakan/getDataKendaraan', 'Petugas\DataPenindakanController::getDataKendaraan');
+    $routes->post('data_penindakan/insert', 'Petugas\DataPenindakanController::insert');
+    $routes->get('data_penindakan/edit', 'Petugas\DataPenindakanController::edit');
+    $routes->post('data_penindakan/delete', 'Petugas\DataPenindakanController::delete');
+    $routes->post('data_penindakan/update', 'Petugas\DataPenindakanController::update');
+    // Pengeluaran Kendaraan
+    $routes->get('pengeluaran_kendaraan', 'Petugas\PengeluaranKendaraanController::index');
+    $routes->get('pengeluaran_kendaraan/search', 'Petugas\PengeluaranKendaraanController::search');
+    $routes->get('pengeluaran_kendaraan/form_insert/(:any)', 'Petugas\PengeluaranKendaraanController::form_insert/$1');
+    $routes->get('pengeluaran_kendaraan/views/(:any)', 'Petugas\PengeluaranKendaraanController::views/$1');
+    $routes->get('pengeluaran_kendaraan/getTypeKendaraan', 'Petugas\PengeluaranKendaraanController::getTypeKendaraan');
+    $routes->post('pengeluaran_kendaraan/insert', 'Petugas\PengeluaranKendaraanController::insert');
+    $routes->get('pengeluaran_kendaraan/edit', 'Petugas\PengeluaranKendaraanController::edit');
+    $routes->post('pengeluaran_kendaraan/update', 'Petugas\PengeluaranKendaraanController::update');
+    $routes->post('pengeluaran_kendaraan/upload_pengantar', 'Petugas\PengeluaranKendaraanController::upload_pengantar');
 
+    $routes->get('cetak_pdf/(:any)', 'Pdf\PdfController::index/$1');
+    $routes->get('cetak_pengantar/(:any)', 'Pdf\PdfController::cetak_pengantar/$1');
+});
 
 $routes->group('/auth', function ($routes) {
     $routes->get('login', 'Auth\AuthController::index');

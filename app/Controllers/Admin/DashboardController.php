@@ -9,7 +9,6 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class DashboardController extends BaseController
 {
-
     protected $dataPenindakanModel;
     protected $pengeluaranKendaraanModel;
 

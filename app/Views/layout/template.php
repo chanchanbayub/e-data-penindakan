@@ -99,8 +99,11 @@
     </header><!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
-
-    <?= $this->include('layout/navbar_admin'); ?>
+    <?php if (session()->get('role_management_id') == 1) : ?>
+        <?= $this->include('layout/navbar_petugas'); ?>
+    <?php elseif (session()->get('role_management_id') == 2) : ?>
+        <?= $this->include('layout/navbar_admin'); ?>
+    <?php endif; ?>
 
     <?= $this->renderSection('content'); ?>
     <!-- ======= Footer ======= -->
