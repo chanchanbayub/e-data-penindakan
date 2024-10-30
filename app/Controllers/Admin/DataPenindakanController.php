@@ -8,6 +8,7 @@ use App\Models\Admin\JenisKendaraanModel;
 use App\Models\Admin\JenisPenindakanModel;
 use App\Models\Admin\KodeTrayekModel;
 use App\Models\Admin\LokasiSidangModel;
+use App\Models\Admin\PengantarModel;
 use App\Models\Admin\StatusKendaraanModel;
 use App\Models\Admin\TempatPenyimpanModel;
 use App\Models\Admin\TypeKendaraanModel;
@@ -26,6 +27,7 @@ class DataPenindakanController extends BaseController
     protected $lokasiSidangModel;
     protected $typeKendaraanModel;
     protected $statusKendaraanModel;
+    protected $pengantarModel;
 
     public function __construct()
     {
@@ -39,22 +41,15 @@ class DataPenindakanController extends BaseController
         $this->typeKendaraanModel = new TypeKendaraanModel();
         $this->lokasiSidangModel = new LokasiSidangModel();
         $this->statusKendaraanModel = new StatusKendaraanModel();
+        $this->pengantarModel = new PengantarModel();
     }
 
     public function index()
     {
 
-        if (session()->get('role_management_id') == 2) {
+        if (session()->get('role_management_id') == 2 || session()->get('role_management_id') == 3 || session()->get('role_management_id') == 4) {
             $data_penindakan = $this->dataPenindakanModel->getDataPenindakan(null);
             $ukpd = $this->ukpdModel->getUkpd(null);
-            $jenisKendaraan = $this->jenisKendaraanModel->getJenisKendaraan();
-            $jenisPenindakan = $this->jenisPenindakanModel->getJenisPenindakan();
-            $tempatPenyimpanan = $this->tempatPenyimpananModel->getTempatPenyimpanan();
-            $lokasiSidang = $this->lokasiSidangModel->getLokasiSidang();
-            $statusKendaraan = $this->statusKendaraanModel->getStatusKendaraan();
-        } else {
-            $data_penindakan = $this->dataPenindakanModel->getDataPenindakan(session()->get('ukpd_id'));
-            $ukpd = $this->ukpdModel->getUkpd(session()->get('ukpd_id'));
             $jenisKendaraan = $this->jenisKendaraanModel->getJenisKendaraan();
             $jenisPenindakan = $this->jenisPenindakanModel->getJenisPenindakan();
             $tempatPenyimpanan = $this->tempatPenyimpananModel->getTempatPenyimpanan();
@@ -123,6 +118,18 @@ class DataPenindakanController extends BaseController
             $id = $this->request->getVar('id');
 
             $data_penindakan = $this->dataPenindakanModel->where(["id" => $id])->get()->getRowObject();
+
+            $pengantar = $this->pengantarModel->where(["pengeluaran_kendaraan_id" => $data_penindakan->id])->get()->getRowObject();
+
+            if ($pengantar != null) {
+                $path_pengantar = 'pengantar_sidang/' . $pengantar->pengantar_sidang;
+
+                if ($pengantar->pengantar_sidang != null) {
+                    if (file_exists($path_pengantar)) {
+                        unlink($path_pengantar);
+                    }
+                }
+            }
 
             $this->dataPenindakanModel->delete($data_penindakan->id);
 

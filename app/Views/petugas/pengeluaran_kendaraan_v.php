@@ -61,34 +61,39 @@
                                                     <td><span class="badge <?= ($pengeluaran_kendaraan->status_kendaraan_id) == 2 ? "bg-success" : "bg-warning"  ?> "><?= $pengeluaran_kendaraan->status_kendaraan ?></span></td>
                                                 <?php endif; ?>
                                                 <td>
-                                                    <?php if (session()->get('role_management_id') == 1) : ?>
-                                                        <?php if (session()->get('ukpd_id') !=  1) : ?>
-                                                            <?php if ($pengeluaran_kendaraan->status_kendaraan_id == 3) :  ?>
+                                                    <?php if (session()->get('ukpd_id') != 1) : ?>
+                                                        <?php if ($pengeluaran_kendaraan->status_kendaraan_id == 3) :  ?>
+                                                            <?php if ($pengeluaran_kendaraan->pengantar_sidang == null) : ?>
                                                                 <a href="/petugas/cetak_pengantar/<?= $pengeluaran_kendaraan->id ?>" class="btn btn-sm btn-outline-primary" target="_blank">
                                                                     <i class="bi bi-file-pdf"></i>
                                                                 </a>
                                                                 <button type="button" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#pengantarModal" id="ajukan" data-id="<?= $pengeluaran_kendaraan->id ?>">
                                                                     <i class="bi bi-file-pdf">Ajukan</i>
                                                                 </button>
-                                                            <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 2) : ?>
-                                                                <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
-                                                                    <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-primary" target="_blank">
-                                                                        <i class="bi bi-eye"></i>
-                                                                    </a>
-                                                                <?php else : ?>
-                                                                    <a href="/petugas/cetak_pengantar/<?= $pengeluaran_kendaraan->id ?>" class="btn btn-sm btn-outline-primary" target="_blank">
-                                                                        <i class="bi bi-file-pdf"></i>
-                                                                    </a>
-                                                                <?php endif; ?>
+                                                            <?php else : ?>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-primary" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
                                                             <?php endif; ?>
-                                                        <?php elseif (session()->get('ukpd_id') == 1) : ?>
-                                                            <?php if ($pengeluaran_kendaraan->status_kendaraan_id == 2) : ?>
+                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 4 || $pengeluaran_kendaraan->status_kendaraan_id == 2) : ?>
+                                                            <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-primary" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
                                                                 <a href="/petugas/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" class="btn btn-sm btn-outline-success" target="_blank">
                                                                     <i class="bi bi-file-pdf"></i>
                                                                 </a>
                                                             <?php else : ?>
-                                                                <small class="badge bg-primary">Silahkan Tunggu</small>
+                                                                <a href="/petugas/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                    <i class="bi bi-file-pdf"></i>
+                                                                </a>
                                                             <?php endif; ?>
+                                                        <?php endif; ?>
+                                                    <?php elseif (session()->get('ukpd_id') == 1) : ?>
+                                                        <?php if ($pengeluaran_kendaraan->status_kendaraan_id == 2 || $pengeluaran_kendaraan->status_kendaraan_id == 4) : ?>
+                                                            <a href="/petugas/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                <i class="bi bi-file-pdf"></i>
+                                                            </a>
                                                         <?php endif; ?>
                                                     <?php endif; ?>
                                                 </td>

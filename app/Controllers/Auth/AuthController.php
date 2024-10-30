@@ -57,7 +57,6 @@ class AuthController extends BaseController
 
                 $user_mangement = $this->userManagementModel->getUserManagementData($email, $password);
 
-
                 if ($user_mangement == null) {
                     $alert = [
                         'errors' => 'Username / Password Tidak ditemukan!'
@@ -93,6 +92,36 @@ class AuthController extends BaseController
                         $alert = [
                             'success' => 'Berhasil Login !',
                             'url' => '/admin/dashboard'
+                        ];
+                    } else if ($user_mangement->role_management_id == 3) {
+                        $data = [
+                            'id' => $user_mangement->id,
+                            'ukpd_id' => $user_mangement->ukpd_id,
+                            'nama' => $user_mangement->nama,
+                            'email' => $user_mangement->email,
+                            'role_management' => $user_mangement->role_management,
+                            'role_management_id' => $user_mangement->role_management_id,
+                            'isLogedIn' => true
+                        ];
+                        session()->set($data);
+                        $alert = [
+                            'success' => 'Berhasil Login !',
+                            'url' => '/operator/dashboard'
+                        ];
+                    } else if ($user_mangement->role_management_id == 4) {
+                        $data = [
+                            'id' => $user_mangement->id,
+                            'ukpd_id' => $user_mangement->ukpd_id,
+                            'nama' => $user_mangement->nama,
+                            'email' => $user_mangement->email,
+                            'role_management' => $user_mangement->role_management,
+                            'role_management_id' => $user_mangement->role_management_id,
+                            'isLogedIn' => true
+                        ];
+                        session()->set($data);
+                        $alert = [
+                            'success' => 'Berhasil Login !',
+                            'url' => '/verifikator/dashboard'
                         ];
                     }
                 }

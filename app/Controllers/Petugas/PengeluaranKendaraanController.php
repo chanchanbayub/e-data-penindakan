@@ -597,9 +597,11 @@ class PengeluaranKendaraanController extends BaseController
 
             if (!$this->validate([
                 'pengantar_sidang' => [
-                    'rules' => 'uploaded[pengantar_sidang]',
+                    'rules' => 'uploaded[pengantar_sidang]|max_size[pengantar_sidang,2048]|ext_in[pengantar_sidang,pdf]',
                     'errors' => [
-                        'required' => 'Pengantar Sidang Tidak Boleh Kosong !'
+                        'required' => 'Pengantar Sidang Tidak Boleh Kosong !',
+                        'max_size' => 'Ukuran Tidak Boleh Lebih dari 2mb',
+                        'ext_in' => 'Yang Anda Upload Bukan Pdf',
                     ]
                 ],
                 'tanggal_pengantar' => [
@@ -608,8 +610,6 @@ class PengeluaranKendaraanController extends BaseController
                         'required' => 'Tanggal pengantar Tidak Boleh Kosong !'
                     ]
                 ],
-
-
 
             ])) {
                 $alert = [
@@ -636,7 +636,7 @@ class PengeluaranKendaraanController extends BaseController
                 ]);
 
                 $this->dataPenindakanModel->update($pengeluaran->data_penindakan_id, [
-                    'status_kendaraan_id' => 4
+                    'status_kendaraan_id' => 3
                 ]);
 
                 $pengantar_sidang->move('pengantar_sidang', $nama_pengantar);

@@ -52,8 +52,8 @@
         <div class="d-flex align-items-center justify-content-between">
             <a href="/admin/dashboard" class="logo d-flex align-items-center">
                 <img src="/assets/img/logo2.png" alt="">
-                <?php if (session('role_management_id') == 1) : ?>
-                    <span class="d-none d-lg-block"><?= session()->get('ukpd'); ?></span>
+                <?php if (session('role_management_id') == 1 || session('role_management_id') == 3 || session('role_management_id') == 4) : ?>
+                    <span class="d-none d-lg-block" style="font-size: 15px; text-transform: capitalize"><?= session()->get('ukpd'); ?></span>
                 <?php else:  ?>
                     <span class="d-none d-lg-block">Dinas Perhubungan</span>
                 <?php endif; ?>
