@@ -32,4 +32,13 @@ class StatusKendaraanModel extends Model
             ->orderBy('id desc')
             ->get()->getResultObject();
     }
+
+    public function getParaf()
+    {
+        return $this->table($this->table)
+            ->where(["status_kendaraan_table.id" => 5])
+            ->Orwhere(["status_kendaraan_table.id" => 4])
+            ->orderBy('id desc')
+            ->get()->getResultObject();
+    }
 }

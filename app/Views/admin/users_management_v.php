@@ -251,7 +251,7 @@
             dropdownParent: $('#editModal')
         });
 
-        $('#role_management').select2({
+        $('#role_management_id').select2({
             theme: 'bootstrap4',
             dropdownParent: $('#smallModal')
         });

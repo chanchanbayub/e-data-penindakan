@@ -175,6 +175,32 @@ $routes->group('/operator', function ($routes) {
     $routes->get('cetak_pengantar/(:any)', 'Pdf\PdfController::cetak_pengantar/$1');
 });
 
+$routes->group('/verifikator', function ($routes) {
+    $routes->get('dashboard', 'Verifikator\DashboardController::index');
+    // Data Penindakan
+    $routes->get('data_penindakan', 'Verifikator\DataPenindakanController::index');
+    $routes->get('data_penindakan/views/(:any)', 'Verifikator\DataPenindakanController::views/$1');
+    $routes->get('data_penindakan/getTypeKendaraan', 'Verifikator\DataPenindakanController::getTypeKendaraan');
+    $routes->get('data_penindakan/getDataKendaraan', 'Verifikator\DataPenindakanController::getDataKendaraan');
+    $routes->post('data_penindakan/insert', 'Verifikator\DataPenindakanController::insert');
+    $routes->get('data_penindakan/edit', 'Verifikator\DataPenindakanController::edit');
+    $routes->post('data_penindakan/delete', 'Verifikator\DataPenindakanController::delete');
+    $routes->post('data_penindakan/update', 'Verifikator\DataPenindakanController::update');
+    // Pengeluaran Kendaraan
+    $routes->get('pengeluaran_kendaraan', 'Verifikator\PengeluaranKendaraanController::index');
+    $routes->get('pengeluaran_kendaraan/search', 'Verifikator\PengeluaranKendaraanController::search');
+    $routes->get('pengeluaran_kendaraan/form_insert/(:any)', 'Verifikator\PengeluaranKendaraanController::form_insert/$1');
+    $routes->get('pengeluaran_kendaraan/views/(:any)', 'Verifikator\PengeluaranKendaraanController::views/$1');
+    $routes->get('pengeluaran_kendaraan/getTypeKendaraan', 'Verifikator\PengeluaranKendaraanController::getTypeKendaraan');
+    $routes->post('pengeluaran_kendaraan/insert', 'Verifikator\PengeluaranKendaraanController::insert');
+    $routes->get('pengeluaran_kendaraan/edit', 'Verifikator\PengeluaranKendaraanController::edit');
+    $routes->post('pengeluaran_kendaraan/update', 'Verifikator\PengeluaranKendaraanController::update');
+    $routes->post('pengeluaran_kendaraan/upload_pengantar', 'Verifikator\PengeluaranKendaraanController::upload_pengantar');
+
+    $routes->get('cetak_pdf/(:any)', 'Pdf\PdfController::index/$1');
+    $routes->get('cetak_pengantar/(:any)', 'Pdf\PdfController::cetak_pengantar/$1');
+});
+
 $routes->group('/auth', function ($routes) {
     $routes->get('login', 'Auth\AuthController::index');
     $routes->get('logout', 'Auth\AuthController::logout');

@@ -75,6 +75,8 @@ class Filters extends BaseConfig
             'before' => [
                 'admin/*',
                 'petugas/*',
+                'operator/*',
+                'verifikator/*',
             ],
 
         ]

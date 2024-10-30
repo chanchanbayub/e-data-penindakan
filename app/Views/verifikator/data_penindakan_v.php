@@ -8,7 +8,7 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active">PAGES</li>
-                <li class="breadcrumb-item"><a href="/operator/data_penindakan"><?= $title ?></a></li>
+                <li class="breadcrumb-item"><a href="/verifikator/data_penindakan"><?= $title ?></a></li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -59,7 +59,7 @@
                                                 <td><?= $data_penindakan->jenis_penindakan ?></td>
                                                 <td><?= $data_penindakan->tempat_penyimpanan ?></td>
                                                 <td>
-                                                    <a href="/operator/data_penindakan/views/<?= $data_penindakan->nomor_bap ?>" class="btn btn-sm btn-outline-primary">
+                                                    <a href="/verifikator/data_penindakan/views/<?= $data_penindakan->nomor_bap ?>" class="btn btn-sm btn-outline-primary">
                                                         <i class="bi bi-eye"></i>
                                                     </a>
                                                 </td>
@@ -357,7 +357,7 @@
         let kode_wilayah_akhir = $("#kode_wilayah_akhir").val();
 
         $.ajax({
-            url: '/operator/data_penindakan/getDataKendaraan',
+            url: '/verifikator/data_penindakan/getDataKendaraan',
             method: 'get',
             dataType: 'JSON',
             // contentType: false,
@@ -389,7 +389,7 @@
     $("#jenis_kendaraan_id").change(function(e) {
         let jenis_kendaraan_id = $(this).val();
         $.ajax({
-            url: '/operator/data_penindakan/getTypeKendaraan',
+            url: '/verifikator/data_penindakan/getTypeKendaraan',
             method: 'get',
             dataType: 'JSON',
             data: {
@@ -457,7 +457,7 @@
 
 
         $.ajax({
-            url: '/operator/data_penindakan/insert',
+            url: '/verifikator/data_penindakan/insert',
             method: 'post',
             dataType: 'JSON',
             data: {

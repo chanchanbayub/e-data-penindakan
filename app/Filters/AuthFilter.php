@@ -18,7 +18,7 @@ class AuthFilter implements FilterInterface
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        if (!session()->get('isLogedIn')) {
+        if (session()->get('isLogedIn')) {
             return redirect()->back();
         }
     }
