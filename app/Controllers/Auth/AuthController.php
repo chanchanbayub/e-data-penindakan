@@ -96,6 +96,7 @@ class AuthController extends BaseController
                     } else if ($user_mangement->role_management_id == 3) {
                         $data = [
                             'id' => $user_mangement->id,
+                            'ukpd' => $user_mangement->ukpd,
                             'ukpd_id' => $user_mangement->ukpd_id,
                             'nama' => $user_mangement->nama,
                             'email' => $user_mangement->email,
@@ -106,11 +107,12 @@ class AuthController extends BaseController
                         session()->set($data);
                         $alert = [
                             'success' => 'Berhasil Login !',
-                            'url' => '/operator/dashboard'
+                            'url' => '/operator/data_penindakan'
                         ];
                     } else if ($user_mangement->role_management_id == 4) {
                         $data = [
                             'id' => $user_mangement->id,
+                            'ukpd' => $user_mangement->ukpd,
                             'ukpd_id' => $user_mangement->ukpd_id,
                             'nama' => $user_mangement->nama,
                             'email' => $user_mangement->email,

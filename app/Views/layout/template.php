@@ -68,7 +68,7 @@
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                         <img src="/assets/img/logo2.png" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2"> <?= session()->get('nama') ?> </span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2" style="text-transform: capitalize"> <?= session()->get('nama') ?> </span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -103,6 +103,8 @@
         <?= $this->include('layout/navbar_petugas'); ?>
     <?php elseif (session()->get('role_management_id') == 2) : ?>
         <?= $this->include('layout/navbar_admin'); ?>
+    <?php elseif (session()->get('role_management_id') == 3) : ?>
+        <?= $this->include('layout/navbar_operator'); ?>
     <?php endif; ?>
 
     <?= $this->renderSection('content'); ?>
