@@ -41,4 +41,12 @@ class StatusKendaraanModel extends Model
             ->orderBy('id desc')
             ->get()->getResultObject();
     }
+
+    public function getStatusKendaraanData()
+    {
+        return $this->table($this->table)
+            ->where(["status_kendaraan_table.id !=" => 2])
+            ->orderBy('id desc')
+            ->get()->getResultObject();
+    }
 }

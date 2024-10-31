@@ -87,23 +87,32 @@
                                                         <?php endif; ?>
 
                                                         <?php if ($pengeluaran_kendaraan->status_kendaraan_id == 2) : ?>
-                                                            <a href="/operator/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" target="_blank" class="btn btn-sm btn-outline-primary">
-                                                                <i class="bi bi-file-pdf"></i>
-                                                            </a>
-                                                            <?php if ($pengeluaran_kendaraan->ukpd_id != 1) : ?>
-                                                                <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
-                                                                    <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
-                                                                        <i class="bi bi-eye"></i>
-                                                                    </a>
-                                                                <?php endif; ?>
+                                                            <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
+                                                                <a href="/operator/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                                    <i class="bi bi-file-pdf"></i>
+                                                                </a>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
+                                                            <?php elseif ($pengeluaran_kendaraan->pengantar_sidang == null) : ?>
+                                                                <a href="/operator/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                                    <i class="bi bi-file-pdf"></i>
+                                                                </a>
                                                             <?php endif; ?>
-                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 4 || $pengeluaran_kendaraan->status_kendaraan_id == 3 || $pengeluaran_kendaraan->status_kendaraan_id == 5) : ?>
-                                                            <?php if ($pengeluaran_kendaraan->ukpd_id != 1) : ?>
-                                                                <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
-                                                                    <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
-                                                                        <i class="bi bi-eye"></i>
-                                                                    </a>
-                                                                <?php endif; ?>
+                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 4 || $pengeluaran_kendaraan->status_kendaraan_id == 3) : ?>
+                                                            <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
+                                                            <?php endif; ?>
+                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 5) : ?>
+                                                            <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
+                                                                <a href="/operator/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                                    <i class="bi bi-file-pdf"></i>
+                                                                </a>
                                                             <?php endif; ?>
                                                         <?php endif; ?>
                                                     <?php endif; ?>
@@ -241,6 +250,14 @@
 
 
                     <div class="form-group">
+                        <label for="nomor_surat_pengeluaran" class="col-form-label">Nomor Surat Pengeluaran:</label>
+                        <input type="text" name="nomor_surat_pengeluaran" id="nomor_surat_pengeluaran" class="form-control" disabled>
+                        <div class="invalid-feedback error-nomor-surat-pengeluaran">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="ukpd_edit" class="col-form-label">UKPD :</label>
                         <div class="col-md-12">
                             <div class="row">
@@ -254,7 +271,7 @@
 
                     <div class="form-group">
                         <input type="hidden" name="id_edit" id="id_edit" class="form-control">
-                        <input type="hidden" name="data_penindakan_id" id="data_penindakan_id" class="form-control">
+                        <input type="hidden" name="data_penindakan_id" id="data_penindakan_id" class="form-control" disabled>
                         <label for="nomor_kendaraan_edit" class="col-form-label">Nomor Kendaraan :</label>
                         <div class="col-md-12">
                             <div class="row">
@@ -263,6 +280,34 @@
                                 </div>
                             </div>
                             <span class="invalid-feedback error-nomor-kendaraan"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group" disabled>
+                        <label for="jenis_kendaraan_edit" class="col-form-label">Jenis Kendaraan :</label>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" name="jenis_kendaraan_edit" id="jenis_kendaraan_edit" class="text-capitalize form-control" disabled>
+                                </div>
+                            </div>
+                            <span class="invalid-feedback error-jenis-kendaraan"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nomor_rangka" class="col-form-label">Nomor Rangka:</label>
+                        <input type="text" name="nomor_rangka" id="nomor_rangka" class="form-control" disabled>
+                        <div class="invalid-feedback error-nomor-rangka">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nomor_mesin" class="col-form-label">Nomor Mesin:</label>
+                        <input type="text" name="nomor_mesin" id="nomor_mesin" class="form-control" disabled>
+                        <div class="invalid-feedback error-nomor-mesin">
+
                         </div>
                     </div>
 
@@ -279,66 +324,25 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="jenis_kendaraan_edit" class="col-form-label">Jenis Kendaraan :</label>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input type="text" name="jenis_kendaraan_edit" id="jenis_kendaraan_edit" class="text-capitalize form-control" disabled>
-                                </div>
-                            </div>
-                            <span class="invalid-feedback error-jenis-kendaraan"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nomor_surat_pengeluaran" class="col-form-label">Nomor Surat Pengeluaran:</label>
-                        <input type="text" name="nomor_surat_pengeluaran" id="nomor_surat_pengeluaran" class="form-control">
-                        <div class="invalid-feedback error-nomor-surat-pengeluaran">
-
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nomor_rangka" class="col-form-label">Nomor Rangka:</label>
-                        <input type="text" name="nomor_rangka" id="nomor_rangka" class="form-control">
-                        <div class="invalid-feedback error-nomor-rangka">
-
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nomor_mesin" class="col-form-label">Nomor Mesin:</label>
-                        <input type="text" name="nomor_mesin" id="nomor_mesin" class="form-control">
-                        <div class="invalid-feedback error-nomor-mesin">
-
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         <label for="alamat_pemilik_kendaraan" class="col-form-label">Alamat Pemilik Kendaraan :</label>
-                        <textarea name="alamat_pemilik_kendaraan" id="alamat_pemilik_kendaraan" class="form-control"></textarea>
+                        <textarea name="alamat_pemilik_kendaraan" id="alamat_pemilik_kendaraan" class="form-control" disabled></textarea>
                         <div class=" invalid-feedback error-alamat-pemilik-kendaraan">
 
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="tanggal_keluar" class="col-form-label">Tanggal Keluar :</label>
-                        <input type="date" name="tanggal_keluar" id="tanggal_keluar" class="form-control">
-                        <div class=" invalid-feedback error-tanggal-keluar">
+                        <label for="jenis_pelanggaran" class="col-form-label">Jenis Pelanggaran :</label>
+                        <input type="text" name="jenis_pelanggaran" id="jenis_pelanggaran" class="form-control" disabled>
+                        <div class=" invalid-feedback error-jenis-pelanggaran">
 
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="status_kendaraan_id" class="col-form-label">Status Kendaraan :</label>
-                        <select name="status_kendaraan_id" id="status_kendaraan_id" class="form-control" disabled>
-                            <option value="">--Silahkan Pilih--</option>
-                            <?php foreach ($status_kendaraan as $status_kendaraan) : ?>
-                                <option value="<?= $status_kendaraan->id ?>"><?= $status_kendaraan->status_kendaraan ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <div class="invalid-feedback error-status-kendaraan">
+                        <label for="tanggal_keluar" class="col-form-label">Tanggal Keluar :</label>
+                        <input type="date" name="tanggal_keluar" id="tanggal_keluar" class="form-control" disabled>
+                        <div class=" invalid-feedback error-tanggal-keluar">
 
                         </div>
                     </div>
@@ -352,6 +356,19 @@
                                 </div>
                             </div>
                             <span class="invalid-feedback error-nama-pemilik"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status_kendaraan_id" class="col-form-label">Status Kendaraan :</label>
+                        <select name="status_kendaraan_id" id="status_kendaraan_id" class="form-control">
+                            <option value="">--Silahkan Pilih--</option>
+                            <?php foreach ($status_kendaraan as $status_kendaraan) : ?>
+                                <option value="<?= $status_kendaraan->id ?>"><?= $status_kendaraan->status_kendaraan ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <div class="invalid-feedback error-status-kendaraan">
+
                         </div>
                     </div>
 
@@ -614,6 +631,7 @@
                 $("#nomor_rangka").val(response.nomor_rangka);
                 $("#nomor_mesin").val(response.nomor_mesin);
                 $("#alamat_pemilik_kendaraan").val(response.alamat_pemilik_kendaraan);
+                $("#jenis_pelanggaran").val(response.jenis_pelanggaran);
                 $("#tanggal_keluar").val(response.tanggal_keluar);
 
                 $("#status_kendaraan_id").val(response.status_kendaraan_id).trigger('change');

@@ -107,7 +107,7 @@ class AuthController extends BaseController
                         session()->set($data);
                         $alert = [
                             'success' => 'Berhasil Login !',
-                            'url' => '/operator/data_penindakan'
+                            'url' => '/operator/dashboard'
                         ];
                     } else if ($user_mangement->role_management_id == 4) {
                         $data = [

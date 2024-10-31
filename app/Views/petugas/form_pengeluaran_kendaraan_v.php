@@ -356,7 +356,7 @@
                             <br>
                             <div class="text-center">
 
-                                <a href="/petugas/pengeluaran_kendaraan" class="btn btn-danger"> <i class="bi bi-x-lg"></i> Kembali</a>
+                                <a href="/petugas/pengeluaran_kendaraan" class="btn btn-warning"> <i class="bi bi-arrow-left"></i> Kembali</a>
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> <i class="bi bi-x-lg"></i> Batal</button>
                                 <button type="submit" class="btn btn-primary save"> <i class="bi bi-send"></i> Simpan</button>
                             </div>

@@ -71,24 +71,32 @@
                                                             <i class="bi bi-trash"></i>
                                                         </button>
                                                         <?php if ($pengeluaran_kendaraan->status_kendaraan_id == 2) : ?>
+                                                            <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
+                                                                <a href="/admin/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                                    <i class="bi bi-file-pdf"></i>
+                                                                </a>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
+                                                            <?php elseif ($pengeluaran_kendaraan->pengantar_sidang == null) : ?>
+                                                                <a href="/admin/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                                    <i class="bi bi-file-pdf"></i>
+                                                                </a>
+                                                            <?php endif; ?>
+                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 4 || $pengeluaran_kendaraan->status_kendaraan_id == 3) : ?>
+                                                            <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
+                                                            <?php endif; ?>
+                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 5) : ?>
                                                             <a href="/admin/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" target="_blank" class="btn btn-sm btn-outline-primary">
                                                                 <i class="bi bi-file-pdf"></i>
                                                             </a>
-                                                            <?php if ($pengeluaran_kendaraan->ukpd_id != 1) : ?>
-                                                                <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
-                                                                    <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
-                                                                        <i class="bi bi-eye"></i>
-                                                                    </a>
-                                                                <?php endif; ?>
-                                                            <?php endif; ?>
-                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 4 || $pengeluaran_kendaraan->status_kendaraan_id == 3 || $pengeluaran_kendaraan->status_kendaraan_id == 5) : ?>
-                                                            <?php if ($pengeluaran_kendaraan->ukpd_id != 1) : ?>
-                                                                <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
-                                                                    <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
-                                                                        <i class="bi bi-eye"></i>
-                                                                    </a>
-                                                                <?php endif; ?>
-                                                            <?php endif; ?>
+                                                            <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                <i class="bi bi-eye"></i>
+                                                            </a>
+
                                                         <?php endif; ?>
                                                     <?php endif; ?>
                                                 </td>
@@ -224,6 +232,16 @@
                     <?= csrf_field(); ?>
 
 
+
+
+                    <div class="form-group">
+                        <label for="nomor_surat_pengeluaran" class="col-form-label">Nomor Surat Pengeluaran:</label>
+                        <input type="text" name="nomor_surat_pengeluaran" id="nomor_surat_pengeluaran" class="form-control" disabled>
+                        <div class="invalid-feedback error-nomor-surat-pengeluaran">
+
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="ukpd_edit" class="col-form-label">UKPD :</label>
                         <div class="col-md-12">
@@ -238,7 +256,7 @@
 
                     <div class="form-group">
                         <input type="hidden" name="id_edit" id="id_edit" class="form-control">
-                        <input type="hidden" name="data_penindakan_id" id="data_penindakan_id" class="form-control">
+                        <input type="hidden" name="data_penindakan_id" id="data_penindakan_id" class="form-control" disabled>
                         <label for="nomor_kendaraan_edit" class="col-form-label">Nomor Kendaraan :</label>
                         <div class="col-md-12">
                             <div class="row">
@@ -247,6 +265,34 @@
                                 </div>
                             </div>
                             <span class="invalid-feedback error-nomor-kendaraan"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group" disabled>
+                        <label for="jenis_kendaraan_edit" class="col-form-label">Jenis Kendaraan :</label>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" name="jenis_kendaraan_edit" id="jenis_kendaraan_edit" class="text-capitalize form-control" disabled>
+                                </div>
+                            </div>
+                            <span class="invalid-feedback error-jenis-kendaraan"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nomor_rangka" class="col-form-label">Nomor Rangka:</label>
+                        <input type="text" name="nomor_rangka" id="nomor_rangka" class="form-control" disabled>
+                        <div class="invalid-feedback error-nomor-rangka">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nomor_mesin" class="col-form-label">Nomor Mesin:</label>
+                        <input type="text" name="nomor_mesin" id="nomor_mesin" class="form-control" disabled>
+                        <div class="invalid-feedback error-nomor-mesin">
+
                         </div>
                     </div>
 
@@ -263,45 +309,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="jenis_kendaraan_edit" class="col-form-label">Jenis Kendaraan :</label>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input type="text" name="jenis_kendaraan_edit" id="jenis_kendaraan_edit" class="text-capitalize form-control" disabled>
-                                </div>
-                            </div>
-                            <span class="invalid-feedback error-jenis-kendaraan"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nomor_surat_pengeluaran" class="col-form-label">Nomor Surat Pengeluaran:</label>
-                        <input type="text" name="nomor_surat_pengeluaran" id="nomor_surat_pengeluaran" class="form-control">
-                        <div class="invalid-feedback error-nomor-surat-pengeluaran">
-
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nomor_rangka" class="col-form-label">Nomor Rangka:</label>
-                        <input type="text" name="nomor_rangka" id="nomor_rangka" class="form-control">
-                        <div class="invalid-feedback error-nomor-rangka">
-
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nomor_mesin" class="col-form-label">Nomor Mesin:</label>
-                        <input type="text" name="nomor_mesin" id="nomor_mesin" class="form-control">
-                        <div class="invalid-feedback error-nomor-mesin">
-
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         <label for="alamat_pemilik_kendaraan" class="col-form-label">Alamat Pemilik Kendaraan :</label>
-                        <textarea name="alamat_pemilik_kendaraan" id="alamat_pemilik_kendaraan" class="form-control"></textarea>
+                        <textarea name="alamat_pemilik_kendaraan" id="alamat_pemilik_kendaraan" class="form-control" disabled></textarea>
                         <div class=" invalid-feedback error-alamat-pemilik-kendaraan">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jenis_pelanggaran" class="col-form-label">Jenis Pelanggaran :</label>
+                        <input type="text" name="jenis_pelanggaran" id="jenis_pelanggaran" class="form-control" disabled>
+                        <div class=" invalid-feedback error-jenis-pelanggaran">
 
                         </div>
                     </div>
@@ -311,6 +329,18 @@
                         <input type="date" name="tanggal_keluar" id="tanggal_keluar" class="form-control">
                         <div class=" invalid-feedback error-tanggal-keluar">
 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tempat_penyimpanan_id_edit" class="col-form-label">Tempat Penyimpanan :</label>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" name="tempat_penyimpanan_id_edit" id="tempat_penyimpanan_id_edit" class="text-capitalize form-control" disabled>
+                                </div>
+                            </div>
+                            <span class="invalid-feedback error-nama-pemilik"></span>
                         </div>
                     </div>
 
@@ -328,14 +358,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="tempat_penyimpanan_id_edit" class="col-form-label">Tempat Penyimpanan :</label>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input type="text" name="tempat_penyimpanan_id_edit" id="tempat_penyimpanan_id_edit" class="text-capitalize form-control" disabled>
-                                </div>
-                            </div>
-                            <span class="invalid-feedback error-nama-pemilik"></span>
+                        <label for="jenis_ttd_id" class="col-form-label">Jenis Tanda Tangan :</label>
+                        <select name="jenis_ttd_id" id="jenis_ttd_id" class="form-control">
+                            <option value="">--Silahkan Pilih--</option>
+
+                        </select>
+                        <div class="invalid-feedback error-status-kendaraan">
+
                         </div>
                     </div>
 
@@ -427,6 +456,11 @@
 <script>
     $(document).ready(function(e) {
         $('#status_kendaraan_id').select2({
+            theme: 'bootstrap4',
+            dropdownParent: $('#editModal')
+        });
+
+        $('#jenis_ttd_id').select2({
             theme: 'bootstrap4',
             dropdownParent: $('#editModal')
         });
@@ -599,6 +633,7 @@
                 $("#nomor_mesin").val(response.nomor_mesin);
                 $("#alamat_pemilik_kendaraan").val(response.alamat_pemilik_kendaraan);
                 $("#tanggal_keluar").val(response.tanggal_keluar);
+                $("#jenis_pelanggaran").val(response.jenis_pelanggaran);
 
                 $("#status_kendaraan_id").val(response.status_kendaraan_id).trigger('change');
             }

@@ -90,10 +90,29 @@
                                                             <?php endif; ?>
                                                         <?php endif; ?>
                                                     <?php elseif (session()->get('ukpd_id') == 1) : ?>
-                                                        <?php if ($pengeluaran_kendaraan->status_kendaraan_id == 2 || $pengeluaran_kendaraan->status_kendaraan_id == 4) : ?>
-                                                            <a href="/petugas/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" class="btn btn-sm btn-outline-success" target="_blank">
-                                                                <i class="bi bi-file-pdf"></i>
-                                                            </a>
+                                                        <?php if ($pengeluaran_kendaraan->status_kendaraan_id == 4) : ?>
+                                                            <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-primary" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
+                                                            <?php endif; ?>
+                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 1) : ?>
+                                                            <button type="button" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#pengantarModal" id="ajukan" data-id="<?= $pengeluaran_kendaraan->id ?>">
+                                                                <i class="bi bi-file-pdf">Ajukan</i>
+                                                            </button>
+                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 2 || $pengeluaran_kendaraan->status_kendaraan_id == 5) : ?>
+                                                            <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-primary" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
+                                                                <a href="/petugas/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                    <i class="bi bi-file-pdf"></i>
+                                                                </a>
+                                                            <?php elseif ($pengeluaran_kendaraan->pengantar_sidang == null) : ?>
+                                                                <a href="/petugas/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                    <i class="bi bi-file-pdf"></i>
+                                                                </a>
+                                                            <?php endif; ?>
                                                         <?php endif; ?>
                                                     <?php endif; ?>
                                                 </td>
@@ -204,15 +223,14 @@
                     <?= csrf_field(); ?>
                     <div class="form-group">
                         <input type="hidden" name="pengeluaran_kendaraan_id" id="pengeluaran_kendaraan_id" class="form-control">
-                        <label for="pengantar_sidang" class="col-form-label">Upload Pengantar & Kwitansi Sidang (PDF) :</label>
+                        <label for="pengantar_sidang" class="col-form-label">Upload Pengantar & Kwitansi Sidang (PDF) Max (2MB) :</label>
                         <input type="file" name="pengantar_sidang" id="pengantar_sidang" class="form-control">
                         <div class="invalid-feedback error-pengantar">
-
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="tanggal_pengantar" class="col-form-label">Tanggal Surat Pengantar :</label>
+                        <label for="tanggal_pengantar" class="col-form-label">Tanggal Surat Pengantar Atau Kwitansi Sidang :</label>
                         <input type="date" name="tanggal_pengantar" id="tanggal_pengantar" class="form-control">
                         <div class="invalid-feedback error-tanggal-pengantar">
 

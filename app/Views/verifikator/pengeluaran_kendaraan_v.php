@@ -89,25 +89,35 @@
                                                         <?php endif; ?>
 
                                                         <?php if ($pengeluaran_kendaraan->status_kendaraan_id == 2) : ?>
-                                                            <a href="/verifikator/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" target="_blank" class="btn btn-sm btn-outline-primary">
-                                                                <i class="bi bi-file-pdf"></i>
-                                                            </a>
-                                                            <?php if ($pengeluaran_kendaraan->ukpd_id != 1) : ?>
-                                                                <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
-                                                                    <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
-                                                                        <i class="bi bi-eye"></i>
-                                                                    </a>
-                                                                <?php endif; ?>
+                                                            <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
+                                                                <a href="/verifikator/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                                    <i class="bi bi-file-pdf"></i>
+                                                                </a>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
+                                                            <?php elseif ($pengeluaran_kendaraan->pengantar_sidang == null) : ?>
+                                                                <a href="/verifikator/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                                    <i class="bi bi-file-pdf"></i>
+                                                                </a>
                                                             <?php endif; ?>
-                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 4 || $pengeluaran_kendaraan->status_kendaraan_id == 3 || $pengeluaran_kendaraan->status_kendaraan_id == 5) : ?>
-                                                            <?php if ($pengeluaran_kendaraan->ukpd_id != 1) : ?>
-                                                                <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
-                                                                    <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
-                                                                        <i class="bi bi-eye"></i>
-                                                                    </a>
-                                                                <?php endif; ?>
+                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 4 || $pengeluaran_kendaraan->status_kendaraan_id == 3) : ?>
+                                                            <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
+                                                            <?php endif; ?>
+                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 5) : ?>
+                                                            <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
+                                                                <a href="/verifikator/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                                    <i class="bi bi-file-pdf"></i>
+                                                                </a>
                                                             <?php endif; ?>
                                                         <?php endif; ?>
+
                                                     <?php endif; ?>
                                                 </td>
                                             </tr>

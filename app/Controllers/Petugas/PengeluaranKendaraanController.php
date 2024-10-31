@@ -143,7 +143,7 @@ class PengeluaranKendaraanController extends BaseController
             $jenisPenindakan = $this->jenisPenindakanModel->getJenisPenindakan();
             $tempatPenyimpanan = $this->tempatPenyimpananModel->getTempatPenyimpanan();
             $lokasiSidang = $this->lokasiSidangModel->getLokasiSidang();
-            $statusKendaraan = $this->statusKendaraanModel->where(["id" => 4])->get()->getResultObject();
+            $statusKendaraan = $this->statusKendaraanModel->where(["id" => 1])->get()->getResultObject();
             $typeKendaraan = $this->typeKendaraanModel->getTypeKendaraan();
             $kodeTrayek = $this->kodeTrayekModel->getKodeTrayek();
             $pejabat = $this->pejabatModel->getPejabatPenandaTanganWhereUKPD(session()->get('ukpd_id'));
@@ -627,7 +627,7 @@ class PengeluaranKendaraanController extends BaseController
 
                 $nama_pengantar = $pengantar_sidang->getRandomName();
 
-                $pengeluaran = $this->pengeluaranKendaraanModel->where(["id" => $pengeluaran_kendaraan_id])->get()->getRowObject();
+                $pengeluaran = $this->pengeluaranKendaraanModel->getPengeluaranKendaraanWhereId($pengeluaran_kendaraan_id);
 
                 $this->pengantarSidangModel->save([
                     'pengeluaran_kendaraan_id' => $pengeluaran_kendaraan_id,
@@ -635,9 +635,17 @@ class PengeluaranKendaraanController extends BaseController
                     'pengantar_sidang' => $nama_pengantar
                 ]);
 
-                $this->dataPenindakanModel->update($pengeluaran->data_penindakan_id, [
-                    'status_kendaraan_id' => 3
-                ]);
+
+                if ($pengeluaran->ukpd_id != 1) {
+                    $this->dataPenindakanModel->update($pengeluaran->data_penindakan_id, [
+                        'status_kendaraan_id' => 3
+                    ]);
+                } else {
+                    $this->dataPenindakanModel->update($pengeluaran->data_penindakan_id, [
+                        'status_kendaraan_id' => 4
+                    ]);
+                }
+
 
                 $pengantar_sidang->move('pengantar_sidang', $nama_pengantar);
 

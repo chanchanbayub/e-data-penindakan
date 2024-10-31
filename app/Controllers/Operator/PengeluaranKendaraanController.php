@@ -60,7 +60,7 @@ class PengeluaranKendaraanController extends BaseController
         $jenisPenindakan = $this->jenisPenindakanModel->getJenisPenindakan();
         $tempatPenyimpanan = $this->tempatPenyimpananModel->getTempatPenyimpanan();
         $lokasiSidang = $this->lokasiSidangModel->getLokasiSidang();
-        $statusKendaraan = $this->statusKendaraanModel->getStatusKendaraan();
+        $statusKendaraan = $this->statusKendaraanModel->getStatusKendaraanData();
         $pengeluaran_kendaraan = $this->pengeluaranKendaraanModel->getPengeluaranKendaraan(null);
 
         $data = [
