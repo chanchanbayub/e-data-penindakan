@@ -89,7 +89,11 @@
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Status Penindakan</div>
                                     <?php if ($data_penindakan->status_kendaraan_id == 1) : ?>
-                                        <div class="col-lg-9 col-md-8"><span class="badge bg-danger"><?= $data_penindakan->status_kendaraan ?></span></div>
+                                        <?php if ($data_penindakan->jenis_penindakan_id == 1) : ?>
+                                            <div class="col-lg-9 col-md-8"><span class="badge bg-danger"><?= $data_penindakan->status_kendaraan ?></span></div>
+                                        <?php else : ?>
+                                            <div class="col-lg-9 col-md-8"><span class="badge bg-danger">Tilang Dishub</span></div>
+                                        <?php endif; ?>
                                     <?php elseif ($data_penindakan->status_kendaraan_id == 2) : ?>
                                         <div class="col-lg-9 col-md-8"> <span class="badge bg-success"><?= $data_penindakan->status_kendaraan ?> </span></div>
                                     <?php elseif ($data_penindakan->status_kendaraan_id == 3) : ?>
