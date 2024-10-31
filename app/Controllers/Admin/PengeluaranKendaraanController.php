@@ -55,6 +55,7 @@ class PengeluaranKendaraanController extends BaseController
 
     public function index()
     {
+
         if (session()->get('role_management_id') == 2) {
             $ukpd = $this->ukpdModel->getUkpd(null);
             $jenisKendaraan = $this->jenisKendaraanModel->getJenisKendaraan();
@@ -62,7 +63,14 @@ class PengeluaranKendaraanController extends BaseController
             $tempatPenyimpanan = $this->tempatPenyimpananModel->getTempatPenyimpanan();
             $lokasiSidang = $this->lokasiSidangModel->getLokasiSidang();
             $statusKendaraan = $this->statusKendaraanModel->getStatusKendaraan();
+
             $pengeluaran_kendaraan = $this->pengeluaranKendaraanModel->getPengeluaranKendaraan(null);
+
+            $pengeluaran_perhari = $this->pengeluaranKendaraanModel->getPengeluaranHarian(date('Y-m-d'));
+            $total_pengeluaran = count($pengeluaran_perhari);
+
+            $pengajuan_perhari = $this->pengeluaranKendaraanModel->getPengajuanHarian(date('Y-m-d'));
+            $total_pengajuan = count($pengajuan_perhari);
         } else {
             $ukpd = $this->ukpdModel->getUkpd(session()->get('ukpd_id'));
             $jenisKendaraan = $this->jenisKendaraanModel->getJenisKendaraan();
@@ -83,7 +91,8 @@ class PengeluaranKendaraanController extends BaseController
             'lokasi_sidang' => $lokasiSidang,
             'status_kendaraan' => $statusKendaraan,
             'pengeluaran_kendaraan' => $pengeluaran_kendaraan,
-
+            'total_pengeluaran' => $total_pengeluaran,
+            'total_pengajuan' => $total_pengajuan,
         ];
 
         return view('admin/pengeluaran_kendaraan_v', $data);
