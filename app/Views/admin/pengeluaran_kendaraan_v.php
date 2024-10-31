@@ -396,6 +396,8 @@
                         <label for="jenis_ttd_id" class="col-form-label">Jenis Tanda Tangan :</label>
                         <select name="jenis_ttd_id" id="jenis_ttd_id" class="form-control">
                             <option value="">--Silahkan Pilih--</option>
+                            <option value="1">Tanda Tangan Elektronik</option>
+                            <option value="2">Tanda Tangan Manual</option>
 
                         </select>
                         <div class="invalid-feedback error-status-kendaraan">

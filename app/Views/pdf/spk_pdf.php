@@ -375,7 +375,9 @@
             </tr>
         </table>
     </div>
+
     <div class="ttd_data">
+        <!-- if ($pengeluaran->status_kendaraan_id != 2) :  -->
         <table id="ttd">
             <tr>
                 <td style="color: white;">a.n. Kepala Dinas Perhubungan Provinsi DKI Jakarta</td>
@@ -410,6 +412,30 @@
                 <td style="text-align: center">NIP. <?= $pejabat->nip ?> </td>
             </tr>
         </table>
+        <!-- else :  -->
+        <!-- <table id="ttd">
+            <tr>
+                <td style="color: white;">a.n. Kepala Dinas Perhubungan Provinsi DKI Jakarta</td>
+                <td style="text-align: center;">a.n. Kepala Dinas Perhubungan Provinsi DKI Jakarta</td>
+            </tr>
+            <tr>
+                <td style="color: white;">Kepala Bidang Pengendalian Operasional</td>
+                <td style="text-align: center;">Kepala Bidang Pengendalian Operasional</td>
+            </tr>
+            <tr>
+                <td style="color: white;">Kepala Bidang Pengendalian Operasional</td>
+                <td><img src="ttd/ttd_12.png" alt="ttd_data" style="width: 200px; margin-left:50px;"></td>
+            </tr>
+            <tr>
+                <td style="color: white;">NAMA LENGKAP</td>
+                <td style="text-align: center; text-transform:capitalize"><?= $pejabat->nama ?></td>
+            </tr>
+            <tr>
+                <td style="color: white;">NAMA LENGKAP</td>
+                <td style="text-align: center">NIP. <?= $pejabat->nip ?> </td>
+            </tr>
+        </table> -->
+        <!-- endif;  -->
     </div>
     <div class="footer">
         <table id="footer">
