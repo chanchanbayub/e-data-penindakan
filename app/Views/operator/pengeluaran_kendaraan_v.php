@@ -63,7 +63,8 @@
                                                 <?php endif; ?>
                                                 <td>
                                                     <?php if (session()->get('role_management_id') == 2 || session()->get('role_management_id') == 3) : ?>
-                                                        <button class="btn btn-outline-warning btn-sm" id="edit" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $pengeluaran_kendaraan->id ?>" type="button">
+
+                                                        <button class="btn btn-outline-warning btn-sm" id="edit" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $pengeluaran_kendaraan->id ?>" type="button" <?= ($pengeluaran_kendaraan->status_kendaraan_id == 2 ? "disabled" : ""); ?>>
                                                             <i class="bi bi-printer"></i>
                                                         </button>
 
@@ -84,9 +85,11 @@
                                                                     <i class="bi bi-eye"></i>
                                                                 </a>
                                                             <?php endif; ?>
-                                                        <?php endif; ?>
-
-                                                        <?php if ($pengeluaran_kendaraan->status_kendaraan_id == 2) : ?>
+                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 1) : ?>
+                                                            <button type="button" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#pengantarModal" id="ajukan" data-id="<?= $pengeluaran_kendaraan->id ?>">
+                                                                <i class="bi bi-file-pdf">Ajukan</i>
+                                                            </button>
+                                                        <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 2) : ?>
                                                             <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
                                                                 <a href="/operator/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" target="_blank" class="btn btn-sm btn-outline-primary">
                                                                     <i class="bi bi-file-pdf"></i>
@@ -116,6 +119,7 @@
                                                             <?php endif; ?>
                                                         <?php endif; ?>
                                                     <?php endif; ?>
+
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
@@ -251,7 +255,7 @@
 
                     <div class="form-group">
                         <label for="nomor_surat_pengeluaran" class="col-form-label">Nomor Surat Pengeluaran:</label>
-                        <input type="text" name="nomor_surat_pengeluaran" id="nomor_surat_pengeluaran" class="form-control" disabled>
+                        <input type="text" name="nomor_surat_pengeluaran" id="nomor_surat_pengeluaran" class="form-control">
                         <div class="invalid-feedback error-nomor-surat-pengeluaran">
 
                         </div>
@@ -341,7 +345,7 @@
 
                     <div class="form-group">
                         <label for="tanggal_keluar" class="col-form-label">Tanggal Keluar :</label>
-                        <input type="date" name="tanggal_keluar" id="tanggal_keluar" class="form-control" disabled>
+                        <input type="date" name="tanggal_keluar" id="tanggal_keluar" class="form-control">
                         <div class=" invalid-feedback error-tanggal-keluar">
 
                         </div>
@@ -396,7 +400,7 @@
                     <?= csrf_field(); ?>
                     <div class="form-group">
                         <input type="hidden" name="pengeluaran_kendaraan_id" id="pengeluaran_kendaraan_id" class="form-control">
-                        <label for="pengantar_sidang" class="col-form-label">Upload Pengantar & Kwitansi Sidang (PDF) :</label>
+                        <label for="pengantar_sidang" class="col-form-label">Upload Pengantar & Kwitansi Sidang (PDF) Max : (2MB) :</label>
                         <input type="file" name="pengantar_sidang" id="pengantar_sidang" class="form-control">
                         <div class="invalid-feedback error-pengantar">
 
@@ -404,7 +408,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="tanggal_pengantar" class="col-form-label">Tanggal Surat Pengantar :</label>
+                        <label for="tanggal_pengantar" class="col-form-label">Tanggal Surat Pengantar Atau Kwitansi Sidang :</label>
                         <input type="date" name="tanggal_pengantar" id="tanggal_pengantar" class="form-control">
                         <div class="invalid-feedback error-tanggal-pengantar">
 
@@ -617,7 +621,6 @@
                 id: id,
             },
             success: function(response) {
-                console.log(response);
                 $("#id_edit").val(response.id);
                 $("#data_penindakan_id").val(response.data_penindakan_id);
                 $("#nomor_kendaraan_edit").val(`${response.kode_wilayah_awal} ${response.nomor_kendaraan} ${response.kode_wilayah_akhir}`);
@@ -635,6 +638,7 @@
                 $("#tanggal_keluar").val(response.tanggal_keluar);
 
                 $("#status_kendaraan_id").val(response.status_kendaraan_id).trigger('change');
+
             }
         });
     });

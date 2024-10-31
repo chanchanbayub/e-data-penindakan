@@ -77,11 +77,11 @@
                                                             <?php endif; ?>
                                                         <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 4 || $pengeluaran_kendaraan->status_kendaraan_id == 2) : ?>
                                                             <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
-                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-primary" target="_blank">
-                                                                    <i class="bi bi-eye"></i>
-                                                                </a>
                                                                 <a href="/petugas/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" class="btn btn-sm btn-outline-success" target="_blank">
                                                                     <i class="bi bi-file-pdf"></i>
+                                                                </a>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-primary" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
                                                                 </a>
                                                             <?php else : ?>
                                                                 <a href="/petugas/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" class="btn btn-sm btn-outline-success" target="_blank">

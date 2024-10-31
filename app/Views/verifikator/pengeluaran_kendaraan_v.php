@@ -109,12 +109,13 @@
                                                             <?php endif; ?>
                                                         <?php elseif ($pengeluaran_kendaraan->status_kendaraan_id == 5) : ?>
                                                             <?php if ($pengeluaran_kendaraan->pengantar_sidang != null) : ?>
-                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
-                                                                    <i class="bi bi-eye"></i>
-                                                                </a>
                                                                 <a href="/verifikator/cetak_pdf/<?= $pengeluaran_kendaraan->id ?>" target="_blank" class="btn btn-sm btn-outline-primary">
                                                                     <i class="bi bi-file-pdf"></i>
                                                                 </a>
+                                                                <a href="/pengantar_sidang/<?= $pengeluaran_kendaraan->pengantar_sidang ?>" class="btn btn-sm btn-outline-success" target="_blank">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
+
                                                             <?php endif; ?>
                                                         <?php endif; ?>
 
