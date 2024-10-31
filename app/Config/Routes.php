@@ -147,6 +147,8 @@ $routes->group('/petugas', function ($routes) {
 
     $routes->get('cetak_pdf/(:any)', 'Pdf\PdfController::index/$1');
     $routes->get('cetak_pengantar/(:any)', 'Pdf\PdfController::cetak_pengantar/$1');
+
+    $routes->post('cetak_laporan/', 'Pdf\PdfController::cetak_laporan');
 });
 
 $routes->group('/operator', function ($routes) {
@@ -173,6 +175,8 @@ $routes->group('/operator', function ($routes) {
 
     $routes->get('cetak_pdf/(:any)', 'Pdf\PdfController::index/$1');
     $routes->get('cetak_pengantar/(:any)', 'Pdf\PdfController::cetak_pengantar/$1');
+
+    $routes->post('cetak_laporan/', 'Pdf\PdfController::cetak_laporan');
 });
 
 $routes->group('/verifikator', function ($routes) {
@@ -199,6 +203,8 @@ $routes->group('/verifikator', function ($routes) {
 
     $routes->get('cetak_pdf/(:any)', 'Pdf\PdfController::index/$1');
     $routes->get('cetak_pengantar/(:any)', 'Pdf\PdfController::cetak_pengantar/$1');
+
+    $routes->post('cetak_laporan/', 'Pdf\PdfController::cetak_laporan');
 });
 
 $routes->group('/auth', function ($routes) {
