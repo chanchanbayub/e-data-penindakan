@@ -424,7 +424,7 @@
                 </tr>
                 <tr>
                     <td style="color: white;">Kepala Bidang Pengendalian Operasional</td>
-                    <td><img src="ttd/ttd_12.png" alt="ttd_data" style="width: 180px; margin-left:50px;"></td>
+                    <td><img src="ttd/ttd_12.png" alt="ttd_data" style="width: 200px; height: 130px; margin-left:57px; margin-top:-20px"></td>
                 </tr>
                 <tr>
                     <td style="color: white;">NAMA LENGKAP</td>
