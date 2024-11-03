@@ -36,35 +36,20 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <table class="table table-bordered datatable text-capitalize">
+                                <table class="table table-bordered text-capitalize" id="data_table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">No</th>
-                                            <th scope="col">UKPD</th>
-                                            <th scope="col">Nomor Kendaraan</th>
-                                            <th scope="col">Tanggal Penindakan</th>
-                                            <th scope="col">Jenis Penindakan</th>
-                                            <th scope="col">Tempat Penyimpanan</th>
-                                            <th scope="col">Aksi</th>
+                                            <th>No</th>
+                                            <th>UKPD</th>
+                                            <th>Nomor Kendaraan</th>
+                                            <th>Tanggal Penindakan</th>
+                                            <th>Jenis Penindakan</th>
+                                            <th>Tempat Penyimpanan</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1; ?>
-                                        <?php foreach ($data_penindakan as $data_penindakan) : ?>
-                                            <tr>
-                                                <th scope="row"><a href="#"><?= $no++ ?></a></th>
-                                                <td><?= $data_penindakan->ukpd ?></td>
-                                                <td><?= $data_penindakan->kode_wilayah_awal ?> <?= $data_penindakan->nomor_kendaraan ?> <?= $data_penindakan->kode_wilayah_akhir ?> </td>
-                                                <td><?= date('d-m-Y', strtotime($data_penindakan->tanggal_penindakan)) ?></td>
-                                                <td><?= $data_penindakan->jenis_penindakan ?></td>
-                                                <td><?= $data_penindakan->tempat_penyimpanan ?></td>
-                                                <td>
-                                                    <a href="/operator/data_penindakan/views/<?= $data_penindakan->nomor_bap ?>" class="btn btn-sm btn-outline-primary">
-                                                        <i class="bi bi-eye"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
+
                                     </tbody>
                                 </table>
 
@@ -306,8 +291,46 @@
 
 
 <script src="/assets/vendor/jquery/jquery.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 
 <script>
+    $(document).ready(function() {
+        $('#data_table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: '/operator/getDataPenindakan',
+                method: 'POST'
+            },
+            order: [],
+            columns: [{
+                    data: 'no',
+                    orderable: true
+                },
+                {
+                    data: 'ukpd',
+                },
+                {
+                    data: 'concat_nomor_kendaraan',
+                },
+                {
+                    data: 'tanggal_penindakan',
+                },
+                {
+                    data: 'jenis_penindakan',
+                },
+                {
+                    data: 'tempat_penyimpanan',
+                },
+                {
+                    data: 'action',
+                    orderable: false
+                },
+
+            ],
+        });
+    });
+
     $(document).ready(function() {
         $('#ukpd_id').select2({
             theme: 'bootstrap4',
@@ -349,6 +372,8 @@
             dropdownParent: $('#smallModal')
         });
     });
+
+
 
     $(document).on('click', '#cek_kendaraan', function(e) {
         e.preventDefault();

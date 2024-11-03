@@ -155,6 +155,9 @@ $routes->group('/operator', function ($routes) {
     $routes->get('dashboard', 'Operator\DashboardController::index');
     // Data Penindakan
     $routes->get('data_penindakan', 'Operator\DataPenindakanController::index');
+    $routes->post('getDataPenindakan', 'Operator\DataPenindakanController::getDataPenindakan');
+
+
     $routes->get('data_penindakan/views/(:any)', 'Operator\DataPenindakanController::views/$1');
     $routes->get('data_penindakan/getTypeKendaraan', 'Operator\DataPenindakanController::getTypeKendaraan');
     $routes->get('data_penindakan/getDataKendaraan', 'Operator\DataPenindakanController::getDataKendaraan');
