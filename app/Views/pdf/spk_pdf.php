@@ -424,8 +424,17 @@
                 </tr>
                 <tr>
                     <td style="color: white;">Kepala Bidang Pengendalian Operasional</td>
-                    <td><img src="ttd/ttd_12.png" alt="ttd_data" style="width: 200px; height: 130px; margin-left:57px; margin-top:-20px"></td>
+                    <td></td>
                 </tr>
+                <tr>
+                    <td style="color: white;">Kepala Bidang Pengendalian Operasional</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="color: white;">Kepala Bidang Pengendalian Operasional</td>
+                    <td></td>
+                </tr>
+
                 <tr>
                     <td style="color: white;">NAMA LENGKAP</td>
                     <td style="text-align: center; text-transform:capitalize"><?= $pejabat->nama ?></td>
@@ -435,6 +444,7 @@
                     <td style="text-align: center">NIP. <?= $pejabat->nip ?> </td>
                 </tr>
             </table>
+            <img src="ttd/ttd_12.png" alt="ttd_data" style="width: 180px; height: 130px; margin-left:400px; margin-top:-150px" class="ttd_digital">
         <?php endif; ?>
     </div>
     <div class="footer">
