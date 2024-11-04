@@ -125,6 +125,7 @@ $routes->group('/admin', function ($routes) {
 
 $routes->group('/petugas', function ($routes) {
     $routes->get('dashboard', 'Petugas\DashboardController::index');
+    $routes->post('getDataPenindakan', 'Petugas\DataPenindakanController::getDataPenindakan');
     // Data Penindakan
     $routes->get('data_penindakan', 'Petugas\DataPenindakanController::index');
     $routes->get('data_penindakan/views/(:any)', 'Petugas\DataPenindakanController::views/$1');
