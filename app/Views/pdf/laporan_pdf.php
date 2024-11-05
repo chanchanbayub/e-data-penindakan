@@ -14,7 +14,7 @@
         width: 100%;
         vertical-align: middle;
         font-family: Arial;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     table,
@@ -46,10 +46,11 @@
         <thead>
             <tr>
                 <th scope="col" style="text-align: center;">No.</th>
-                <th scope="col">Unit Penindak</th>
+                <th scope="col">Tanggal Pengeluaran</th>
                 <th scope="col">Type Kendaraan</th>
                 <th scope="col">Nomor Kendaraan</th>
                 <th scope="col">Lokasi Penyimpanan</th>
+                <th scope="col">Unit Penindak</th>
             </tr>
         </thead>
         <tbody>
@@ -57,10 +58,11 @@
             <?php foreach ($laporan as $laporan) : ?>
                 <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $laporan->ukpd ?></td>
+                    <td><?= date_indo(date('Y-m-d', strtotime($laporan->tanggal_keluar))) ?></td>
                     <td><?= $laporan->type_kendaraan ?> - <?= $laporan->jenis_kendaraan ?></td>
                     <td><?= $laporan->kode_wilayah_awal ?> <?= $laporan->nomor_kendaraan ?> <?= $laporan->kode_wilayah_akhir ?> </td>
                     <td><?= $laporan->tempat_penyimpanan ?> </td>
+                    <td><?= $laporan->ukpd ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

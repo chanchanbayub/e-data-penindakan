@@ -92,6 +92,6 @@ class PdfController extends BaseController
         $this->mpdf->WriteHTML($html);
 
         $this->response->setHeader('Content-Type', 'application/pdf');;
-        $this->mpdf->output('Laporan - ' . 'Pengeluaran Kendaraan' . '.pdf', 'D');
+        $this->mpdf->output(' ' . format_indo(date('Y-m-d', strtotime($tanggal_awal))) . '' . '.pdf', 'D');
     }
 }
