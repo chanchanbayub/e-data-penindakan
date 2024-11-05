@@ -384,7 +384,7 @@
                     <td style="text-align: center;">a.n. Kepala Dinas Perhubungan Provinsi DKI Jakarta</td>
                 </tr>
                 <tr>
-                    <td style="color: white;">Kepala Bidang Pengendalian Operasional</td>
+                    <td style="color: white;">a.n. Kepala Dinas Perhubungan Provinsi DKI Jakarta</td>
                     <td style="text-align: center;">Kepala Bidang Pengendalian Operasional</td>
                 </tr>
                 <tr>
@@ -393,7 +393,11 @@
                 </tr>
                 <tr>
                     <td style="color: white;">Lalu Lintas Dan Angkutan Jalan</td>
-                    <td style="text-align: center;"></td>
+                    <?php if ($pengeluaran->status_kendaraan_id == 5) : ?>
+                        <td style="text-align: center;"><img src="ttd/paraf_12_1.png" alt="ttd_data" style="width: 30px; margin-left:-270px; margin-top:-60px" class="ttd_digital"></td>
+                    <?php else: ?>
+                        <td style="text-align: center;"></td>
+                    <?php endif; ?>
                 </tr>
                 <tr>
                     <td style="color: white;">Lalu Lintas Dan Angkutan Jalan</td>
@@ -401,7 +405,7 @@
                 </tr>
                 <tr>
                     <td style="color: white;">Lalu Lintas Dan Angkutan Jalan</td>
-                    <td style="text-align: center;"></td>
+                    <td style=""></td>
                 </tr>
                 <tr>
                     <td style="color: white;">NAMA LENGKAP</td>
