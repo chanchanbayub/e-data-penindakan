@@ -196,6 +196,8 @@ $routes->group('/verifikator', function ($routes) {
     $routes->get('data_penindakan/edit', 'Verifikator\DataPenindakanController::edit');
     $routes->post('data_penindakan/delete', 'Verifikator\DataPenindakanController::delete');
     $routes->post('data_penindakan/update', 'Verifikator\DataPenindakanController::update');
+
+    $routes->post('getDataPenindakan', 'Verifikator\DataPenindakanController::getDataPenindakan');
     // Pengeluaran Kendaraan
     $routes->get('pengeluaran_kendaraan', 'Verifikator\PengeluaranKendaraanController::index');
     $routes->get('pengeluaran_kendaraan/search', 'Verifikator\PengeluaranKendaraanController::search');

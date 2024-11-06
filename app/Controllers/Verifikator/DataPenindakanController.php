@@ -14,6 +14,7 @@ use App\Models\Admin\TypeKendaraanModel;
 use App\Models\Admin\UkpdModel;
 use App\Models\Verifikator\DataPenindakanModel;
 use CodeIgniter\HTTP\ResponseInterface;
+use Hermawan\DataTables\DataTable;
 use PHPUnit\Util\Type;
 
 class DataPenindakanController extends BaseController
@@ -49,7 +50,6 @@ class DataPenindakanController extends BaseController
     {
 
         if (session()->get('role_management_id') == 2 || session()->get('role_management_id') == 3 || session()->get('role_management_id') == 4) {
-            $data_penindakan = $this->dataPenindakanModel->getDataPenindakan(null);
             $ukpd = $this->ukpdModel->getUkpd(null);
             $jenisKendaraan = $this->jenisKendaraanModel->getJenisKendaraan();
             $jenisPenindakan = $this->jenisPenindakanModel->getJenisPenindakan();
@@ -60,7 +60,6 @@ class DataPenindakanController extends BaseController
 
         $data = [
             'title' => 'Data Penindakan',
-            'data_penindakan' => $data_penindakan,
             'ukpd' => $ukpd,
             'jenis_kendaraan' => $jenisKendaraan,
             'jenis_penindakan' => $jenisPenindakan,
@@ -70,6 +69,23 @@ class DataPenindakanController extends BaseController
         ];
 
         return view('verifikator/data_penindakan_v', $data);
+    }
+
+    public function getDataPenindakan()
+    {
+        if ($this->request->isAjax()) {
+            $data_penindakan = $this->dataPenindakanModel->getDataPenindakanDataTable();
+
+            return DataTable::of($data_penindakan)
+                ->add('action', function ($row) {
+                    return '<a href="/verifikator/data_penindakan/views/' . $row->nomor_bap . ' " class="btn btn-sm btn-outline-primary">
+                               <i class="bi bi-eye"></i>
+                            </a>';
+                })
+                ->setSearchableColumns(['kode_wilayah_awal', 'nomor_kendaraan', 'kode_wilayah_akhir', 'tanggal_penindakan', 'jenis_penindakan', 'tempat_penyimpanan', 'ukpd'])
+
+                ->addNumbering('no')->toJson(true);
+        }
     }
 
     public function views($nomor_bap)

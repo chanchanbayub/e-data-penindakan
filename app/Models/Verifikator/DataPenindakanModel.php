@@ -235,4 +235,19 @@ class DataPenindakanModel extends Model
                 ->get()->getResultObject();
         }
     }
+
+    public function getDataPenindakanDataTable()
+    {
+        $db = db_connect();
+        $builder = $db->table($this->table);
+        $builder = $builder->select('data_penindakan_table.id,data_penindakan_table.ukpd_id,data_penindakan_table.nomor_bap , data_penindakan_table.tanggal_penindakan, ukpd_table.ukpd, tempat_penyimpanan_table.tempat_penyimpanan, jenis_penindakan_table.jenis_penindakan')
+            ->select("CONCAT(data_penindakan_table.kode_wilayah_awal,' ',data_penindakan_table.nomor_kendaraan, ' ' ,data_penindakan_table.kode_wilayah_akhir) as concat_nomor_kendaraan")
+            ->join('ukpd_table', 'ukpd_table.id = data_penindakan_table.ukpd_id')
+            ->join('jenis_kendaraan_table', 'jenis_kendaraan_table.id = data_penindakan_table.jenis_kendaraan_id')
+            ->join('jenis_penindakan_table', 'jenis_penindakan_table.id = data_penindakan_table.jenis_penindakan_id')
+            ->join('tempat_penyimpanan_table', 'tempat_penyimpanan_table.id = data_penindakan_table.tempat_penyimpanan_id')
+            ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id');
+
+        return $builder->orderBy('data_penindakan_table.tanggal_penindakan', 'desc');
+    }
 }

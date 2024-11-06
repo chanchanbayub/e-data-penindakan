@@ -81,7 +81,11 @@ class DataPenindakanController extends BaseController
                 ->add('action', function ($row) {
                     return '<a href="/admin/data_penindakan/views/' . $row->nomor_bap . ' " class="btn btn-sm btn-outline-primary">
                                <i class="bi bi-eye"></i>
-                            </a>';
+                            </a>
+                             <button class="btn btn-sm btn-outline-danger" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="' . $row->id . '" type="button">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                            ';
                 })
                 ->setSearchableColumns(['kode_wilayah_awal', 'nomor_kendaraan', 'kode_wilayah_akhir', 'tanggal_penindakan', 'jenis_penindakan', 'tempat_penyimpanan', 'ukpd'])
 
