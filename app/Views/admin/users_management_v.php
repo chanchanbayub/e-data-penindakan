@@ -43,7 +43,6 @@
                                             <th scope="col">No</th>
                                             <th scope="col">UKPD</th>
                                             <th scope="col">Nama </th>
-                                            <th scope="col">NIP / NPJLP / NPTT</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Role Management</th>
                                             <th scope="col">Aksi</th>
@@ -57,7 +56,6 @@
                                                 <td><?= $users_management->ukpd ?></td>
                                                 <td><?= $users_management->nama ?></td>
                                                 <td><?= $users_management->email ?></td>
-                                                <td><?= $users_management->nip ?></td>
                                                 <td><?= $users_management->role_management ?></td>
                                                 <td>
                                                     <button class="btn btn-sm btn-outline-warning" id="edit" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $users_management->id ?>" type="button">
@@ -123,7 +121,7 @@
 
                     <div class="form-group">
                         <label for="nip" class="col-form-label">NIP / NPJLP / NPTT :</label>
-                        <input type="text" class="form-control" id="nip" name="nip">
+                        <input type="password" class="form-control" id="nip" name="nip">
                         <div class=" invalid-feedback error-nip">
                         </div>
                     </div>
@@ -212,7 +210,7 @@
 
                     <div class="form-group">
                         <label for="nip" class="col-form-label">NIP / NPJLP / NPTT</label>
-                        <input type="text" class="form-control" id="nip_edit" name="nip">
+                        <input type="password" class="form-control" id="nip_edit" name="nip">
                         <div class="invalid-feedback error-nip-edit">
                         </div>
                     </div>
@@ -407,7 +405,7 @@
                 $("#id_edit").val(response.users_management.id);
                 $("#nama_edit").val(response.users_management.nama);
                 $("#email_edit").val(response.users_management.email);
-                $("#nip_edit").val(response.users_management.nip);
+                $("#nip_edit").val(response.nip);
 
                 let ukpd_data = `<option value="">--Silahkan Pilih--</option>`;
 

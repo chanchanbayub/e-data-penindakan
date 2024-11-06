@@ -133,6 +133,7 @@ class UsersManagementController extends BaseController
             }
             $data = [
                 'users_management' => $users_management,
+                'nip' => $users_management["nip"],
                 'ukpd' => $ukpd,
                 'role_management' => $role_management
             ];
