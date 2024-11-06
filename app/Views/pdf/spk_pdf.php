@@ -393,11 +393,6 @@
                 </tr>
                 <tr>
                     <td style="color: white;">Lalu Lintas Dan Angkutan Jalan</td>
-                    <?php if ($pengeluaran->status_kendaraan_id == 5) : ?>
-                        <td style="text-align: center;"><img src="ttd/paraf_12_1.png" alt="ttd_data" style="width: 25px; margin-left:-270px; margin-top:-57px" class="ttd_digital"></td>
-                    <?php else: ?>
-                        <td style="text-align: center;"></td>
-                    <?php endif; ?>
                 </tr>
                 <tr>
                     <td style="color: white;">Lalu Lintas Dan Angkutan Jalan</td>
