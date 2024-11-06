@@ -14,6 +14,7 @@ use App\Models\Admin\TempatPenyimpanModel;
 use App\Models\Admin\TypeKendaraanModel;
 use App\Models\Admin\UkpdModel;
 use CodeIgniter\HTTP\ResponseInterface;
+use Hermawan\DataTables\DataTable;
 
 class DataPenindakanController extends BaseController
 {
@@ -69,6 +70,23 @@ class DataPenindakanController extends BaseController
         ];
 
         return view('admin/data_penindakan_v', $data);
+    }
+
+    public function getDataPenindakan()
+    {
+        if ($this->request->isAjax()) {
+            $data_penindakan = $this->dataPenindakanModel->getDataPenindakanDataTable();
+
+            return DataTable::of($data_penindakan)
+                ->add('action', function ($row) {
+                    return '<a href="/admin/data_penindakan/views/' . $row->nomor_bap . ' " class="btn btn-sm btn-outline-primary">
+                               <i class="bi bi-eye"></i>
+                            </a>';
+                })
+                ->setSearchableColumns(['kode_wilayah_awal', 'nomor_kendaraan', 'kode_wilayah_akhir', 'tanggal_penindakan', 'jenis_penindakan', 'tempat_penyimpanan', 'ukpd'])
+
+                ->addNumbering('no')->toJson(true);
+        }
     }
 
     public function views($nomor_bap)

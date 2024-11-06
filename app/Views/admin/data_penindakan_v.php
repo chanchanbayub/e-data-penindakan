@@ -36,7 +36,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <table class="table table-bordered datatable text-capitalize">
+                                <table class="table table-bordered text-capitalize" id="data_table">
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
@@ -49,25 +49,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1; ?>
-                                        <?php foreach ($data_penindakan as $data_penindakan) : ?>
-                                            <tr>
-                                                <th scope="row"><a href="#"><?= $no++ ?></a></th>
-                                                <td><?= $data_penindakan->ukpd ?></td>
-                                                <td><?= $data_penindakan->kode_wilayah_awal ?> <?= $data_penindakan->nomor_kendaraan ?> <?= $data_penindakan->kode_wilayah_akhir ?> </td>
-                                                <td><?= date('d-m-Y', strtotime($data_penindakan->tanggal_penindakan)) ?></td>
-                                                <td><?= $data_penindakan->jenis_penindakan ?></td>
-                                                <td><?= $data_penindakan->tempat_penyimpanan ?></td>
-                                                <td>
-                                                    <a href="/admin/data_penindakan/views/<?= $data_penindakan->nomor_bap ?>" class="btn btn-sm btn-outline-primary">
-                                                        <i class="bi bi-eye"></i>
-                                                    </a>
-                                                    <button class="btn btn-sm btn-outline-danger" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?= $data_penindakan->id ?>" type="button">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
+
                                     </tbody>
                                 </table>
 
@@ -365,6 +347,43 @@
 <script src="/assets/vendor/jquery/jquery.js"></script>
 
 <script>
+    $(document).ready(function() {
+        $('#data_table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: '/admin/getDataPenindakan',
+                method: 'POST'
+            },
+            order: [],
+            columns: [{
+                    data: 'no',
+                    orderable: true
+                },
+                {
+                    data: 'ukpd',
+                },
+                {
+                    data: 'concat_nomor_kendaraan',
+                },
+                {
+                    data: 'tanggal_penindakan',
+                },
+                {
+                    data: 'jenis_penindakan',
+                },
+                {
+                    data: 'tempat_penyimpanan',
+                },
+                {
+                    data: 'action',
+                    orderable: false
+                },
+
+            ],
+        });
+    });
+
     $(document).ready(function() {
         $('#ukpd_id').select2({
             theme: 'bootstrap4',

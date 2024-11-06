@@ -26,7 +26,7 @@ class PengeluaranKendaraanModel extends Model
                 ->join('ukpd_table', 'ukpd_table.id = data_penindakan_table.ukpd_id')
                 ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id')
                 ->join('pengantar_table', 'pengantar_table.pengeluaran_kendaraan_id = pengeluaran_kendaraan_table.id', 'left')
-                ->orderBy('pengeluaran_kendaraan_table.id desc')
+                ->orderBy('pengeluaran_kendaraan_table.tanggal_keluar desc')
                 ->get()->getResultObject();
         } else {
             return $this->table($this->table)
@@ -36,7 +36,7 @@ class PengeluaranKendaraanModel extends Model
                 ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id')
                 ->join('pengantar_table', 'pengantar_table.pengeluaran_kendaraan_id = pengeluaran_kendaraan_table.id', 'left')
                 ->where(["data_penindakan_table.ukpd_id" => $ukpd_id])
-                ->orderBy('pengeluaran_kendaraan_table.id desc')
+                ->orderBy('pengeluaran_kendaraan_table.tanggal_keluar desc')
                 ->get()->getResultObject();
         }
     }
@@ -126,7 +126,7 @@ class PengeluaranKendaraanModel extends Model
             ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id')
             ->where("pengeluaran_kendaraan_table.tanggal_keluar BETWEEN '$tanggal_awal' AND '$tanggal_akhir'")
             ->where(["data_penindakan_table.status_kendaraan_id" => 2])
-            ->orderBy('pengeluaran_kendaraan_table.tanggal_keluar ASC')
+            ->orderBy('pengeluaran_kendaraan_table.tanggal_keluar desc')
             ->get()->getResultObject();
     }
 

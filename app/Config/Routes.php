@@ -104,6 +104,7 @@ $routes->group('/admin', function ($routes) {
     $routes->get('data_penindakan/edit', 'Admin\DataPenindakanController::edit');
     $routes->post('data_penindakan/delete', 'Admin\DataPenindakanController::delete');
     $routes->post('data_penindakan/update', 'Admin\DataPenindakanController::update');
+    $routes->post('getDataPenindakan', 'Admin\DataPenindakanController::getDataPenindakan');
 
     // Pengeluaran Kendaraan
     $routes->get('pengeluaran_kendaraan', 'Admin\PengeluaranKendaraanController::index');
