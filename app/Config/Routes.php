@@ -37,6 +37,7 @@ $routes->group('/admin', function ($routes) {
     $routes->get('users_management/edit', 'Admin\UsersManagementController::edit');
     $routes->post('users_management/delete', 'Admin\UsersManagementController::delete');
     $routes->post('users_management/update', 'Admin\UsersManagementController::update');
+    $routes->post('getDataUsersManagement', 'Admin\UsersManagementController::getDataUsersManagement');
 
     // Jenis Kendaraan
     $routes->get('jenis_kendaraan', 'Admin\JenisKendaraanController::index');

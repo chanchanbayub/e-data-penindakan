@@ -50,4 +50,17 @@ class UsersManagementModel extends Model
             ->orderBy('id desc')
             ->get()->getRowObject();
     }
+
+
+    public function getUsersManagamentDataTable()
+    {
+        $db = db_connect();
+        $builder = $db->table($this->table);
+        $builder = $builder->select('users_management_table.id, users_management_table.ukpd_id, users_management_table.nama, users_management_table.email, users_management_table.nip, ukpd_table.ukpd, role_management_table.role_management')
+            ->join('ukpd_table', 'ukpd_table.id = users_management_table.ukpd_id')
+            ->join('role_management_table', 'role_management_table.id = users_management_table.role_management_id')
+            ->orderBy('id desc');
+
+        return $builder->orderBy('users_management_table.id', 'desc');
+    }
 }

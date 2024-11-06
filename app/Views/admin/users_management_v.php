@@ -37,7 +37,7 @@
 
                             <div class="card-body">
                                 <h5 class="card-title text-capitalize"><?= $title ?> <span>| Table </span></h5>
-                                <table class="table table-bordered datatable">
+                                <table class="table table-bordered" id="datatable">
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
@@ -49,24 +49,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1; ?>
-                                        <?php foreach ($users_management as $users_management) : ?>
-                                            <tr>
-                                                <th scope="row"><a href="#"><?= $no++ ?></a></th>
-                                                <td><?= $users_management->ukpd ?></td>
-                                                <td><?= $users_management->nama ?></td>
-                                                <td><?= $users_management->email ?></td>
-                                                <td><?= $users_management->role_management ?></td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-outline-warning" id="edit" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $users_management->id ?>" type="button">
-                                                        <i class="bi bi-pencil-square"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-outline-danger" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?= $users_management->id ?>" type="button">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
+
                                     </tbody>
                                 </table>
 
@@ -238,6 +221,40 @@
 <script src="/assets/vendor/jquery/jquery.js"></script>
 
 <script>
+    $(document).ready(function() {
+        $('#datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: '/admin/getDataUsersManagement',
+                method: 'POST'
+            },
+            order: [],
+            columns: [{
+                    data: 'no',
+                    orderable: true
+                },
+                {
+                    data: 'ukpd',
+                },
+                {
+                    data: 'nama',
+                },
+                {
+                    data: 'email',
+                },
+                {
+                    data: 'role_management',
+                },
+                {
+                    data: 'action',
+                    orderable: false
+                },
+
+            ],
+        });
+    });
+
     $(document).ready(function() {
         $('#ukpd_id').select2({
             theme: 'bootstrap4',

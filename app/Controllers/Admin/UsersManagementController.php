@@ -7,6 +7,7 @@ use App\Models\Admin\RoleManagementModel;
 use App\Models\Admin\UkpdModel;
 use App\Models\Admin\UsersManagementModel;
 use CodeIgniter\HTTP\ResponseInterface;
+use Hermawan\DataTables\DataTable;
 
 class UsersManagementController extends BaseController
 {
@@ -43,6 +44,26 @@ class UsersManagementController extends BaseController
         ];
 
         return view('admin/users_management_v', $data);
+    }
+
+    public function getDataUsersManagement()
+    {
+        if ($this->request->isAjax()) {
+            $users_management = $this->usersManagementModel->getUsersManagamentDataTable();
+
+            return DataTable::of($users_management)
+                ->add('action', function ($row) {
+                    return '<button class="btn btn-sm btn-outline-warning" id="edit" data-bs-toggle="modal" data-bs-target="#editModal" data-id="' . $row->id . '"type="button">
+                                                        <i class="bi bi-pencil-square"></i>
+                                                    </button>
+                            <button class="btn btn-sm btn-outline-danger" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="' . $row->id . '" type="button">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>';
+                })
+                ->setSearchableColumns(['ukpd', 'nama', 'email', 'role_management'])
+
+                ->addNumbering('no')->toJson(true);
+        }
     }
 
     public function insert()
