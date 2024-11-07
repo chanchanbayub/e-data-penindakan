@@ -320,7 +320,7 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input type="text" name="nama_pemilik_edit" id="nama_pemilik_edit" class="text-uppercase form-control" disabled>
+                                    <input type="text" name="nama_pemilik" id="nama_pemilik_edit" class="text-uppercase form-control">
                                 </div>
                             </div>
                             <span class="invalid-feedback error-nama-pemilik"></span>
@@ -652,6 +652,7 @@
         let nomor_mesin = $('#nomor_mesin').val();
         let alamat_pemilik_kendaraan = $('#alamat_pemilik_kendaraan').val();
         let tanggal_keluar = $('#tanggal_keluar').val();
+        let nama_pemilik = $('#nama_pemilik_edit').val();
         let status_kendaraan_id = $('#status_kendaraan_id').val();
 
 
@@ -667,6 +668,7 @@
                 nomor_mesin: nomor_mesin,
                 alamat_pemilik_kendaraan: alamat_pemilik_kendaraan,
                 tanggal_keluar: tanggal_keluar,
+                nama_pemilik: nama_pemilik,
                 status_kendaraan_id: status_kendaraan_id,
             },
             beforeSend: function() {
@@ -693,6 +695,14 @@
                     } else {
                         $("#nomor_rangka").removeClass('is-invalid');
                         $(".error-nomor-rangka").html('');
+                    }
+
+                    if (response.error.nama_pemilik) {
+                        $("#nama_pemilik_edit").addClass('is-invalid');
+                        $(".error-nama-pemilik").html(response.error.nama_pemilik);
+                    } else {
+                        $("#nama_pemilik_edit").removeClass('is-invalid');
+                        $(".error-nama-pemilik").html('');
                     }
 
                     if (response.error.nomor_mesin) {

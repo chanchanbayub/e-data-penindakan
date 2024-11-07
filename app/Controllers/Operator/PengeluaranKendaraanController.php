@@ -549,6 +549,12 @@ class PengeluaranKendaraanController extends BaseController
                         'required' => 'Tanggal Keluar Tidak Boleh Kosong !'
                     ]
                 ],
+                'nama_pemilik' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Nama Pemilik Tidak Boleh Kosong !'
+                    ]
+                ],
                 'status_kendaraan_id' => [
                     'rules' => 'required',
                     'errors' => [
@@ -563,6 +569,7 @@ class PengeluaranKendaraanController extends BaseController
                         'nomor_rangka' => $this->validation->getError('nomor_rangka'),
                         'nomor_mesin' => $this->validation->getError('nomor_mesin'),
                         'alamat_pemilik_kendaraan' => $this->validation->getError('alamat_pemilik_kendaraan'),
+                        'nama_pemilik' => $this->validation->getError('nama_pemilik'),
                         'tanggal_keluar' => $this->validation->getError('tanggal_keluar'),
                     ]
                 ];
@@ -573,6 +580,7 @@ class PengeluaranKendaraanController extends BaseController
                 $nomor_rangka = $this->request->getVar('nomor_rangka');
                 $nomor_mesin = $this->request->getVar('nomor_mesin');
                 $alamat_pemilik_kendaraan = $this->request->getVar('alamat_pemilik_kendaraan');
+                $nama_pemilik = $this->request->getVar('nama_pemilik');
                 $tanggal_keluar = $this->request->getVar('tanggal_keluar');
                 $status_kendaraan_id = $this->request->getVar('status_kendaraan_id');
 
@@ -586,7 +594,8 @@ class PengeluaranKendaraanController extends BaseController
                 ]);
 
                 $this->dataPenindakanModel->update($data_penindakan_id, [
-                    'status_kendaraan_id' => $status_kendaraan_id
+                    'status_kendaraan_id' => $status_kendaraan_id,
+                    'nama_pemilik' => $nama_pemilik
                 ]);
 
                 $alert = [
