@@ -41,6 +41,7 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
+                                            <th>UKPD</th>
                                             <th>Nomor Kendaraan</th>
                                             <th>Tanggal Penindakan</th>
                                             <th>Tanggal Pengeluaran</th>
@@ -53,6 +54,7 @@
                                         <?php foreach ($pengeluaran_kendaraan as $pengeluaran_kendaraan) : ?>
                                             <tr>
                                                 <th><a href="#"><?= $no++ ?></a></th>
+                                                <td><?= $pengeluaran_kendaraan->ukpd ?></td>
                                                 <td> <?= $pengeluaran_kendaraan->kode_wilayah_awal ?> <?= $pengeluaran_kendaraan->nomor_kendaraan ?> <?= $pengeluaran_kendaraan->kode_wilayah_akhir ?> </td>
                                                 <td> <?= date('d-m-Y', strtotime($pengeluaran_kendaraan->tanggal_penindakan)) ?> </td>
                                                 <td> <?= date('d-m-Y', strtotime($pengeluaran_kendaraan->tanggal_keluar)) ?></td>
