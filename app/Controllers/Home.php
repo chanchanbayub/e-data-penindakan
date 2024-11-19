@@ -17,21 +17,23 @@ class Home extends BaseController
 
     public function index()
     {
+
+        $tahun = date('Y');
         // Stop Operasi
-        $so_dalops = $this->dataPenindakanModel->getDataStopOperasi(1);
-        $so_pusat = $this->dataPenindakanModel->getDataStopOperasi(2);
-        $so_utara = $this->dataPenindakanModel->getDataStopOperasi(4);
-        $so_barat = $this->dataPenindakanModel->getDataStopOperasi(3);
-        $so_selatan = $this->dataPenindakanModel->getDataStopOperasi(6);
-        $so_timur = $this->dataPenindakanModel->getDataStopOperasi(5);
+        $so_dalops = $this->dataPenindakanModel->getDataStopOperasi(1, $tahun);
+        $so_pusat = $this->dataPenindakanModel->getDataStopOperasi(2, $tahun);
+        $so_utara = $this->dataPenindakanModel->getDataStopOperasi(4, $tahun);
+        $so_barat = $this->dataPenindakanModel->getDataStopOperasi(3, $tahun);
+        $so_selatan = $this->dataPenindakanModel->getDataStopOperasi(6, $tahun);
+        $so_timur = $this->dataPenindakanModel->getDataStopOperasi(5, $tahun);
 
         // BAP Tilang
-        $bap_dalops = $this->dataPenindakanModel->getDataBapTilang(1);
-        $bap_pusat = $this->dataPenindakanModel->getDataBapTilang(2);
-        $bap_utara = $this->dataPenindakanModel->getDataBapTilang(4);
-        $bap_barat = $this->dataPenindakanModel->getDataBapTilang(3);
-        $bap_selatan = $this->dataPenindakanModel->getDataBapTilang(6);
-        $bap_timur = $this->dataPenindakanModel->getDataBapTilang(5);
+        $bap_dalops = $this->dataPenindakanModel->getDataBapTilang(1, $tahun);
+        $bap_pusat = $this->dataPenindakanModel->getDataBapTilang(2, $tahun);
+        $bap_utara = $this->dataPenindakanModel->getDataBapTilang(4, $tahun);
+        $bap_barat = $this->dataPenindakanModel->getDataBapTilang(3, $tahun);
+        $bap_selatan = $this->dataPenindakanModel->getDataBapTilang(6, $tahun);
+        $bap_timur = $this->dataPenindakanModel->getDataBapTilang(5, $tahun);
 
         $data = [
             'title' => 'Dinas Perhubungan Prov. DKI Jakarta',

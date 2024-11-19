@@ -17,7 +17,7 @@ class DataPenindakanModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    public function getDataStopOperasi($ukpd_id)
+    public function getDataStopOperasi($ukpd_id, $tahun)
     {
         return $this->table($this->table)
             ->select('data_penindakan_table.id,data_penindakan_table.ukpd_id,data_penindakan_table.nomor_bap ,data_penindakan_table.kode_wilayah_awal, data_penindakan_table.nomor_kendaraan, data_penindakan_table.kode_wilayah_akhir,data_penindakan_table.jenis_kendaraan_id, data_penindakan_table.jenis_penindakan_id, data_penindakan_table.tanggal_penindakan, ukpd_table.ukpd, jenis_kendaraan_table.jenis_kendaraan, tempat_penyimpanan_table.tempat_penyimpanan, jenis_penindakan_table.jenis_penindakan, status_kendaraan_table.status_kendaraan')
@@ -28,10 +28,11 @@ class DataPenindakanModel extends Model
             ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id')
             ->where(["data_penindakan_table.ukpd_id" => $ukpd_id])
             ->where(["data_penindakan_table.jenis_penindakan_id" => 1])
+            ->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->orderBy('data_penindakan_table.id desc')->countAllResults();
     }
 
-    public function getDataBapTilang($ukpd_id)
+    public function getDataBapTilang($ukpd_id, $tahun)
     {
         return $this->table($this->table)
             ->select('data_penindakan_table.id,data_penindakan_table.ukpd_id,data_penindakan_table.nomor_bap ,data_penindakan_table.kode_wilayah_awal, data_penindakan_table.nomor_kendaraan, data_penindakan_table.kode_wilayah_akhir,data_penindakan_table.jenis_kendaraan_id, data_penindakan_table.jenis_penindakan_id, data_penindakan_table.tanggal_penindakan, ukpd_table.ukpd, jenis_kendaraan_table.jenis_kendaraan, tempat_penyimpanan_table.tempat_penyimpanan, jenis_penindakan_table.jenis_penindakan, status_kendaraan_table.status_kendaraan')
@@ -42,6 +43,7 @@ class DataPenindakanModel extends Model
             ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id')
             ->where(["data_penindakan_table.ukpd_id" => $ukpd_id])
             ->where(["data_penindakan_table.jenis_penindakan_id" => 2])
+            ->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->orderBy('data_penindakan_table.id desc')->countAllResults();
     }
 }
