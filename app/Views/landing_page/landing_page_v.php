@@ -80,173 +80,178 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <!-- Sales Card -->
-                        <div class="col-xxl-2 col-md-12">
-                            <div class="card info-card sales-card">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title"><span>Bidang Dalops</span> </h5>
-                                    <div class="d-flex align-items-center">
-                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                            <i class="bi bi-car-front"></i>
+                                    <h5 class="card-title">Bidang Dalops <br> <small> <u>Data Penindakan Kelaikan Jalan Tahun <?= date('Y') ?> </u></small></h5>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p class="card-text text-center">Stop Operasi</p>
+                                            <p class="card-text text-center"> <b> <?= $so_dalops ?> </b> Kendaraan</p>
                                         </div>
-                                        <div class="ps-3">
-
-                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
-
+                                        <div class="col-md-6">
+                                            <p class="card-text text-center">BAP / Tilang</p>
+                                            <p class="card-text text-center"> <b> <?= $bap_dalops ?> </b> Kendaraan</p>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xxl-2 col-md-12">
-                            <div class="card info-card sales-card">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title"><span>Sudinhub Jakarta Pusat</span> </h5>
-                                    <div class="d-flex align-items-center">
-                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                            <i class="bi bi-car-front"></i>
+                                    <h5 class="card-title">Sudinhub Jakarta Pusat <br> <small> <u>Data Penindakan Kelaikan Jalan Tahun <?= date('Y') ?> </u></small></h5>
+                                    </h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p class="card-text text-center">Stop Operasi</p>
+                                            <p class="card-text text-center"> <b> <?= $so_pusat ?> </b> Kendaraan</p>
                                         </div>
-                                        <div class="ps-3">
-                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
-
+                                        <div class="col-md-6">
+                                            <p class="card-text text-center">BAP / Tilang</p>
+                                            <p class="card-text text-center"> <b> <?= $bap_pusat ?> </b> Kendaraan</p>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-md-12">
-                            <div class="card info-card sales-card">
-                                <div class="card-body">
-                                    <h5 class="card-title"><span>Sudinhub Jakarta Utara</span> </h5>
-                                    <div class="d-flex align-items-center">
-                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                            <i class="bi bi-car-front"></i>
-                                        </div>
-                                        <div class="ps-3">
-                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-2 col-md-12">
-                            <div class="card info-card sales-card">
-                                <div class="card-body">
-                                    <h5 class="card-title"><span>Sudinhub Jakarta Barat</span> </h5>
-                                    <div class="d-flex align-items-center">
-                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                            <i class="bi bi-car-front"></i>
-                                        </div>
-                                        <div class="ps-3">
-                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
-
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-xxl-2 col-md-12">
-                            <div class="card info-card sales-card">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title"><span>Sudin Jakarta Selatan</span> </h5>
-                                    <div class="d-flex align-items-center">
-                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                            <i class="bi bi-car-front"></i>
+                                    <h5 class="card-title">Sudinhub Jakarta Utara <br> <small> <u>Data Penindakan Kelaikan Jalan Tahun <?= date('Y') ?> </u></small></h5>
+                                    </h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p class="card-text text-center">Stop Operasi</p>
+                                            <p class="card-text text-center"> <b> <?= $so_utara ?> </b> Kendaraan</p>
                                         </div>
-                                        <div class="ps-3">
-                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
-
+                                        <div class="col-md-6">
+                                            <p class="card-text text-center">BAP / Tilang</p>
+                                            <p class="card-text text-center"> <b> <?= $bap_utara ?> </b> Kendaraan</p>
                                         </div>
                                     </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sudinhub Jakarta Barat <br> <small> <u>Data Penindakan Kelaikan Jalan Tahun <?= date('Y') ?> </u></small></h5>
+                                    </h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p class="card-text text-center">Stop Operasi</p>
+                                            <p class="card-text text-center"> <b> <?= $so_barat ?> </b> Kendaraan</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="card-text text-center">BAP / Tilang</p>
+                                            <p class="card-text text-center"><b> <?= $bap_barat ?> </b> Kendaraan</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sudinhub Jakarta Selatan <br> <small> <u>Data Penindakan Kelaikan Jalan Tahun <?= date('Y') ?> </u></small></h5>
+                                    </h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p class="card-text text-center">Stop Operasi</p>
+                                            <p class="card-text text-center"> <b> <?= $so_selatan ?> </b> Kendaraan</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="card-text text-center">BAP / Tilang</p>
+                                            <p class="card-text text-center"> <b> <?= $bap_selatan ?> </b> Kendaraan</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sudinhub Jakarta Timur <br><small> <u>Data Penindakan Kelaikan Jalan Tahun <?= date('Y') ?> </u></small></h5>
+                                    </h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p class="card-text text-center">Stop Operasi</p>
+                                            <p class="card-text text-center"> <b> <?= $so_timur ?> </b> Kendaraan</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="card-text text-center">BAP / Tilang</p>
+                                            <p class="card-text text-center"> <b> <?= $bap_timur ?> </b> Kendaraan</p>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-xxl-2 col-md-12">
-                            <div class="card info-card sales-card">
-                                <div class="card-body">
-                                    <h5 class="card-title"><span>Sudinhub Jakarta Timur</span> </h5>
-                                    <div class="d-flex align-items-center">
-                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                            <i class="bi bi-car-front"></i>
-                                        </div>
-                                        <div class="ps-3">
-                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <!-- End Sales Card -->
 
                         <!-- Reports -->
-                        <div class="col-12">
+                        <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Laporan Penindakan Pelanggaran Lalu Lintas Persyaratan Kelaikan Jalan </h5>
+                                    <h5 class="card-title">Bar CHart</h5>
 
-                                    <!-- Line Chart -->
-                                    <div id="reportsChart"></div>
-
+                                    <!-- Bar Chart -->
+                                    <canvas id="barChart" style="max-height: 400px;"></canvas>
                                     <script>
                                         document.addEventListener("DOMContentLoaded", () => {
-                                            new ApexCharts(document.querySelector("#reportsChart"), {
-                                                series: [{
-                                                    name: 'Sales',
-                                                    data: [31, 40, 28, 51, 42, 82, 56],
-                                                }, {
-                                                    name: 'Revenue',
-                                                    data: [11, 32, 45, 32, 34, 52, 41]
-                                                }, {
-                                                    name: 'Customers',
-                                                    data: [15, 11, 32, 18, 9, 24, 11]
-                                                }],
-                                                chart: {
-                                                    height: 350,
-                                                    type: 'area',
-                                                    toolbar: {
-                                                        show: false
-                                                    },
+                                            new Chart(document.querySelector('#barChart'), {
+                                                type: 'bar',
+                                                data: {
+                                                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                                                    datasets: [{
+                                                        label: 'Bar Chart',
+                                                        data: [65, 59, 80, 81, 56, 55, 40],
+                                                        backgroundColor: [
+                                                            'rgba(255, 99, 132, 0.2)',
+                                                            'rgba(255, 159, 64, 0.2)',
+                                                            'rgba(255, 205, 86, 0.2)',
+                                                            'rgba(75, 192, 192, 0.2)',
+                                                            'rgba(54, 162, 235, 0.2)',
+                                                            'rgba(153, 102, 255, 0.2)',
+                                                            'rgba(201, 203, 207, 0.2)'
+                                                        ],
+                                                        borderColor: [
+                                                            'rgb(255, 99, 132)',
+                                                            'rgb(255, 159, 64)',
+                                                            'rgb(255, 205, 86)',
+                                                            'rgb(75, 192, 192)',
+                                                            'rgb(54, 162, 235)',
+                                                            'rgb(153, 102, 255)',
+                                                            'rgb(201, 203, 207)'
+                                                        ],
+                                                        borderWidth: 1
+                                                    }]
                                                 },
-                                                markers: {
-                                                    size: 4
-                                                },
-                                                colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                                                fill: {
-                                                    type: "gradient",
-                                                    gradient: {
-                                                        shadeIntensity: 1,
-                                                        opacityFrom: 0.3,
-                                                        opacityTo: 0.4,
-                                                        stops: [0, 90, 100]
+                                                options: {
+                                                    scales: {
+                                                        y: {
+                                                            beginAtZero: true
+                                                        }
                                                     }
-                                                },
-                                                dataLabels: {
-                                                    enabled: false
-                                                },
-                                                stroke: {
-                                                    curve: 'smooth',
-                                                    width: 2
-                                                },
-                                                xaxis: {
-                                                    type: 'datetime',
-                                                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-                                                },
-                                                tooltip: {
-                                                    x: {
-                                                        format: 'dd/MM/yy HH:mm'
-                                                    },
                                                 }
-                                            }).render();
+                                            });
                                         });
                                     </script>
-                                    <!-- End Line Chart -->
-                                </div>
+                                    <!-- End Bar CHart -->
 
+                                </div>
                             </div>
-                        </div><!-- End Reports -->
+                        </div>
+                        <!-- End Reports -->
 
                     </div>
                 </div>
