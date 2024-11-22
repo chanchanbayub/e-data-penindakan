@@ -55,32 +55,21 @@ class PengeluaranKendaraanController extends BaseController
 
     public function index()
     {
+        $ukpd = $this->ukpdModel->getUkpd(null);
+        $jenisKendaraan = $this->jenisKendaraanModel->getJenisKendaraan();
+        $jenisPenindakan = $this->jenisPenindakanModel->getJenisPenindakan();
+        $tempatPenyimpanan = $this->tempatPenyimpananModel->getTempatPenyimpanan();
+        $lokasiSidang = $this->lokasiSidangModel->getLokasiSidang();
+        $statusKendaraan = $this->statusKendaraanModel->getStatusKendaraan();
 
-        if (session()->get('role_management_id') == 2) {
-            $ukpd = $this->ukpdModel->getUkpd(null);
-            $jenisKendaraan = $this->jenisKendaraanModel->getJenisKendaraan();
-            $jenisPenindakan = $this->jenisPenindakanModel->getJenisPenindakan();
-            $tempatPenyimpanan = $this->tempatPenyimpananModel->getTempatPenyimpanan();
-            $lokasiSidang = $this->lokasiSidangModel->getLokasiSidang();
-            $statusKendaraan = $this->statusKendaraanModel->getStatusKendaraan();
+        $pengeluaran_kendaraan = $this->pengeluaranKendaraanModel->getPengeluaranKendaraan(null);
 
-            $pengeluaran_kendaraan = $this->pengeluaranKendaraanModel->getPengeluaranKendaraan(null);
+        $pengeluaran_perhari = $this->pengeluaranKendaraanModel->getPengeluaranHarian(date('Y-m-d'));
+        $total_pengeluaran = count($pengeluaran_perhari);
 
-            $pengeluaran_perhari = $this->pengeluaranKendaraanModel->getPengeluaranHarian(date('Y-m-d'));
-            $total_pengeluaran = count($pengeluaran_perhari);
+        $pengajuan_perhari = $this->pengeluaranKendaraanModel->getPengajuanHarian(date('Y-m-d'));
+        $total_pengajuan = count($pengajuan_perhari);
 
-            $pengajuan_perhari = $this->pengeluaranKendaraanModel->getPengajuanHarian(date('Y-m-d'));
-            $total_pengajuan = count($pengajuan_perhari);
-        } else {
-            $ukpd = $this->ukpdModel->getUkpd(session()->get('ukpd_id'));
-            $jenisKendaraan = $this->jenisKendaraanModel->getJenisKendaraan();
-            $jenisPenindakan = $this->jenisPenindakanModel->getJenisPenindakan();
-            $tempatPenyimpanan = $this->tempatPenyimpananModel->getTempatPenyimpanan();
-            $lokasiSidang = $this->lokasiSidangModel->getLokasiSidang();
-            $statusKendaraan = $this->statusKendaraanModel->getStatusKendaraan();
-            $pengeluaran_kendaraan = $this->pengeluaranKendaraanModel->getPengeluaranKendaraan(session()->get('ukpd_id'));
-            // dd($pengeluaran_kendaraan);
-        }
 
         $data = [
             'title' => 'Pengeluaran Kendaraan',

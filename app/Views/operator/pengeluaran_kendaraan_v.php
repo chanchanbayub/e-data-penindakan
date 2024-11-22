@@ -20,6 +20,42 @@
             <!-- Left side columns -->
             <div class="col-lg-12">
                 <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-xxl-6 col-md-12">
+                                <div class="card info-card sales-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><span>Jumlah Pengeluaran Kendaraan Hari Ini</span> </h5>
+                                        <div class="d-flex align-items-center">
+                                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                                <i class="bi bi-car-front"></i>
+                                            </div>
+                                            <div class="ps-3">
+                                                <span class="text-success small pt-1 fw-bold"></span> <b><?= $total_pengeluaran ?></b> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6 col-md-12">
+                                <div class="card info-card sales-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><span>Jumlah Pengeluaran Kendaraan Dalam Proses Pengajuan</span> </h5>
+                                        <div class="d-flex align-items-center">
+                                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                                <i class="bi bi-car-front"></i>
+                                            </div>
+                                            <div class="ps-3">
+                                                <span class="text-success small pt-1 fw-bold"></span> <b><?= $total_pengajuan ?></b> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Recent Sales -->
                     <div class="col-12">
@@ -68,10 +104,6 @@
 
                                                         <button class="btn btn-outline-warning btn-sm" id="edit" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $pengeluaran_kendaraan->id ?>" type="button" <?= ($pengeluaran_kendaraan->status_kendaraan_id == 2 ? "disabled" : ""); ?>>
                                                             <i class="bi bi-printer"></i>
-                                                        </button>
-
-                                                        <button class="btn btn-sm btn-outline-danger" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?= $pengeluaran_kendaraan->id ?>" type="button">
-                                                            <i class="bi bi-trash"></i>
                                                         </button>
 
                                                         <?php if ($pengeluaran_kendaraan->status_kendaraan_id == 3) :  ?>

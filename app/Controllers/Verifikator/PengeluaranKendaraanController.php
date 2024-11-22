@@ -63,6 +63,12 @@ class PengeluaranKendaraanController extends BaseController
         $statusKendaraan = $this->statusKendaraanModel->getParaf();
         $pengeluaran_kendaraan = $this->pengeluaranKendaraanModel->getPengeluaranKendaraan(null);
 
+        $pengeluaran_perhari = $this->pengeluaranKendaraanModel->getPengeluaranHarian(date('Y-m-d'));
+        $total_pengeluaran = count($pengeluaran_perhari);
+
+        $pengajuan_perhari = $this->pengeluaranKendaraanModel->getPengajuanHarian(date('Y-m-d'));
+        $total_pengajuan = count($pengajuan_perhari);
+
         $data = [
             'title' => 'Pengeluaran Kendaraan',
             'ukpd' => $ukpd,
@@ -72,6 +78,8 @@ class PengeluaranKendaraanController extends BaseController
             'lokasi_sidang' => $lokasiSidang,
             'status_kendaraan' => $statusKendaraan,
             'pengeluaran_kendaraan' => $pengeluaran_kendaraan,
+            'total_pengeluaran' => $total_pengeluaran,
+            'total_pengajuan' => $total_pengajuan
 
         ];
 
