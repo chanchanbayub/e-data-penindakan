@@ -107,6 +107,8 @@
         <?= $this->include('layout/navbar_operator'); ?>
     <?php elseif (session()->get('role_management_id') == 4) : ?>
         <?= $this->include('layout/navbar_verifikator'); ?>
+    <?php elseif (session()->get('role_management_id') == 5) : ?>
+        <?= $this->include('layout/navbar_editor'); ?>
     <?php endif; ?>
 
     <?= $this->renderSection('content'); ?>
