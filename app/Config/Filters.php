@@ -39,11 +39,7 @@ class Filters extends BaseConfig
             // 'csrf',
             // 'invalidchars',
         ],
-        'after' => [
-            'toolbar',
-            // 'honeypot',
-            // 'secureheaders',
-        ],
+        'after' => [],
     ];
 
     /**
@@ -77,8 +73,8 @@ class Filters extends BaseConfig
                 'petugas/*',
                 'operator/*',
                 'verifikator/*',
+                'editor/*',
             ],
-
         ]
     ];
 }

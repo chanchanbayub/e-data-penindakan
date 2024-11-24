@@ -47,6 +47,9 @@ class DataPenindakanController extends BaseController
 
     public function index()
     {
+        if (session()->get('role_management_id') != 2) {
+            return redirect()->back();
+        }
 
         if (session()->get('role_management_id') == 2 || session()->get('role_management_id') == 3 || session()->get('role_management_id') == 4) {
             $data_penindakan = $this->dataPenindakanModel->getDataPenindakan(null);

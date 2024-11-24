@@ -22,6 +22,11 @@ class KodeTrayekController extends BaseController
 
     public function index()
     {
+
+        if (session()->get('role_management_id') != 2) {
+            return redirect()->back();
+        }
+
         $data = [
             'title' => 'Kode Trayek',
             'jenis_kendaraan' => $this->jenisKendaraanModel->getJenisKendaraan(),

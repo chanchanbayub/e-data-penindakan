@@ -19,6 +19,9 @@ class StatusKendaraanController extends BaseController
 
     public function index()
     {
+        if (session()->get('role_management_id') != 2) {
+            return redirect()->back();
+        }
         $data = [
             'title' => 'Status Kendaraan',
             'status_kendaraan' => $this->statusKendaraanModel->getStatusKendaraan()

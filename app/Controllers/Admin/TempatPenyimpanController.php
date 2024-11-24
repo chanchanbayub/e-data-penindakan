@@ -19,6 +19,11 @@ class TempatPenyimpanController extends BaseController
 
     public function index()
     {
+
+        if (session()->get('role_management_id') != 2) {
+            return redirect()->back();
+        }
+
         $data = [
             'title' => 'Tempat Penyimpanan Kendaraan',
             'tempat_penyimpanan' => $this->tempatPenyimpananKendaraan->getTempatPenyimpanan()

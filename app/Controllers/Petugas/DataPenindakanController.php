@@ -44,7 +44,9 @@ class DataPenindakanController extends BaseController
 
     public function index()
     {
-
+        if (session()->get('role_management_id') != 1) {
+            return redirect()->back();
+        }
         $ukpd = $this->ukpdModel->getUkpd(session()->get('ukpd_id'));
         $jenisKendaraan = $this->jenisKendaraanModel->getJenisKendaraan();
         $jenisPenindakan = $this->jenisPenindakanModel->getJenisPenindakan();
@@ -85,6 +87,11 @@ class DataPenindakanController extends BaseController
 
     public function views($nomor_bap)
     {
+
+        if (session()->get('role_management_id') != 5) {
+            return redirect()->back();
+        }
+
         $data_penindakan = $this->dataPenindakanModel->getDataPenindakanWithNomorBap($nomor_bap);
 
         if ($data_penindakan == null) {

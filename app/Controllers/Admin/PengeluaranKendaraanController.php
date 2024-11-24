@@ -55,6 +55,11 @@ class PengeluaranKendaraanController extends BaseController
 
     public function index()
     {
+
+        if (session()->get('role_management_id') != 2) {
+            return redirect()->back();
+        }
+
         $ukpd = $this->ukpdModel->getUkpd(null);
         $jenisKendaraan = $this->jenisKendaraanModel->getJenisKendaraan();
         $jenisPenindakan = $this->jenisPenindakanModel->getJenisPenindakan();

@@ -20,6 +20,11 @@ class DashboardController extends BaseController
 
     public function index()
     {
+
+        if (session()->get('role_management_id') != 4) {
+            return redirect()->back();
+        }
+
         helper('format_helper');
 
         $data_penindakan = $this->dataPenindakanModel->getDataPenindakan(null);

@@ -19,6 +19,10 @@ class UkpdController extends BaseController
 
     public function index()
     {
+        if (session()->get('role_management_id') != 2) {
+            return redirect()->back();
+        }
+
         if (session()->get('role_management_id') == 2) {
             $ukpd = $this->ukpdModel->getUkpd(null);
         } else {

@@ -47,6 +47,9 @@ class DataPenindakanController extends BaseController
 
     public function index()
     {
+        if (session()->get('role_management_id') != 3) {
+            return redirect()->back();
+        }
 
         if (session()->get('role_management_id') == 2 || session()->get('role_management_id') == 3 || session()->get('role_management_id') == 4) {
 
@@ -91,6 +94,10 @@ class DataPenindakanController extends BaseController
 
     public function views($nomor_bap)
     {
+        if (session()->get('role_management_id') != 3) {
+            return redirect()->back();
+        }
+
         $data_penindakan = $this->dataPenindakanModel->getDataPenindakanWithNomorBap($nomor_bap);
 
         if ($data_penindakan == null) {

@@ -19,6 +19,9 @@ class LokasiSidangController extends BaseController
 
     public function index()
     {
+        if (session()->get('role_management_id') != 2) {
+            return redirect()->back();
+        }
         $data = [
             'title' => 'Lokasi Sidang',
             'lokasi_sidang' => $this->lokasiSidangModel->getLokasiSidang()

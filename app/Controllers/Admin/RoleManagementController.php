@@ -19,6 +19,11 @@ class RoleManagementController extends BaseController
 
     public function index()
     {
+
+        if (session()->get('role_management_id') != 2) {
+            return redirect()->back();
+        }
+
         if (session()->get('role_management_id') == 2) {
             $role_management = $this->roleManagementModel->getRoleManagement(null);
         } else {
