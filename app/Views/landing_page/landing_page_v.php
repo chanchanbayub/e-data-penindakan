@@ -49,9 +49,17 @@
                 <img src="/assets2/img/logo2.png" alt="">
                 <span class="d-lg-block" style="font-size: 18px;">Dinas Perhubungan Provinsi DKI Jakarta</span>
             </a>
-        </div><!-- End Logo -->
+        </div>
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+                <li class="nav-item dropdown pe-3">
 
-        <!-- End Icons Navigation -->
+                    <a class="btn-outline-secondary nav-link d-flex align-items-center pe-0" href="/progress">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">Progress Pengeluaran Kendaraan</span>
+                    </a><!-- End Profile Iamge Icon -->
+
+                </li>
+            </ul>
 
     </header><!-- End Header -->
 
