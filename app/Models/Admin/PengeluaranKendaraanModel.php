@@ -161,13 +161,28 @@ class PengeluaranKendaraanModel extends Model
             ->join('type_kendaraan_table', 'type_kendaraan_table.id = data_penindakan_table.type_kendaraan_id')
             ->join('lokasi_sidang_table', 'lokasi_sidang_table.id = data_penindakan_table.lokasi_sidang_id')
             ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id')
-            ->where(["pengeluaran_kendaraan_table.tanggal_keluar" => $tanggal_keluar])
             ->where(["data_penindakan_table.status_kendaraan_id" => 1])
             ->Orwhere(["data_penindakan_table.status_kendaraan_id" => 3])
             ->Orwhere(["data_penindakan_table.status_kendaraan_id" => 4])
             ->Orwhere(["data_penindakan_table.status_kendaraan_id" => 5])
-
+            ->where(["pengeluaran_kendaraan_table.tanggal_keluar" => $tanggal_keluar])
             ->orderBy('pengeluaran_kendaraan_table.tanggal_keluar ASC')
+            ->get()->getResultObject();
+    }
+
+    public function getPengeluaranKendaraanPerhari($tanggal_keluar)
+    {
+
+        return $this->table($this->table)
+            ->select('pengeluaran_kendaraan_table.id, pengeluaran_kendaraan_table.data_penindakan_id, data_penindakan_table.status_kendaraan_id, pengeluaran_kendaraan_table.tanggal_keluar ,data_penindakan_table.kode_wilayah_awal,data_penindakan_table.kode_wilayah_akhir,data_penindakan_table.nomor_kendaraan,ukpd_table.ukpd,data_penindakan_table.tanggal_penindakan, status_kendaraan_table.status_kendaraan, data_penindakan_table.ukpd_id, pengantar_table.pengantar_sidang, data_penindakan_table.nama_pemilik')
+            ->join('data_penindakan_table', 'data_penindakan_table.id = pengeluaran_kendaraan_table.data_penindakan_id')
+            ->join('ukpd_table', 'ukpd_table.id = data_penindakan_table.ukpd_id')
+            ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id')
+            ->join('pengantar_table', 'pengantar_table.pengeluaran_kendaraan_id = pengeluaran_kendaraan_table.id', 'left')
+            ->where(["data_penindakan_table.status_kendaraan_id" => 4])
+            ->Orwhere(["data_penindakan_table.status_kendaraan_id" => 5])
+            ->where(["pengeluaran_kendaraan_table.tanggal_keluar" => $tanggal_keluar])
+            ->orderBy('pengeluaran_kendaraan_table.id desc')
             ->get()->getResultObject();
     }
 }

@@ -12,6 +12,7 @@ $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 
 $routes->get('/', 'Home::index');
+$routes->get('/progress', 'Home::progress_pengeluaran');
 
 $routes->group('/admin', function ($routes) {
     $routes->get('dashboard', 'Admin\DashboardController::index');

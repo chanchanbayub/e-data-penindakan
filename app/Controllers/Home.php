@@ -9,10 +9,12 @@ use App\Models\Home\DataPenindakanModel as HomeDataPenindakanModel;
 class Home extends BaseController
 {
     protected $dataPenindakanModel;
+    protected $pengeluaranKendaraanModel;
 
     public function __construct()
     {
         $this->dataPenindakanModel = new HomeDataPenindakanModel();
+        $this->pengeluaranKendaraanModel = new PengeluaranKendaraanModel();
     }
 
     public function index()
@@ -52,5 +54,28 @@ class Home extends BaseController
             'bap_timur' => $bap_timur,
         ];
         return view('landing_page/landing_page_v', $data);
+    }
+
+    public function progress_pengeluaran()
+    {
+
+
+        $tanggal_hari_ini = date('Y-m-d');
+        $pengeluaran_perhari = $this->pengeluaranKendaraanModel->getPengeluaranHarian($tanggal_hari_ini);
+        $total_pengeluaran = count($pengeluaran_perhari);
+
+        $pengajuan_perhari = $this->pengeluaranKendaraanModel->getPengajuanHarian($tanggal_hari_ini);
+        $total_pengajuan = count($pengajuan_perhari);
+
+        $pengeluaran_kendaraan = $this->pengeluaranKendaraanModel->getPengeluaranKendaraanPerhari($tanggal_hari_ini);
+        helper(['format']);
+
+        $data = [
+            'title' => 'Progress Pengeluaran Kendaraan',
+            'pengeluaran_kendaraan' => $pengeluaran_kendaraan,
+            'total_pengeluaran' => $total_pengeluaran,
+            'total_pengajuan' => $total_pengajuan
+        ];
+        return view('landing_page/progress_pengeluaran_v', $data);
     }
 }
