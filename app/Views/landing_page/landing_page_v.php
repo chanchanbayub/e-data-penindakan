@@ -44,23 +44,14 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
-                <img src="/assets/img/logo2.png" alt="">
-                <span class="d-none d-lg-block">Dinas Perhubungan</span>
+            <a href="/" class="logo d-flex align-items-center">
+                <img src="/assets2/img/jayaraya_logo.png" alt="">
+                <img src="/assets2/img/logo2.png" alt="">
+                <span class="d-lg-block">Dinas Perhubungan Provinsi DKI Jakarta</span>
             </a>
         </div><!-- End Logo -->
 
-        <nav class="header-nav ms-auto">
-            <ul class="d-flex align-items-center">
-
-                <li class="nav-item d-block d-lg-none">
-                    <a class="nav-link nav-icon search-bar-toggle " href="#">
-                        <i class="bi bi-search"></i>
-                    </a>
-                </li><!-- End Search Icon-->
-
-            </ul>
-        </nav><!-- End Icons Navigation -->
+        <!-- End Icons Navigation -->
 
     </header><!-- End Header -->
 
@@ -86,16 +77,28 @@
                                     <h5 class="card-title">Bidang Dalops <br> <small> <u>Data Penindakan Kelaikan Jalan Tahun <?= date('Y') ?> </u></small></h5>
 
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <p class="card-text text-center">Stop Operasi</p>
-                                            <p class="card-text text-center"> <b> <?= $so_dalops ?> </b> Kendaraan</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p class="card-text text-center">BAP / Tilang</p>
-                                            <p class="card-text text-center"> <b> <?= $bap_dalops ?> </b> Kendaraan</p>
+                                        <div class="col-md-12">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td> Stop Operasi</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $so_dalops ?> </b> <small> Kendaraan </small></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BAP / Tilang</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $bap_dalops ?> </b> <small> Kendaraan </small></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Total</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $so_dalops + $bap_dalops ?> <small> Kendaraan </small> </b></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -105,13 +108,26 @@
                                     <h5 class="card-title">Sudinhub Jakarta Pusat <br> <small> <u>Data Penindakan Kelaikan Jalan Tahun <?= date('Y') ?> </u></small></h5>
                                     </h5>
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <p class="card-text text-center">Stop Operasi</p>
-                                            <p class="card-text text-center"> <b> <?= $so_pusat ?> </b> Kendaraan</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p class="card-text text-center">BAP / Tilang</p>
-                                            <p class="card-text text-center"> <b> <?= $bap_pusat ?> </b> Kendaraan</p>
+                                        <div class="col-md-12">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td> Stop Operasi</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $so_pusat ?> </b> <small> Kendaraan </small></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BAP / Tilang</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $bap_pusat ?> </b> <small> Kendaraan </small></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Total</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $so_pusat + $bap_pusat ?> <small> Kendaraan </small> </b></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
 
@@ -125,13 +141,26 @@
                                     <h5 class="card-title">Sudinhub Jakarta Utara <br> <small> <u>Data Penindakan Kelaikan Jalan Tahun <?= date('Y') ?> </u></small></h5>
                                     </h5>
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <p class="card-text text-center">Stop Operasi</p>
-                                            <p class="card-text text-center"> <b> <?= $so_utara ?> </b> Kendaraan</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p class="card-text text-center">BAP / Tilang</p>
-                                            <p class="card-text text-center"> <b> <?= $bap_utara ?> </b> Kendaraan</p>
+                                        <div class="col-md-12">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td> Stop Operasi</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $so_utara ?> </b> <small> Kendaraan </small></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BAP / Tilang</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $bap_utara ?> </b> <small> Kendaraan </small></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Total</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $so_utara + $bap_utara ?> <small> Kendaraan </small> </b></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
 
@@ -144,13 +173,26 @@
                                     <h5 class="card-title">Sudinhub Jakarta Barat <br> <small> <u>Data Penindakan Kelaikan Jalan Tahun <?= date('Y') ?> </u></small></h5>
                                     </h5>
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <p class="card-text text-center">Stop Operasi</p>
-                                            <p class="card-text text-center"> <b> <?= $so_barat ?> </b> Kendaraan</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p class="card-text text-center">BAP / Tilang</p>
-                                            <p class="card-text text-center"><b> <?= $bap_barat ?> </b> Kendaraan</p>
+                                        <div class="col-md-12">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td> Stop Operasi</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $so_barat ?> </b> <small> Kendaraan </small></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BAP / Tilang</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $bap_barat ?> </b> <small> Kendaraan </small></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Total</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $so_barat + $bap_barat ?> <small> Kendaraan </small> </b></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
 
@@ -163,13 +205,26 @@
                                     <h5 class="card-title">Sudinhub Jakarta Selatan <br> <small> <u>Data Penindakan Kelaikan Jalan Tahun <?= date('Y') ?> </u></small></h5>
                                     </h5>
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <p class="card-text text-center">Stop Operasi</p>
-                                            <p class="card-text text-center"> <b> <?= $so_selatan ?> </b> Kendaraan</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p class="card-text text-center">BAP / Tilang</p>
-                                            <p class="card-text text-center"> <b> <?= $bap_selatan ?> </b> Kendaraan</p>
+                                        <div class="col-md-12">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td> Stop Operasi</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $so_selatan ?> </b> <small> Kendaraan </small></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BAP / Tilang</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $bap_selatan ?> </b> <small> Kendaraan </small></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Total</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $so_selatan + $bap_selatan ?> <small> Kendaraan </small> </b></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
 
@@ -182,16 +237,28 @@
                                     <h5 class="card-title">Sudinhub Jakarta Timur <br><small> <u>Data Penindakan Kelaikan Jalan Tahun <?= date('Y') ?> </u></small></h5>
                                     </h5>
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <p class="card-text text-center">Stop Operasi</p>
-                                            <p class="card-text text-center"> <b> <?= $so_timur ?> </b> Kendaraan</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p class="card-text text-center">BAP / Tilang</p>
-                                            <p class="card-text text-center"> <b> <?= $bap_timur ?> </b> Kendaraan</p>
+                                        <div class="col-md-12">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td> Stop Operasi</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $so_timur ?> </b> <small> Kendaraan </small></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BAP / Tilang</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $bap_timur ?> </b> <small> Kendaraan </small></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Total</td>
+                                                        <td>:</td>
+                                                        <td> <b> <?= $so_timur + $bap_timur ?> <small> Kendaraan </small> </b></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
