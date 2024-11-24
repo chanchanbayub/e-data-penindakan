@@ -47,7 +47,7 @@
             <a href="/" class="logo d-flex align-items-center">
                 <img src="/assets2/img/jayaraya_logo.png" alt="">
                 <img src="/assets2/img/logo2.png" alt="">
-                <span class="d-lg-block">Dinas Perhubungan Provinsi DKI Jakarta</span>
+                <span class="d-lg-block" style="font-size: 18px;">Dinas Perhubungan Provinsi DKI Jakarta</span>
             </a>
         </div><!-- End Logo -->
 
