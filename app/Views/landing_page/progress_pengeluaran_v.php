@@ -119,7 +119,10 @@
                         <!-- Recent Sales -->
                         <div class="col-12">
                             <div class="card recent-sales overflow-auto">
-                                <div class="card-body">
+                                <div class="filter">
+                                    <p class="icon jam"></p>
+                                </div>
+                                <div class=" card-body">
                                     <h5 class="card-title"><?= $title ?> <span>| Table </span></h5>
                                     <table class="table table-bordered datatable text-uppercase">
                                         <thead>
@@ -180,15 +183,26 @@
     <script src="/assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
+    <script src="/assets2/js/moment.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script src="/assets/vendor/jquery/jquery.js"></script>
     <script src="/assets/vendor/jquery/jquery.js"></script>
 
     <script>
         $(document).ready(function() {
             setInterval(function() {
+                let jam = new moment();
+                $(".jam").html(jam.format("HH:mm:ss"));
+            }, 500)
+
+        })
+
+        $(document).ready(function() {
+            setInterval(function() {
                 location.reload();
             }, 180000);
-        })
+
+        });
     </script>
 
 </body>
