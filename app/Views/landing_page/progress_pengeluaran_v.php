@@ -124,7 +124,7 @@
                                 </div>
                                 <div class=" card-body">
                                     <h5 class="card-title"><?= $title ?> <span>| Table </span></h5>
-                                    <table class="table table-bordered datatable text-uppercase">
+                                    <table class="table table-bordered text-uppercase">
                                         <thead>
                                             <tr>
                                                 <th scope="col">No</th>
