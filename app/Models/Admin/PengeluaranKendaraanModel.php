@@ -181,6 +181,7 @@ class PengeluaranKendaraanModel extends Model
             ->join('pengantar_table', 'pengantar_table.pengeluaran_kendaraan_id = pengeluaran_kendaraan_table.id', 'left')
             ->where(["data_penindakan_table.status_kendaraan_id" => 4])
             ->Orwhere(["data_penindakan_table.status_kendaraan_id" => 5])
+            ->Orwhere(["data_penindakan_table.status_kendaraan_id" => 2])
             ->where(["pengeluaran_kendaraan_table.tanggal_keluar" => $tanggal_keluar])
             ->orderBy('pengeluaran_kendaraan_table.id desc')
             ->get()->getResultObject();
