@@ -342,7 +342,7 @@
                         <div class="col-lg-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Doughnut Chart</h5>
+                                    <h5 class="card-title">Grafik Penindakan</h5>
                                     <!-- Doughnut Chart -->
                                     <canvas id="doughnutChart" style="max-height: 400px;"></canvas>
                                     <!-- End Doughnut CHart -->
