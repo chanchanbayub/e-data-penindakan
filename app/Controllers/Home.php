@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\Admin\DataPenindakanModel;
+use App\Models\Admin\JenisKendaraanModel;
+use App\Models\Admin\JenisPenindakanModel;
 use App\Models\Admin\PengeluaranKendaraanModel;
 use App\Models\Home\DataPenindakanModel as HomeDataPenindakanModel;
 
@@ -10,16 +12,19 @@ class Home extends BaseController
 {
     protected $dataPenindakanModel;
     protected $pengeluaranKendaraanModel;
+    protected $jenisPenindakanModel;
+    protected $jenisKendaraanModel;
 
     public function __construct()
     {
         $this->dataPenindakanModel = new HomeDataPenindakanModel();
         $this->pengeluaranKendaraanModel = new PengeluaranKendaraanModel();
+        $this->jenisPenindakanModel = new JenisPenindakanModel();
+        $this->jenisKendaraanModel = new JenisKendaraanModel();
     }
 
     public function index()
     {
-
         $tahun = date('Y');
         // Stop Operasi
         $so_dalops = $this->dataPenindakanModel->getDataStopOperasi(1, $tahun);
@@ -52,14 +57,14 @@ class Home extends BaseController
             'bap_barat' => $bap_barat,
             'bap_selatan' => $bap_selatan,
             'bap_timur' => $bap_timur,
+            'jenis_penindakan' => $this->jenisPenindakanModel->getJenisPenindakan(),
+            'jenis_kendaraan' => $this->jenisKendaraanModel->getJenisKendaraan()
         ];
         return view('landing_page/landing_page_v', $data);
     }
 
     public function progress_pengeluaran()
     {
-
-
         $tanggal_hari_ini = date('Y-m-d');
         $pengeluaran_perhari = $this->pengeluaranKendaraanModel->getPengeluaranHarian($tanggal_hari_ini);
         $total_pengeluaran = count($pengeluaran_perhari);

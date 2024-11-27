@@ -274,7 +274,7 @@
                         <!-- End Sales Card -->
 
                         <!-- Reports -->
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Bar CHart</h5>
@@ -326,12 +326,66 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Grafik Penindakan</h5>
+                                    <!-- Pie Chart -->
+                                    <canvas id="pieChart" style="max-height: 450px;"></canvas>
+                                    <!-- End Pie CHart -->
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Doughnut Chart</h5>
+                                    <!-- Doughnut Chart -->
+                                    <canvas id="doughnutChart" style="max-height: 400px;"></canvas>
+                                    <!-- End Doughnut CHart -->
+
+                                </div>
+                            </div>
+                        </div>
                         <!-- End Reports -->
 
                     </div>
                 </div>
         </section>
     </main><!-- End #main -->
+
+    <?php foreach ($jenis_penindakan as $jenis_penindakan) {
+        $db = \Config\Database::connect();
+        $stop_operasi = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 1)
+            ->countAllResults();
+
+        $tilang_dishub = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 2)
+            ->countAllResults();
+    }; ?>
+
+    <?php foreach ($jenis_kendaraan as $jenis_kendaraan) {
+        $db = \Config\Database::connect();
+        $bus_kecil = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 1)
+            ->countAllResults();
+        $mikrotrans = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 2)
+            ->countAllResults();
+        $bus_besar = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 3)
+            ->countAllResults();
+        $bus_sedang = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 4)
+            ->countAllResults();
+        $taksi = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 11)
+            ->countAllResults();
+        $mobil_barang = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 12)
+            ->countAllResults();
+        $kendaraan_khusus = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 13)
+            ->countAllResults();
+        $bajaj = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 14)
+            ->countAllResults();
+    }; ?>
+
 
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer" style="margin-left: 0;">
@@ -345,6 +399,8 @@
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+
+
     <!-- Vendor JS Files -->
     <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -357,6 +413,66 @@
 
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
+    <script src="/assets/vendor/jquery/jquery.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            new Chart(document.querySelector('#pieChart'), {
+                type: 'pie',
+                data: {
+                    labels: [
+                        'Stop Operasi',
+                        'Tilang Dishub',
+                    ],
+                    datasets: [{
+                        label: 'Total Penindakan',
+                        data: [<?= $stop_operasi ?>, <?= $tilang_dishub ?>],
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                        ],
+                        hoverOffset: 4
+                    }]
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            new Chart(document.querySelector('#doughnutChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        'Bus Kecil',
+                        'Mikrotrans',
+                        'Bus Besar',
+                        'Bus Sedang',
+                        'Taksi',
+                        'Mobil Barang',
+                        'Kendaraan Khusus',
+                        'Bajaj'
+                    ],
+                    datasets: [{
+                        label: 'Jumlah',
+                        data: [<?= $bus_kecil ?>, <?= $mikrotrans ?>, <?= $bus_besar ?>, <?= $bus_sedang ?>, <?= $taksi ?>, <?= $mobil_barang ?>, <?= $kendaraan_khusus ?>, <?= $bajaj ?>],
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(255, 205, 86)',
+                            'rgb(251, 127, 80)',
+                            'rgb(100, 149, 237)',
+                            'rgb(173, 255, 48)',
+                            'rgb(153, 50, 204)',
+                            'rgb(143, 188, 144)',
+
+                        ],
+                        hoverOffset: 4
+                    }]
+                }
+            });
+        });
+    </script>
 
 </body>
 

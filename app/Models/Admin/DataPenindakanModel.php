@@ -250,4 +250,18 @@ class DataPenindakanModel extends Model
 
         return $builder->orderBy('data_penindakan_table.tanggal_penindakan', 'desc');
     }
+
+    public function getDataWithJenisPenindakan($jenis_penindakan_id, $tahun)
+    {
+        return $this->table($this->table)
+            ->select('count(data_penindakan_table.jenis_penindakan_id) as total')
+            ->join('ukpd_table', 'ukpd_table.id = data_penindakan_table.ukpd_id')
+            ->join('jenis_kendaraan_table', 'jenis_kendaraan_table.id = data_penindakan_table.jenis_kendaraan_id')
+            ->join('jenis_penindakan_table', 'jenis_penindakan_table.id = data_penindakan_table.jenis_penindakan_id')
+            ->join('tempat_penyimpanan_table', 'tempat_penyimpanan_table.id = data_penindakan_table.tempat_penyimpanan_id')
+            ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id')
+            ->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
+            ->where(['data_penindakan_table.jenis_penindakan_id' => $jenis_penindakan_id])
+            ->orderBy('data_penindakan_table.id desc')->countAllResults();
+    }
 }

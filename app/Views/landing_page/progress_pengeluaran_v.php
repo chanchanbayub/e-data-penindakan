@@ -186,7 +186,6 @@
     <script src="/assets2/js/moment.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/vendor/jquery/jquery.js"></script>
-    <script src="/assets/vendor/jquery/jquery.js"></script>
 
     <script>
         $(document).ready(function() {
