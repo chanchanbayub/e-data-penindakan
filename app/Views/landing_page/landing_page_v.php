@@ -68,14 +68,17 @@
         <div class=" pagetitle">
             <h2>Dashboard</h2>
             <span>Data Penindakan Persyaratan Teknis dan Laik Jalan Dinas Perhubungan Provinsi DKI Jakarta</span><br>
+            <span>Periode Hari, <?= format_indo('Y-m-d') ?></span>
+        </div><!-- End Page Title -->
+
+        <div class=" pagetitle">
+            <span>Data Penindakan Persyaratan Teknis dan Laik Jalan Dinas Perhubungan Provinsi DKI Jakarta</span><br>
             <span>Periode 02 Januari s/d <?= date('d F Y') ?></span>
         </div><!-- End Page Title -->
 
         <section class="section dashboard">
             <div class="row">
-
                 <!-- Left side columns -->
-
                 <div class="col-lg-12">
                     <div class="row">
                         <!-- Sales Card -->

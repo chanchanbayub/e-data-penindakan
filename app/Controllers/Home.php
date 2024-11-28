@@ -25,6 +25,9 @@ class Home extends BaseController
 
     public function index()
     {
+
+        helper(['format']);
+
         $tahun = date('Y');
         // Stop Operasi
         $so_dalops = $this->dataPenindakanModel->getDataStopOperasi(1, $tahun);
