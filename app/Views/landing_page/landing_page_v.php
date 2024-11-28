@@ -70,6 +70,117 @@
             <span>Data Penindakan Persyaratan Teknis dan Laik Jalan Dinas Perhubungan Provinsi DKI Jakarta</span><br>
             <span>Periode Hari, <?= format_indo('Y-m-d') ?></span>
         </div><!-- End Page Title -->
+        <section class="section dashboard">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Line Chart</h5>
+
+                            <!-- Line Chart -->
+                            <canvas id="lineChart" style="max-height: 260px;"></canvas>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", () => {
+                                    new Chart(document.querySelector('#lineChart'), {
+                                        type: 'line',
+                                        data: {
+                                            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                                            datasets: [{
+                                                label: 'Line Chart',
+                                                data: [65, 59, 80, 81, 56, 55, 40],
+                                                fill: false,
+                                                borderColor: 'rgb(75, 192, 192)',
+                                                tension: 0.1
+                                            }]
+                                        },
+                                        options: {
+                                            scales: {
+                                                y: {
+                                                    beginAtZero: true
+                                                }
+                                            }
+                                        }
+                                    });
+                                });
+                            </script>
+                            <!-- End Line CHart -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <!-- Small tables -->
+                            <table class="table table-sm table-bordered">
+                                <thead align="center">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th rowspan="2">UKPD</th>
+                                        <th colspan="2">Jenis Penindakan</th>
+                                        <th rowspan="2">Jumlah</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr align="center">
+                                        <td></td>
+                                        <td></td>
+                                        <td>Stop Operasi</td>
+                                        <td>Tilang Dishub</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr align="center">
+                                        <th scope="row">1</th>
+                                        <td align="left">Bidang Dalops</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr align="center">
+                                        <th scope="row">2</th>
+                                        <td align="left">Sudinhub Jakarta Pusat</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr align="center">
+                                        <th scope="row">3</th>
+                                        <td align="left">Sudinhub Jakarta Utara</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr align="center">
+                                        <th scope="row">4</th>
+                                        <td align="left">Sudinhub Jakarta Selatan</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr align="center">
+                                        <th scope="row">5</th>
+                                        <td align="left">Sudinhub Jakarta Barat</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr align="center">
+                                        <th scope="row">6</th>
+                                        <td align="left">Sudinhub Jakarta Timur</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- End small tables -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <div class=" pagetitle">
             <span>Data Penindakan Persyaratan Teknis dan Laik Jalan Dinas Perhubungan Provinsi DKI Jakarta</span><br>
