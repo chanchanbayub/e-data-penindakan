@@ -282,7 +282,7 @@
         <table id="content">
             <tr>
                 <td>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sesuai Instruksi Kepala Dinas Peruhubungan Provinsi DKI Jakarta Nomor : e-0007 tentang Surat Pengeluaran Kendaraan Stop Operasi Karena Pelanggaran Persyaratan Teknis dan Kelaikan Jalan Kendaraan Bermotor, maka dengan ini kami mengajukan surat pengeluaran kendaraan bermotor sebagai berikut:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sesuai Dengan Surat Keputusan Kepala Dinas Peruhubungan Provinsi DKI Jakarta Nomor : e-0007 tentang Surat Pengeluaran Kendaraan Stop Operasi Karena Pelanggaran Persyaratan Teknis dan Kelaikan Jalan Kendaraan Bermotor, maka dengan ini kami mengajukan surat pengeluaran kendaraan bermotor sebagai berikut:
                 </td>
             </tr>
         </table>
