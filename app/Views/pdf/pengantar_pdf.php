@@ -50,6 +50,7 @@
         line-height: 15px;
         letter-spacing: 1px;
         font-style: normal;
+        font-weight: bold;
     }
 
     #p2 {
