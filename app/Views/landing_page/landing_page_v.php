@@ -363,25 +363,16 @@
     <?php foreach ($jenis_penindakan as $jenis_penindakan) {
 
         $db = \Config\Database::connect();
+
         $data_penindakan = $db->table('data_penindakan_table')->countAllResults();
 
         $stop_operasi = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 1)
             ->countAllResults();
 
-        $so = $stop_operasi / $data_penindakan * 100;
-        $persentasi_so = round($so) . '%';
 
         $tilang_dishub = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 2)
             ->countAllResults();
-
-        $tilang = $tilang_dishub / $data_penindakan * 100;
-        $persentasi_tilang = round($tilang) . '%';
-
-        $persen_so = $persentasi_so;
-        $persen_tilang = $persentasi_tilang;
-        // dd($persen_so);
     }; ?>
-
 
     <?php foreach ($jenis_kendaraan as $jenis_kendaraan) {
         $db = \Config\Database::connect();
@@ -435,15 +426,15 @@
     <script>
         $(document).ready(function() {
             new Chart(document.querySelector('#pieChart'), {
-                type: 'pie',
+                type: 'doughnut',
                 data: {
                     labels: [
                         'Stop Operasi : <?= number_format($stop_operasi) ?>',
                         'Tilang Dishub : <?= number_format($tilang_dishub) ?>',
                     ],
                     datasets: [{
-                        label: 'Persentase',
-                        data: [<?= $stop_operasi ?>, <?= $tilang_dishub ?>, ],
+                        label: 'Persentase ',
+                        data: [<?= round($stop_operasi / $data_penindakan * 100) ?>, <?= round($tilang_dishub / $data_penindakan * 100) ?>],
                         backgroundColor: [
                             'rgb(255, 99, 132)',
                             'rgb(54, 162, 235)',
