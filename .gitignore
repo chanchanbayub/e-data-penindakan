@@ -38,7 +38,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
-/vendor/
+# /vendor/
 /Database/
 
 ### CodeIgniter Patch ###
@@ -52,8 +52,8 @@ application/logs/*
 # Icon must end with two \r
 Icon
 
-.env
-env
+# .env
+# env
 public/
 # Thumbnails
 ._*
