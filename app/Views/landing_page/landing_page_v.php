@@ -68,7 +68,7 @@
         <div class=" pagetitle">
             <h2>Dashboard</h2>
             <span>Data Penindakan Persyaratan Teknis dan Laik Jalan Dinas Perhubungan Provinsi DKI Jakarta</span><br>
-            <span>Periode Hari, <?= format_indo('Y-m-d') ?></span>
+            <span>Periode Hari, <?= format_indo(date('Y-m-d'))  ?></span>
         </div><!-- End Page Title -->
         <section class="section dashboard">
             <div class="row">
@@ -78,7 +78,7 @@
                             <h5 class="card-title">Line Chart</h5>
 
                             <!-- Line Chart -->
-                            <canvas id="lineChart" style="max-height: 260px;"></canvas>
+                            <canvas id="lineChart" style="max-height: 290px;"></canvas>
                             <script>
                                 document.addEventListener("DOMContentLoaded", () => {
                                     new Chart(document.querySelector('#lineChart'), {
@@ -113,7 +113,7 @@
                         <div class="card-body">
                             <h5 class="card-title"></h5>
                             <!-- Small tables -->
-                            <table class="table table-sm table-bordered">
+                            <table class="table table-sm ">
                                 <thead align="center">
                                     <tr>
                                         <th scope="col">#</th>
@@ -133,46 +133,54 @@
                                     <tr align="center">
                                         <th scope="row">1</th>
                                         <td align="left">Bidang Dalops</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
+                                        <td><?= $so_dalops_perhari ?></td>
+                                        <td><?= $bap_dalops_perhari ?></td>
+                                        <td><?= $so_dalops_perhari + $bap_dalops_perhari ?></td>
                                     </tr>
                                     <tr align="center">
                                         <th scope="row">2</th>
                                         <td align="left">Sudinhub Jakarta Pusat</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
+                                        <td><?= $so_pusat_perhari ?></td>
+                                        <td><?= $bap_pusat_perhari ?></td>
+                                        <td><?= $so_pusat_perhari + $bap_pusat_perhari ?></td>
                                     </tr>
                                     <tr align="center">
                                         <th scope="row">3</th>
                                         <td align="left">Sudinhub Jakarta Utara</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
+                                        <td><?= $so_utara_perhari ?></td>
+                                        <td><?= $bap_utara_perhari ?></td>
+                                        <td><?= $so_utara_perhari + $bap_utara_perhari ?></td>
                                     </tr>
                                     <tr align="center">
                                         <th scope="row">4</th>
                                         <td align="left">Sudinhub Jakarta Selatan</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
+                                        <td><?= $so_selatan_perhari ?></td>
+                                        <td><?= $bap_selatan_perhari ?></td>
+                                        <td><?= $so_selatan_perhari + $bap_selatan_perhari ?></td>
                                     </tr>
                                     <tr align="center">
                                         <th scope="row">5</th>
                                         <td align="left">Sudinhub Jakarta Barat</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
+                                        <td><?= $so_barat_perhari ?></td>
+                                        <td><?= $bap_barat_perhari ?></td>
+                                        <td><?= $so_barat_perhari + $bap_barat_perhari ?></td>
                                     </tr>
                                     <tr align="center">
                                         <th scope="row">6</th>
                                         <td align="left">Sudinhub Jakarta Timur</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
+                                        <td><?= $so_timur_perhari ?></td>
+                                        <td><?= $bap_timur_perhari ?></td>
+                                        <td><?= $so_timur_perhari + $bap_timur_perhari ?></td>
                                     </tr>
                                 </tbody>
+                                <tfoot>
+                                    <tr align="center">
+                                        <th colspan="2">Total</th>
+                                        <th><?= $so_barat_perhari + $so_pusat_perhari + $so_utara_perhari + $so_dalops_perhari + $so_timur_perhari + $so_selatan_perhari ?></th>
+                                        <th><?= $bap_barat_perhari + $bap_pusat_perhari + $bap_utara_perhari + $bap_dalops_perhari + $bap_timur_perhari + $bap_selatan_perhari ?></th>
+                                        <th><?= $so_barat_perhari + $so_pusat_perhari + $so_utara_perhari + $so_dalops_perhari + $so_timur_perhari + $so_selatan_perhari + $bap_barat_perhari + $bap_pusat_perhari + $bap_utara_perhari + $bap_dalops_perhari + $bap_timur_perhari + $bap_selatan_perhari ?></th>
+                                    </tr>
+                                </tfoot>
                             </table>
                             <!-- End small tables -->
 

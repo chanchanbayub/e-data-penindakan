@@ -29,6 +29,7 @@ class Home extends BaseController
         helper(['format']);
 
         $tahun = date('Y');
+        $tanggal_hari_ini = date('Y-m-d');
         // Stop Operasi
         $so_dalops = $this->dataPenindakanModel->getDataStopOperasi(1, $tahun);
         $so_pusat = $this->dataPenindakanModel->getDataStopOperasi(2, $tahun);
@@ -44,6 +45,24 @@ class Home extends BaseController
         $bap_barat = $this->dataPenindakanModel->getDataBapTilang(3, $tahun);
         $bap_selatan = $this->dataPenindakanModel->getDataBapTilang(6, $tahun);
         $bap_timur = $this->dataPenindakanModel->getDataBapTilang(5, $tahun);
+
+        // data perhari
+        $so_dalops_perhari = $this->dataPenindakanModel->getDataStopOperasiperHari(1, $tanggal_hari_ini);
+        $so_pusat_perhari = $this->dataPenindakanModel->getDataStopOperasiperHari(2, $tanggal_hari_ini);
+        $so_utara_perhari = $this->dataPenindakanModel->getDataStopOperasiperHari(4, $tanggal_hari_ini);
+        $so_barat_perhari = $this->dataPenindakanModel->getDataStopOperasiperHari(3, $tanggal_hari_ini);
+        $so_selatan_perhari = $this->dataPenindakanModel->getDataStopOperasiperHari(6, $tanggal_hari_ini);
+        $so_timur_perhari = $this->dataPenindakanModel->getDataStopOperasiperHari(5, $tanggal_hari_ini);
+
+        // BAP Tilang
+        $bap_dalops_perhari = $this->dataPenindakanModel->getDataBapTilangperHari(1, $tanggal_hari_ini);
+        $bap_pusat_perhari = $this->dataPenindakanModel->getDataBapTilangperHari(2, $tanggal_hari_ini);
+        $bap_utara_perhari = $this->dataPenindakanModel->getDataBapTilangperHari(4, $tanggal_hari_ini);
+        $bap_barat_perhari = $this->dataPenindakanModel->getDataBapTilangperHari(3, $tanggal_hari_ini);
+        $bap_selatan_perhari = $this->dataPenindakanModel->getDataBapTilangperHari(6, $tanggal_hari_ini);
+        $bap_timur_perhari = $this->dataPenindakanModel->getDataBapTilangperHari(5, $tanggal_hari_ini);
+
+
 
         $data = [
             'title' => 'Dinas Perhubungan Prov. DKI Jakarta',
@@ -61,7 +80,21 @@ class Home extends BaseController
             'bap_selatan' => $bap_selatan,
             'bap_timur' => $bap_timur,
             'jenis_penindakan' => $this->jenisPenindakanModel->getJenisPenindakan(),
-            'jenis_kendaraan' => $this->jenisKendaraanModel->getJenisKendaraan()
+            'jenis_kendaraan' => $this->jenisKendaraanModel->getJenisKendaraan(),
+
+            'so_dalops_perhari' => $so_dalops_perhari,
+            'so_pusat_perhari' => $so_pusat_perhari,
+            'so_utara_perhari' => $so_utara_perhari,
+            'so_barat_perhari' => $so_barat_perhari,
+            'so_selatan_perhari' => $so_selatan_perhari,
+            'so_timur_perhari' => $so_timur_perhari,
+
+            'bap_dalops_perhari' => $bap_dalops_perhari,
+            'bap_pusat_perhari' => $bap_pusat_perhari,
+            'bap_utara_perhari' => $bap_utara_perhari,
+            'bap_barat_perhari' => $bap_barat_perhari,
+            'bap_selatan_perhari' => $bap_selatan_perhari,
+            'bap_timur_perhari' => $bap_timur_perhari,
         ];
         return view('landing_page/landing_page_v', $data);
     }
