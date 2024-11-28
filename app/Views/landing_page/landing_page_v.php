@@ -277,7 +277,7 @@
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Bar CHart</h5>
+                                    <h5 class="card-title">Grafik Jumlah Penindakan Tahun <?= date('Y') ?></h5>
 
                                     <!-- Bar Chart -->
                                     <canvas id="barChart" style="max-height: 400px;"></canvas>
@@ -288,7 +288,7 @@
                                                 data: {
                                                     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                                                     datasets: [{
-                                                        label: 'Bar Chart',
+                                                        label: '',
                                                         data: [65, 59, 80, 81, 56, 55, 40],
                                                         backgroundColor: [
                                                             'rgba(255, 99, 132, 0.2)',
@@ -330,7 +330,7 @@
                         <div class="col-lg-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Grafik Penindakan</h5>
+                                    <h5 class="card-title">Persentase Berdasarkan Jenis Penindakan</h5>
                                     <!-- Pie Chart -->
                                     <canvas id="pieChart" style="max-height: 450px;"></canvas>
                                     <!-- End Pie CHart -->
@@ -342,7 +342,7 @@
                         <div class="col-lg-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Grafik Penindakan</h5>
+                                    <h5 class="card-title">Persentase Berdasarkan Jenis Kendaraan</h5>
                                     <!-- Doughnut Chart -->
                                     <canvas id="doughnutChart" style="max-height: 400px;"></canvas>
                                     <!-- End Doughnut CHart -->
@@ -357,14 +357,31 @@
         </section>
     </main><!-- End #main -->
 
+
+
+
     <?php foreach ($jenis_penindakan as $jenis_penindakan) {
+
         $db = \Config\Database::connect();
+        $data_penindakan = $db->table('data_penindakan_table')->countAllResults();
+
         $stop_operasi = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 1)
             ->countAllResults();
 
+        $so = $stop_operasi / $data_penindakan * 100;
+        $persentasi_so = round($so) . '%';
+
         $tilang_dishub = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 2)
             ->countAllResults();
+
+        $tilang = $tilang_dishub / $data_penindakan * 100;
+        $persentasi_tilang = round($tilang) . '%';
+
+        $persen_so = $persentasi_so;
+        $persen_tilang = $persentasi_tilang;
+        // dd($persen_so);
     }; ?>
+
 
     <?php foreach ($jenis_kendaraan as $jenis_kendaraan) {
         $db = \Config\Database::connect();
@@ -421,17 +438,16 @@
                 type: 'pie',
                 data: {
                     labels: [
-                        'Stop Operasi',
-                        'Tilang Dishub',
+                        'Stop Operasi : <?= number_format($stop_operasi) ?>',
+                        'Tilang Dishub : <?= number_format($tilang_dishub) ?>',
                     ],
                     datasets: [{
-                        label: 'Total Penindakan',
-                        data: [<?= $stop_operasi ?>, <?= $tilang_dishub ?>],
+                        label: 'Persentase',
+                        data: [<?= $stop_operasi ?>, <?= $tilang_dishub ?>, ],
                         backgroundColor: [
                             'rgb(255, 99, 132)',
                             'rgb(54, 162, 235)',
-                        ],
-                        hoverOffset: 4
+                        ]
                     }]
                 }
             });
