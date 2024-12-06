@@ -108,11 +108,14 @@ class DataPenindakanController extends BaseController
 
         $total = count($jumlah_penindakan);
 
+
+
         $data = [
             'title' => 'Data Penindakan',
             'data_penindakan' => $data_penindakan,
             'jumlah_penindakan' => $total,
-            'kode_trayek' => $this->kodeTrayekModel->getKodeTrayek()
+            'kode_trayek' => $this->kodeTrayekModel->getKodeTrayek(),
+
         ];
 
         return view('operator/detail_data_penindakan_v', $data);
@@ -125,9 +128,27 @@ class DataPenindakanController extends BaseController
             $id = $this->request->getVar('id');
 
             $data_penindakan = $this->dataPenindakanModel->where(["id" => $id])->get()->getRowObject();
+            $ukpd = $this->ukpdModel->getUkpd(null);
+            $jenisKendaraan = $this->jenisKendaraanModel->getJenisKendaraan();
+            $jenisPenindakan = $this->jenisPenindakanModel->getJenisPenindakan();
+            $tempatPenyimpanan = $this->tempatPenyimpananModel->getTempatPenyimpanan();
+            $lokasiSidang = $this->lokasiSidangModel->getLokasiSidang();
+            $statusKendaraan = $this->statusKendaraanModel->getStatusKendaraan();
+            $type_kendaraan = $this->typeKendaraanModel->getTypeKendaraan();
+
+            $kode_trayek = $this->kodeTrayekModel->where(["jenis_kendaraan_id" => $data_penindakan->jenis_kendaraan_id])->get()->getResultObject();
 
             $data = [
-                'data_penindakan' => $data_penindakan
+                'data_penindakan' => $data_penindakan,
+                'ukpd' => $ukpd,
+                'jenis_kendaraan' => $jenisKendaraan,
+                'jenis_kendaraan' => $jenisKendaraan,
+                'jenis_penindakan' => $jenisPenindakan,
+                'tempat_penyimpanan' => $tempatPenyimpanan,
+                'lokasi_sidang' => $lokasiSidang,
+                'status_kendaraan' => $statusKendaraan,
+                'type_kendaraan' => $type_kendaraan,
+                'kode_trayek' => $kode_trayek
             ];
 
             return json_encode($data);

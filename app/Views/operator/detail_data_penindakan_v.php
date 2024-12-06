@@ -437,14 +437,13 @@
         e.preventDefault();
         let id = $(this).attr('data-id');
         $.ajax({
-            url: '/petugas/data_penindakan/edit',
+            url: '/operator/data_penindakan/edit',
             method: 'get',
             dataType: 'JSON',
             data: {
                 id: id,
             },
             success: function(response) {
-
                 $("#id_edit").val(response.data_penindakan.id);
                 $("#nomor_bap").val(response.data_penindakan.nomor_bap);
                 $("#kode_wilayah_awal").val(response.data_penindakan.kode_wilayah_awal);
