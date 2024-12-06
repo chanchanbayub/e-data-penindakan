@@ -363,7 +363,7 @@
 
                     <div class="form-group">
                         <label for="alamat_pemilik_kendaraan" class="col-form-label">Alamat Pemilik Kendaraan :</label>
-                        <textarea name="alamat_pemilik_kendaraan" id="alamat_pemilik_kendaraan" class="form-control" disabled></textarea>
+                        <textarea name="alamat_pemilik_kendaraan" id="alamat_pemilik_kendaraan" class="form-control"></textarea>
                         <div class=" invalid-feedback error-alamat-pemilik-kendaraan">
 
                         </div>
@@ -371,7 +371,7 @@
 
                     <div class="form-group">
                         <label for="jenis_pelanggaran" class="col-form-label">Jenis Pelanggaran :</label>
-                        <input type="text" name="jenis_pelanggaran" id="jenis_pelanggaran" class="form-control" disabled>
+                        <input type="text" name="jenis_pelanggaran" id="jenis_pelanggaran" class="form-control">
                         <div class=" invalid-feedback error-jenis-pelanggaran">
 
                         </div>
