@@ -365,7 +365,11 @@
             <tr>
                 <td style=" color: white;width:35%">Kepala Suku Dinas </td>
                 <td style="color: white; width:25%"></td>
-                <td style="text-align: center;">Kepala Suku Dinas Perhubungan</td>
+                <?php if ($pengeluaran->ukpd_id == 3) : ?>
+                    <td style="text-align: center;">Plt. Kepala Suku Dinas Perhubungan</td>
+                <?php else : ?>
+                    <td style="text-align: center;">Kepala Suku Dinas Perhubungan</td>
+                <?php endif; ?>
             </tr>
             <tr>
                 <td style="color: white;"></td>
