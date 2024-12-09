@@ -403,46 +403,6 @@
 
                                     <!-- Bar Chart -->
                                     <canvas id="barChart" style="max-height: 400px;"></canvas>
-                                    <script>
-                                        document.addEventListener("DOMContentLoaded", () => {
-                                            new Chart(document.querySelector('#barChart'), {
-                                                type: 'bar',
-                                                data: {
-                                                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                                                    datasets: [{
-                                                        label: '',
-                                                        data: [65, 59, 80, 81, 56, 55, 40],
-                                                        backgroundColor: [
-                                                            'rgba(255, 99, 132, 0.2)',
-                                                            'rgba(255, 159, 64, 0.2)',
-                                                            'rgba(255, 205, 86, 0.2)',
-                                                            'rgba(75, 192, 192, 0.2)',
-                                                            'rgba(54, 162, 235, 0.2)',
-                                                            'rgba(153, 102, 255, 0.2)',
-                                                            'rgba(201, 203, 207, 0.2)'
-                                                        ],
-                                                        borderColor: [
-                                                            'rgb(255, 99, 132)',
-                                                            'rgb(255, 159, 64)',
-                                                            'rgb(255, 205, 86)',
-                                                            'rgb(75, 192, 192)',
-                                                            'rgb(54, 162, 235)',
-                                                            'rgb(153, 102, 255)',
-                                                            'rgb(201, 203, 207)'
-                                                        ],
-                                                        borderWidth: 1
-                                                    }]
-                                                },
-                                                options: {
-                                                    scales: {
-                                                        y: {
-                                                            beginAtZero: true
-                                                        }
-                                                    }
-                                                }
-                                            });
-                                        });
-                                    </script>
                                     <!-- End Bar CHart -->
 
                                 </div>
@@ -494,6 +454,23 @@
 
         $tilang_dishub = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 2)
             ->countAllResults();
+    }; ?>
+
+    <?php foreach ($bulan as $bulan) {
+
+        $db = \Config\Database::connect();
+        $januari = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 1)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
+        $februari = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 2)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
+        $maret = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 3)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
+        $april = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 4)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
+        $mei = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 5)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
+        $juni = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 6)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
+        $juli = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 7)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
+        $agustus = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 8)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
+        $september = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 9)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
+        $oktober = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 10)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
+        $november = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 11)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
+        $desember = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 12)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
     }; ?>
 
     <?php foreach ($jenis_kendaraan as $jenis_kendaraan) {
@@ -560,6 +537,48 @@
                         backgroundColor: [
                             'rgb(255, 99, 132)',
                             'rgb(54, 162, 235)',
+                        ]
+                    }]
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            new Chart(document.querySelector('#barChart'), {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Januari',
+                        'Februari',
+                        'Maret',
+                        'April',
+                        'Mei',
+                        'Juni',
+                        'Juli',
+                        'Agustus',
+                        'September',
+                        'Oktober',
+                        'November',
+                        'Desember',
+                    ],
+                    datasets: [{
+                        label: 'Jumlah Penindakan Tahun 2024',
+                        data: [<?= $januari ?>, <?= $februari ?>, <?= $maret ?>, <?= $april ?>, <?= $mei ?>, <?= $juni ?>, <?= $juli ?>, <?= $juli ?>, <?= $agustus ?>, <?= $september ?>, <?= $oktober ?>, <?= $november ?>, <?= $desember ?>, ],
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(0, 255, 254)',
+                            'rgb(115, 255, 216)',
+                            'rgb(255, 227, 200)',
+                            'rgb(138, 43, 226)',
+                            'rgb(95, 158, 160)',
+                            'rgb(127, 255, 1)',
+                            'rgb(100, 149, 237)',
+                            'rgb(184, 134, 11)',
+                            'rgb(189, 183, 107)',
+                            'rgb(251, 140, 1)'
                         ]
                     }]
                 }

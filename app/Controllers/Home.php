@@ -62,7 +62,22 @@ class Home extends BaseController
         $bap_selatan_perhari = $this->dataPenindakanModel->getDataBapTilangperHari(6, $tanggal_hari_ini);
         $bap_timur_perhari = $this->dataPenindakanModel->getDataBapTilangperHari(5, $tanggal_hari_ini);
 
+        $bulan_data  = [
+            '01' => 'Januari',
+            '02' => 'Februari',
+            '03' => 'Maret',
+            '04' => 'April',
+            '05' => 'Mei',
+            '06' => 'Juni',
+            '07' => 'Juli',
+            '08' => 'Agustus',
+            '09' => 'September',
+            '10' => 'Oktober',
+            '11' => 'November',
+            '12' => 'Desember'
+        ];
 
+        $tahun = date('Y');
 
         $data = [
             'title' => 'Dinas Perhubungan Prov. DKI Jakarta',
@@ -95,6 +110,8 @@ class Home extends BaseController
             'bap_barat_perhari' => $bap_barat_perhari,
             'bap_selatan_perhari' => $bap_selatan_perhari,
             'bap_timur_perhari' => $bap_timur_perhari,
+            'bulan' => $bulan_data,
+            'tahun' => $tahun,
         ];
         return view('landing_page/landing_page_v', $data);
     }
