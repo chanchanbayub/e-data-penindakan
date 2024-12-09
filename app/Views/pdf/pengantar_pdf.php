@@ -259,12 +259,7 @@
                 <td style="width: 2%;">:</td>
                 <td>1 (satu) berkas</td>
                 <td style="width: 10%;text-align:right">Yth.</td>
-                <?php if ($pengeluaran->ukpd_id == 3) : ?>
-                    <td colspan="14"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plh. Kepada</td>
-                <?php else : ?>
-                    <td colspan="14"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plh. Kepada</td>
-                <?php endif; ?>
-
+                <td colspan="14"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plh. Kepada</td>
             </tr>
             <tr>
                 <td style="width:13%;vertical-align:top;"> Hal</td>
