@@ -259,7 +259,7 @@
                 <td style="width: 2%;">:</td>
                 <td>1 (satu) berkas</td>
                 <td style="width: 10%;text-align:right">Yth.</td>
-                <td colspan="14"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plh. Kepada</td>
+                <td colspan="14"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kepada</td>
             </tr>
             <tr>
                 <td style="width:13%;vertical-align:top;"> Hal</td>
