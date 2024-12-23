@@ -319,7 +319,7 @@
 
                     <div class="form-group">
                         <label for="nomor_rangka" class="col-form-label">Nomor Rangka:</label>
-                        <input type="text" name="nomor_rangka" id="nomor_rangka" class="form-control" disabled>
+                        <input type="text" name="nomor_rangka" id="nomor_rangka" class="form-control">
                         <div class="invalid-feedback error-nomor-rangka">
 
                         </div>
@@ -327,7 +327,7 @@
 
                     <div class="form-group">
                         <label for="nomor_mesin" class="col-form-label">Nomor Mesin:</label>
-                        <input type="text" name="nomor_mesin" id="nomor_mesin" class="form-control" disabled>
+                        <input type="text" name="nomor_mesin" id="nomor_mesin" class="form-control">
                         <div class="invalid-feedback error-nomor-mesin">
 
                         </div>
