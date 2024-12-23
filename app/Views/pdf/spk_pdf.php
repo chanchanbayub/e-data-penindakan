@@ -385,7 +385,7 @@
                 </tr>
                 <tr>
                     <td style="color: white;">a.n. Kepala Dinas Perhubungan Provinsi DKI Jakarta</td>
-                    <td style="text-align: center;">Kepala Bidang Pengendalian Operasional</td>
+                    <td style="text-align: center;">Plh. Kepala Bidang Pengendalian Operasional</td>
                 </tr>
                 <tr>
                     <td style="color: white;">Lalu Lintas Dan Angkutan Jalan</td>
@@ -419,7 +419,7 @@
                 </tr>
                 <tr>
                     <td style="color: white;">Kepala Bidang Pengendalian Operasional</td>
-                    <td style="text-align: center;">Kepala Bidang Pengendalian Operasional</td>
+                    <td style="text-align: center;">Plh. Kepala Bidang Pengendalian Operasional</td>
                 </tr>
                 <tr>
                     <td style="color: white;">Kepala Bidang Pengendalian Operasional</td>
@@ -443,7 +443,7 @@
                     <td style="text-align: center">NIP. <?= $pejabat->nip ?> </td>
                 </tr>
             </table>
-            <img src="ttd/ttd_12.png" alt="ttd_data" style="width: 180px; height: 130px; margin-left:400px; margin-top:-150px" class="ttd_digital">
+            <!-- <img src="ttd/ttd_12.png" alt="ttd_data" style="width: 180px; height: 130px; margin-left:400px; margin-top:-150px" class="ttd_digital"> -->
         <?php endif; ?>
     </div>
     <div class="footer">
