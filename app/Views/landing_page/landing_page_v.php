@@ -480,11 +480,11 @@
 
         $data_penindakan = $db->table('data_penindakan_table')->countAllResults();
 
-        $stop_operasi = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 1)
+        $stop_operasi = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 1)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
 
 
-        $tilang_dishub = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 2)
+        $tilang_dishub = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 2)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
     }; ?>
 
@@ -507,21 +507,21 @@
 
     <?php foreach ($jenis_kendaraan as $jenis_kendaraan) {
         $db = \Config\Database::connect();
-        $bus_kecil = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 1)
+        $bus_kecil = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 1)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
-        $mikrotrans = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 2)
+        $mikrotrans = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 2)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
-        $bus_besar = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 3)
+        $bus_besar = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 3)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
-        $bus_sedang = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 4)
+        $bus_sedang = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 4)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
-        $taksi = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 11)
+        $taksi = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 11)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
-        $mobil_barang = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 12)
+        $mobil_barang = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 12)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
-        $kendaraan_khusus = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 13)
+        $kendaraan_khusus = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 13)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
-        $bajaj = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 14)
+        $bajaj = $db->table('data_penindakan_table')->where('jenis_kendaraan_id', 14)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
     }; ?>
 
