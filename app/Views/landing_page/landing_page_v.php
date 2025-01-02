@@ -476,6 +476,7 @@
 
     <?php foreach ($jenis_penindakan as $jenis_penindakan) {
 
+        $tahun = date('Y');
         $db = \Config\Database::connect();
 
         $data_penindakan = $db->table('data_penindakan_table')->countAllResults();
@@ -487,6 +488,7 @@
         $tilang_dishub = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 2)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
     }; ?>
+
 
     <?php foreach ($bulan as $bulan) {
 
