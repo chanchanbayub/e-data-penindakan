@@ -479,7 +479,7 @@
         $tahun = date('Y');
         $db = \Config\Database::connect();
 
-        $data_penindakan = $db->table('data_penindakan_table')->countAllResults();
+        $data_penindakan = $db->table('data_penindakan_table')->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
 
         $stop_operasi = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 1)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
