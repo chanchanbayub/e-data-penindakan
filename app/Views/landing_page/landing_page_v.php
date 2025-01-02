@@ -65,6 +65,38 @@
 
     <main id="main" class="main" style="margin-left: auto;">
 
+        <div class="pagetitle">
+            <h2>Cari Kendaraan</h2>
+            <form>
+                <div class="form-group">
+                    <label for="kode_wilayah_awal" class="col-form-label"> <b>Masukan Nomor Kendaraan :</b> </label>
+                    <div class="col-md-12">
+
+                        <div class="row g-3">
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="nomor_kendaraan_awal" placeholder="B" aria-label="City">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="nomor_kendaraan" placeholder="1234" aria-label="State">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="nomor_kendaraan_akhir" placeholder="CD" aria-label="Zip">
+                            </div>
+                        </div>
+
+                        <span class="invalid-feedback error-kode-wilayah-awal"></span>
+                        <span class="invalid-feedback error-nomor-kendaraan"></span>
+                        <span class="invalid-feedback error-kode-wilayah-akhir"></span>
+                        <br>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-success btn-sm" type="button"><i class="bi bi-search"></i>Search</button>
+                        </div>
+                    </div>
+            </form>
+
+        </div><!-- End Page Title -->
+        <br>
+
         <div class=" pagetitle">
             <h2>Dashboard</h2>
             <span>Data Penindakan Persyaratan Teknis dan Laik Jalan Dinas Perhubungan Provinsi DKI Jakarta</span><br>
@@ -546,6 +578,9 @@
 
     <script>
         $(document).ready(function() {
+
+            let date = new Date();
+
             new Chart(document.querySelector('#barChart'), {
                 type: 'bar',
                 data: {
@@ -564,7 +599,7 @@
                         'Desember',
                     ],
                     datasets: [{
-                        label: 'Jumlah Penindakan Tahun 2024',
+                        label: `Jumlah Penindakan Tahun ${date.getFullYear()}`,
                         data: [<?= $januari ?>, <?= $februari ?>, <?= $maret ?>, <?= $april ?>, <?= $mei ?>, <?= $juni ?>, <?= $juli ?>, <?= $juli ?>, <?= $agustus ?>, <?= $september ?>, <?= $oktober ?>, <?= $november ?>, <?= $desember ?>, ],
                         backgroundColor: [
                             'rgb(255, 99, 132)',
