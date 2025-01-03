@@ -404,11 +404,11 @@
                 </tr>
                 <tr>
                     <td style="color: white;">NAMA LENGKAP</td>
-                    <td style="text-align: center; text-transform:capitalize"><?= $pejabat->nama ?></td>
+                    <td style="text-align: center; text-transform:capitalize">Harlem Simanjuntak</td>
                 </tr>
                 <tr>
                     <td style="color: white;">NAMA LENGKAP</td>
-                    <td style="text-align: center">NIP. <?= $pejabat->nip ?> </td>
+                    <td style="text-align: center">NIP. 197208151992031004 </td>
                 </tr>
             </table>
         <?php else : ?>
@@ -436,11 +436,11 @@
 
                 <tr>
                     <td style="color: white;">NAMA LENGKAP</td>
-                    <td style="text-align: center; text-transform:capitalize"><?= $pejabat->nama ?></td>
+                    <td style="text-align: center; text-transform:capitalize">Harlem Simanjuntak</td>
                 </tr>
                 <tr>
                     <td style="color: white;">NAMA LENGKAP</td>
-                    <td style="text-align: center">NIP. <?= $pejabat->nip ?> </td>
+                    <td style="text-align: center">NIP. 197208151992031004 </td>
                 </tr>
             </table>
             <!-- <img src="ttd/ttd_12.png" alt="ttd_data" style="width: 180px; height: 130px; margin-left:400px; margin-top:-150px" class="ttd_digital"> -->
