@@ -385,7 +385,7 @@
                 </tr>
                 <tr>
                     <td style="color: white;">a.n. Kepala Dinas Perhubungan Provinsi DKI Jakarta</td>
-                    <td style="text-align: center;">Plh. Kepala Bidang Pengendalian Operasional</td>
+                    <td style="text-align: center;">Kepala Bidang Pengendalian Operasional</td>
                 </tr>
                 <tr>
                     <td style="color: white;">Lalu Lintas Dan Angkutan Jalan</td>
@@ -419,7 +419,7 @@
                 </tr>
                 <tr>
                     <td style="color: white;">Kepala Bidang Pengendalian Operasional</td>
-                    <td style="text-align: center;">Plh. Kepala Bidang Pengendalian Operasional</td>
+                    <td style="text-align: center;">Kepala Bidang Pengendalian Operasional</td>
                 </tr>
                 <tr>
                     <td style="color: white;">Kepala Bidang Pengendalian Operasional</td>

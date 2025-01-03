@@ -100,7 +100,7 @@
         <div class=" pagetitle">
             <h2>Dashboard</h2>
             <span>Data Penindakan Persyaratan Teknis dan Laik Jalan Dinas Perhubungan Provinsi DKI Jakarta</span><br>
-            <span>Periode Hari, <?= format_indo(date('Y-m-d'))  ?></span>
+            <span>Periode Hari <?= format_indo(date('Y-m-d'))  ?></span>
         </div><!-- End Page Title -->
         <section class="section dashboard">
             <div class="row">
