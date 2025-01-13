@@ -718,12 +718,19 @@
                 success: function(response) {
                     $('.search').html("<i class='bi bi-search'></i> Cari Kendaraan");
                     $('.search').prop('disabled', false);
-                    if (response.length == 0) {
+                    if (response.data_penindakan.length == 0) {
                         Swal.fire({
                             icon: 'error',
                             title: `Data Tidak diTemukan`,
                         });
+                        $("#kode_wilayah_awal").val('');
+                        $("#nomor_kendaraan").val('');
+                        $("#kode_wilayah_akhir").val('');
                     } else {
+
+                        $("#kode_wilayah_awal").val('');
+                        $("#nomor_kendaraan").val('');
+                        $("#kode_wilayah_akhir").val('');
 
                         let no = 1;
                         let table_data = ``;
