@@ -139,6 +139,47 @@ class DataPenindakanModel extends Model
                 ->get()->getResultObject();
         }
     }
+
+    public function searchKendaraanTilang($ukpd_id, $kode_wilayah_awal, $nomor_kendaraan, $kode_wilayah_akhir)
+    {
+        if ($ukpd_id == null) {
+            return $this->table($this->table)
+                ->select('data_penindakan_table.id,data_penindakan_table.ukpd_id,data_penindakan_table.nomor_bap ,data_penindakan_table.kode_wilayah_awal, data_penindakan_table.nomor_kendaraan, data_penindakan_table.kode_wilayah_akhir,data_penindakan_table.jenis_kendaraan_id, data_penindakan_table.jenis_penindakan_id, data_penindakan_table.tanggal_penindakan, data_penindakan_table.nama_petugas,data_penindakan_table.tanggal_sidang, data_penindakan_table.jenis_pelanggaran, data_penindakan_table.type_kendaraan_id, data_penindakan_table.kode_trayek,data_penindakan_table.tahun_perakitan ,data_penindakan_table.lokasi_penindakan, data_penindakan_table.nama_pemilik, data_penindakan_table.status_kendaraan_id, data_penindakan_table.lokasi_sidang_id ,ukpd_table.ukpd, jenis_kendaraan_table.jenis_kendaraan, tempat_penyimpanan_table.tempat_penyimpanan, jenis_penindakan_table.jenis_penindakan, type_kendaraan_table.type_kendaraan,lokasi_sidang_table.lokasi_sidang, status_kendaraan_table.status_kendaraan')
+                ->join('ukpd_table', 'ukpd_table.id = data_penindakan_table.ukpd_id')
+                ->join('jenis_kendaraan_table', 'jenis_kendaraan_table.id = data_penindakan_table.jenis_kendaraan_id')
+                ->join('jenis_penindakan_table', 'jenis_penindakan_table.id = data_penindakan_table.jenis_penindakan_id')
+                ->join('tempat_penyimpanan_table', 'tempat_penyimpanan_table.id = data_penindakan_table.tempat_penyimpanan_id')
+                ->join('type_kendaraan_table', 'type_kendaraan_table.id = data_penindakan_table.type_kendaraan_id')
+                ->join('lokasi_sidang_table', 'lokasi_sidang_table.id = data_penindakan_table.lokasi_sidang_id')
+                ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id')
+                ->where(["data_penindakan_table.kode_wilayah_awal" => $kode_wilayah_awal])
+                ->where(["data_penindakan_table.nomor_kendaraan" => $nomor_kendaraan])
+                ->where(["data_penindakan_table.kode_wilayah_akhir" => $kode_wilayah_akhir])
+                ->where(["data_penindakan_table.jenis_penindakan_id" => 2])
+                // ->where(["data_penindakan_table.status_kendaraan_id" => 1])
+                ->orderBy('data_penindakan_table.tanggal_penindakan desc')
+                ->get()->getResultObject();
+        } else {
+            return $this->table($this->table)
+                ->select('data_penindakan_table.id,data_penindakan_table.ukpd_id,data_penindakan_table.nomor_bap ,data_penindakan_table.kode_wilayah_awal, data_penindakan_table.nomor_kendaraan, data_penindakan_table.kode_wilayah_akhir,data_penindakan_table.jenis_kendaraan_id, data_penindakan_table.jenis_penindakan_id, data_penindakan_table.tanggal_penindakan, data_penindakan_table.nama_petugas,data_penindakan_table.tanggal_sidang, data_penindakan_table.jenis_pelanggaran, data_penindakan_table.type_kendaraan_id, data_penindakan_table.kode_trayek,data_penindakan_table.tahun_perakitan ,data_penindakan_table.lokasi_penindakan, data_penindakan_table.nama_pemilik, data_penindakan_table.status_kendaraan_id, data_penindakan_table.lokasi_sidang_id ,ukpd_table.ukpd, jenis_kendaraan_table.jenis_kendaraan, tempat_penyimpanan_table.tempat_penyimpanan, jenis_penindakan_table.jenis_penindakan, type_kendaraan_table.type_kendaraan,lokasi_sidang_table.lokasi_sidang, status_kendaraan_table.status_kendaraan')
+                ->join('ukpd_table', 'ukpd_table.id = data_penindakan_table.ukpd_id')
+                ->join('jenis_kendaraan_table', 'jenis_kendaraan_table.id = data_penindakan_table.jenis_kendaraan_id')
+                ->join('jenis_penindakan_table', 'jenis_penindakan_table.id = data_penindakan_table.jenis_penindakan_id')
+                ->join('tempat_penyimpanan_table', 'tempat_penyimpanan_table.id = data_penindakan_table.tempat_penyimpanan_id')
+                ->join('type_kendaraan_table', 'type_kendaraan_table.id = data_penindakan_table.type_kendaraan_id')
+                ->join('lokasi_sidang_table', 'lokasi_sidang_table.id = data_penindakan_table.lokasi_sidang_id')
+                ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id')
+                ->where(["data_penindakan_table.kode_wilayah_awal" => $kode_wilayah_awal])
+                ->where(["data_penindakan_table.nomor_kendaraan" => $nomor_kendaraan])
+                ->where(["data_penindakan_table.kode_wilayah_akhir" => $kode_wilayah_akhir])
+                ->where(["data_penindakan_table.jenis_penindakan_id" => 2])
+                // ->where(["data_penindakan_table.status_kendaraan_id" => 1])
+                ->where(["data_penindakan_table.ukpd_id" => $ukpd_id])
+                ->orderBy('data_penindakan_table.tanggal_penindakan desc')
+                ->get()->getResultObject();
+        }
+    }
+
     public function getDataBapTilang($ukpd_id)
     {
         if ($ukpd_id == null) {

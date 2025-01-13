@@ -14,6 +14,7 @@ class Home extends BaseController
     protected $pengeluaranKendaraanModel;
     protected $jenisPenindakanModel;
     protected $jenisKendaraanModel;
+    protected $dataPenindakan;
 
     public function __construct()
     {
@@ -21,6 +22,7 @@ class Home extends BaseController
         $this->pengeluaranKendaraanModel = new PengeluaranKendaraanModel();
         $this->jenisPenindakanModel = new JenisPenindakanModel();
         $this->jenisKendaraanModel = new JenisKendaraanModel();
+        $this->dataPenindakan = new DataPenindakanModel();
     }
 
     public function index()
@@ -135,5 +137,27 @@ class Home extends BaseController
             'total_pengajuan' => $total_pengajuan
         ];
         return view('landing_page/progress_pengeluaran_v', $data);
+    }
+
+    public function cari_kendaraan()
+    {
+        if ($this->request->isAJAX()) {
+
+            $kode_wilayah_awal = $this->request->getVar('kode_wilayah_awal');
+            $nomor_kendaraan = $this->request->getVar('nomor_kendaraan');
+            $kode_wilayah_akhir = $this->request->getVar('kode_wilayah_akhir');
+
+            $data_penindakan = $this->dataPenindakan->searchKendaraan($kode_wilayah_awal, $nomor_kendaraan, $kode_wilayah_akhir);
+            $data_so = $this->dataPenindakan->searchKendaraanSO(null, $kode_wilayah_awal, $nomor_kendaraan, $kode_wilayah_akhir);
+            $data_tilang = $this->dataPenindakan->searchKendaraanTilang(null, $kode_wilayah_awal, $nomor_kendaraan, $kode_wilayah_akhir);
+
+            $data = [
+                'data_penindakan' => $data_penindakan,
+                'data_so' => count($data_so),
+                'data_tilang' => count($data_tilang),
+            ];
+
+            return json_encode($data);
+        }
     }
 }

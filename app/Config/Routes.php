@@ -12,6 +12,7 @@ $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 
 $routes->get('/', 'Home::index');
+$routes->get('/cari_kendaraan', 'Home::cari_kendaraan');
 $routes->get('/progress', 'Home::progress_pengeluaran');
 
 $routes->group('/admin', function ($routes) {

@@ -25,6 +25,7 @@
     <link href="/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
     <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.24/sweetalert2.min.css">
 
     <!-- Template Main CSS File -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -67,29 +68,25 @@
 
         <div class="pagetitle">
             <h2>Cari Kendaraan</h2>
-            <form>
+            <form id="cari_kendaraan">
+                <?= csrf_field(); ?>
                 <div class="form-group">
-                    <label for="kode_wilayah_awal" class="col-form-label"> <b>Masukan Nomor Kendaraan :</b> </label>
+                    <label for="" class="col-form-label"> <b>Masukan Nomor Kendaraan :</b> </label>
                     <div class="col-md-12">
-
-                        <div class="row g-3">
+                        <div class="row g-3 text-uppercase">
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="nomor_kendaraan_awal" placeholder="B" aria-label="City">
+                                <input type="text" class="form-control text-uppercase" name="kode_wilayah_awal" id="kode_wilayah_awal" placeholder="B" required>
                             </div>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="nomor_kendaraan" placeholder="1234" aria-label="State">
+                                <input type="text" class="form-control text-uppercase" name="nomor_kendaraan" id="nomor_kendaraan" placeholder="1234" required>
                             </div>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="nomor_kendaraan_akhir" placeholder="CD" aria-label="Zip">
+                                <input type="text" class="form-control text-uppercase" name="kode_wilayah_akhir" id="kode_wilayah_akhir" placeholder="CD" required>
                             </div>
                         </div>
-
-                        <span class="invalid-feedback error-kode-wilayah-awal"></span>
-                        <span class="invalid-feedback error-nomor-kendaraan"></span>
-                        <span class="invalid-feedback error-kode-wilayah-akhir"></span>
                         <br>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-outline-success btn-sm" type="button"><i class="bi bi-search"></i>Search</button>
+                            <button class="btn btn-outline-success btn-sm search" type="submit"><i class="bi bi-search"></i>Cari Kendaraan</button>
                         </div>
                     </div>
             </form>
@@ -471,6 +468,43 @@
         </section>
     </main><!-- End #main -->
 
+    <!-- Modal -->
+    <div class="modal fade" id="data_penindakan_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Data Penindakan</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr align="center">
+                                    <th scope="col">#</th>
+                                    <th scope="col">UKPD</th>
+                                    <th scope="col">Nomor Kendaraan</th>
+                                    <th scope="col">Tanggal Penindakan</th>
+                                    <th scope="col">Jenis Penindakan</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table_data" class="text-uppercase">
+                                <tr align="center">
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <span><b>Total Tilang Dishub : </b><b id="jumlah_tilang"></b></span><br>
+                    <span><b>Total Stop Operasi : </b> <b id="jumlah_so"></b></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-dismiss="modal"><i class="bi bi-door-closed-fill"></i> Tutup</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -553,7 +587,9 @@
     <script src="/assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
+    <script src="/assets2/js/moment.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.24/sweetalert2.all.min.js"></script>
     <script src="/assets/vendor/jquery/jquery.js"></script>
 
     <script>
@@ -653,6 +689,69 @@
                         ],
                         hoverOffset: 4
                     }]
+                }
+            });
+        });
+    </script>
+
+    <script>
+        let tanggal = new moment();
+
+        $("#cari_kendaraan").submit(function(e) {
+            e.preventDefault();
+            let kode_wilayah_awal = $("#kode_wilayah_awal").val();
+            let nomor_kendaraan = $("#nomor_kendaraan").val();
+            let kode_wilayah_akhir = $("#kode_wilayah_akhir").val();
+            $.ajax({
+                url: '/cari_kendaraan',
+                method: 'get',
+                dataType: 'JSON',
+                data: {
+                    kode_wilayah_awal: kode_wilayah_awal,
+                    nomor_kendaraan: nomor_kendaraan,
+                    kode_wilayah_akhir: kode_wilayah_akhir,
+                },
+                beforeSend: function() {
+                    $('.search').html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>Loading...");
+                    $('.search').prop('disabled', true);
+                },
+                success: function(response) {
+                    $('.search').html("<i class='bi bi-search'></i> Cari Kendaraan");
+                    $('.search').prop('disabled', false);
+                    if (response.length == 0) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: `Data Tidak diTemukan`,
+                        });
+                    } else {
+
+                        let no = 1;
+                        let table_data = ``;
+
+                        $("#data_penindakan_modal").modal('show');
+                        response.data_penindakan.forEach(function(e) {
+                            table_data += `<tr align = "center"> 
+                                <td align="center">${no++}</td>
+                                <td align="left">${e.ukpd}</td>
+                                <td align="center">${e.kode_wilayah_awal} ${e.nomor_kendaraan} ${e.kode_wilayah_akhir} </td>
+                                <td align="center">${moment(e.tanggal_penindakan).format('DD/MM/Y')}</td>
+                                <td align="center">${e.jenis_penindakan}</td>
+                                
+                            </tr>`;
+
+                            $("#table_data").html(table_data);
+                            $("#jumlah_tilang").html(response.data_tilang + ' Kali');
+                            $("#jumlah_so").html(response.data_so + ' Kali');
+                        });
+                    }
+                },
+                error: function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: `Data Belum Tersimpan!`,
+                    });
+                    $('.search').html("<i class='bi bi-search'></i> Cari Kendaraan");
+                    $('.search').prop('disabled', false);
                 }
             });
         });
