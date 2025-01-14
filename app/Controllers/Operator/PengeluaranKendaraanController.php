@@ -190,6 +190,7 @@ class PengeluaranKendaraanController extends BaseController
         if ($this->request->isAJAX()) {
 
             if (!$this->validate([
+
                 'ukpd_id' => [
                     'rules' => 'required',
                     'errors' => [

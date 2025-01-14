@@ -174,6 +174,12 @@ class PengeluaranKendaraanController extends BaseController
         if ($this->request->isAJAX()) {
 
             if (!$this->validate([
+                'id' => [
+                    'rules' => 'is_unique[pengeluaran_kendaraan_table.data_penindakan_id]',
+                    'errors' => [
+                        'is_unique' => 'Kendaraan Tersebut sudah terdaftar, silahkan cek di halaman pengeluaran kendaraan!'
+                    ]
+                ],
                 'ukpd_id' => [
                     'rules' => 'required',
                     'errors' => [
@@ -348,6 +354,7 @@ class PengeluaranKendaraanController extends BaseController
             ])) {
                 $alert = [
                     'error' => [
+                        'id' => $this->validation->getError('id'),
                         'ukpd_id' => $this->validation->getError('ukpd_id'),
                         'nomor_bap' => $this->validation->getError('nomor_bap'),
                         'nama_pemilik' => $this->validation->getError('nama_pemilik'),

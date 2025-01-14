@@ -23,7 +23,10 @@
                         <form id="tambah_data" autocomplete="off">
                             <?= csrf_field(); ?>
                             <div class="form-group">
-                                <input type="hidden" name="id" id="id" class="form-control" value="<?= $data_penindakan->id ?>">
+                                <input type="text" name="id" id="id" class="form-control" value="<?= $data_penindakan->id ?>" disabled>
+                                <div class="invalid-feedback error-data-penindakan">
+
+                                </div>
                                 <label for="ukpd_id" class="col-form-label">UKPD :</label>
                                 <select name="ukpd_id" id="ukpd_id" class="form-select">
                                     <option value="">--Silahkan Pilih--</option>
@@ -583,12 +586,12 @@
                 $('.save').html("<i class='bi bi-send'></i> Simpan");
                 $('.save').prop('disabled', false);
                 if (response.error) {
-                    if (response.error.ukpd_id) {
-                        $("#ukpd_id").addClass('is-invalid');
-                        $(".error-ukpd").html(response.error.ukpd_id);
+                    if (response.error.id) {
+                        $("#id").addClass('is-invalid');
+                        $(".error-data-penindakan").html(response.error.id);
                     } else {
-                        $("#ukpd_id").removeClass('is-invalid');
-                        $(".error-ukpd").html('');
+                        $("#id").removeClass('is-invalid');
+                        $(".error-data-penindakan").html('');
                     }
 
                     if (response.error.nomor_bap) {
