@@ -101,43 +101,7 @@
         </div><!-- End Page Title -->
         <section class="section dashboard">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Line Chart</h5>
-
-                            <!-- Line Chart -->
-                            <canvas id="lineChart" style="max-height: 290px;"></canvas>
-                            <script>
-                                document.addEventListener("DOMContentLoaded", () => {
-                                    new Chart(document.querySelector('#lineChart'), {
-                                        type: 'line',
-                                        data: {
-                                            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                                            datasets: [{
-                                                label: 'Line Chart',
-                                                data: [65, 59, 80, 81, 56, 55, 40],
-                                                fill: false,
-                                                borderColor: 'rgb(75, 192, 192)',
-                                                tension: 0.1
-                                            }]
-                                        },
-                                        options: {
-                                            scales: {
-                                                y: {
-                                                    beginAtZero: true
-                                                }
-                                            }
-                                        }
-                                    });
-                                });
-                            </script>
-                            <!-- End Line CHart -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title"></h5>
@@ -508,7 +472,11 @@
 
 
 
-    <?php foreach ($jenis_penindakan as $jenis_penindakan) {
+    <?php
+
+    use App\Models\Admin\DataPenindakanModel;
+
+    foreach ($jenis_penindakan as $jenis_penindakan) {
 
         $tahun = date('Y');
         $db = \Config\Database::connect();
@@ -518,11 +486,9 @@
         $stop_operasi = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 1)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
 
-
         $tilang_dishub = $db->table('data_penindakan_table')->where('jenis_penindakan_id', 2)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->countAllResults();
     }; ?>
-
 
     <?php foreach ($bulan as $bulan) {
 
