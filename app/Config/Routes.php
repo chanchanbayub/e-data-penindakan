@@ -154,7 +154,7 @@ $routes->group('/petugas', function ($routes) {
     $routes->get('cetak_pengantar/(:any)', 'Pdf\PdfController::cetak_pengantar/$1');
     $routes->post('cetak_laporan/', 'Pdf\PdfController::cetak_laporan');
 
-    $routes->post('export_excel/', 'Excel\ExcelController::export_excel');
+    $routes->get('export_excel/', 'Excel\ExcelController::cetak_laporan');
 });
 
 $routes->group('/operator', function ($routes) {

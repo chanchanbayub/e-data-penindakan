@@ -33,6 +33,7 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li><a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#smallModal" data-bs-whatever="@mdo"><i class="bi bi-plus"></i> Tambah Data Penindakan</a></li>
+                                            <li><a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exportModal" data-bs-whatever="@mdo"><i class="bi bi-file-excel"></i> Export Excel</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -281,6 +282,44 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> <i class="bi bi-x-lg"></i> Batal</button>
                         <button type="submit" class="btn btn-primary save"> <i class="bi bi-send"></i> Kirim</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div><!-- End tambah Modal-->
+
+<!-- Modal Download Pengeluaran -->
+<div class="modal fade" id="exportModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Export Excel </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form_export" autocomplete="off" class="row g-3" action="/petugas/export_excel" method="get">
+                    <?= csrf_field(); ?>
+
+                    <div class="col-md-4">
+                        <label for="ukpd_id" class="form-label">Silahkan Pilih :</label>
+                        <select name="ukpd_id" id="ukpd_id" class="form-select" required>
+                            <option value="<?= session()->get('ukpd_id') ?>"><?= session()->get('ukpd') ?></option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tanggal_awal" class="form-label">Tanggal Awal :</label>
+                        <input type="date" class="form-control" id="tanggal_awal" name="tanggal_awal" required />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tanggal_akhir" class="form-label">Tanggal Akhir : </label>
+                        <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" required />
+                    </div>
+                    <br>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> <i class="bi bi-x-lg"></i> Batal</button>
+                        <button type="submit" class="btn btn-primary excel_export"> <i class="bi bi-file-excel"></i> Export Excel</button>
                     </div>
                 </form>
             </div>
