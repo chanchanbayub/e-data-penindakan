@@ -33,6 +33,7 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li><a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#smallModal" data-bs-whatever="@mdo"><i class="bi bi-plus"></i> Tambah Data Penindakan</a></li>
+                                            <li><a href="#" class="dropdown-item"><i class="bi bi-file-earmark-excel"></i> Export Excel</a></li>
                                         </ul>
                                     </div>
                                 </div>

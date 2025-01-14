@@ -186,6 +186,8 @@ $routes->group('/operator', function ($routes) {
     $routes->get('cetak_pengantar/(:any)', 'Pdf\PdfController::cetak_pengantar/$1');
 
     $routes->post('cetak_laporan/', 'Pdf\PdfController::cetak_laporan');
+
+    $routes->get('export_excel/', 'Excel\ExcelController::cetak_laporan');
 });
 
 $routes->group('/verifikator', function ($routes) {

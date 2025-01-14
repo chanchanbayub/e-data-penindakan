@@ -237,6 +237,41 @@ class DataPenindakanModel extends Model
         }
     }
 
+
+    public function getDataPenindakanPerPeriode($ukpd_id, $tanggal_awal, $tanggal_akhir)
+    {
+
+        if ($ukpd_id == null) {
+            return $this->table($this->table)
+                ->select('data_penindakan_table.id,data_penindakan_table.ukpd_id,data_penindakan_table.nomor_bap ,data_penindakan_table.kode_wilayah_awal, data_penindakan_table.nomor_kendaraan, data_penindakan_table.kode_wilayah_akhir,data_penindakan_table.jenis_kendaraan_id, data_penindakan_table.jenis_penindakan_id, data_penindakan_table.tanggal_penindakan, ukpd_table.ukpd, jenis_kendaraan_table.jenis_kendaraan, tempat_penyimpanan_table.tempat_penyimpanan, jenis_penindakan_table.jenis_penindakan, status_kendaraan_table.status_kendaraan, type_kendaraan_table.type_kendaraan, data_penindakan_table.tahun_perakitan, data_penindakan_table.kode_trayek, data_penindakan_table.jenis_pelanggaran, data_penindakan_table.pasal_pelanggaran, data_penindakan_table.lokasi_penindakan, data_penindakan_table.barang_bukti, data_penindakan_table.tanggal_sidang, lokasi_sidang_table.lokasi_sidang, data_penindakan_table.nama_petugas, data_penindakan_table.nama_pemilik')
+                ->join('ukpd_table', 'ukpd_table.id = data_penindakan_table.ukpd_id')
+                ->join('jenis_kendaraan_table', 'jenis_kendaraan_table.id = data_penindakan_table.jenis_kendaraan_id')
+                ->join('type_kendaraan_table', 'type_kendaraan_table.id = data_penindakan_table.type_kendaraan_id')
+                ->join('jenis_penindakan_table', 'jenis_penindakan_table.id = data_penindakan_table.jenis_penindakan_id')
+                ->join('tempat_penyimpanan_table', 'tempat_penyimpanan_table.id = data_penindakan_table.tempat_penyimpanan_id')
+                ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id')
+                ->join('lokasi_sidang_table', 'lokasi_sidang_table.id = data_penindakan_table.lokasi_sidang_id')
+                ->where("data_penindakan_table.tanggal_penindakan BETWEEN '$tanggal_awal' AND '$tanggal_akhir'")
+                ->orderBy('data_penindakan_table.tanggal_penindakan desc')
+                ->get()->getResultObject();
+        } else {
+            return $this->table($this->table)
+                ->select('data_penindakan_table.id,data_penindakan_table.ukpd_id,data_penindakan_table.nomor_bap ,data_penindakan_table.kode_wilayah_awal, data_penindakan_table.nomor_kendaraan, data_penindakan_table.kode_wilayah_akhir,data_penindakan_table.jenis_kendaraan_id, data_penindakan_table.jenis_penindakan_id, data_penindakan_table.tanggal_penindakan, ukpd_table.ukpd, jenis_kendaraan_table.jenis_kendaraan, tempat_penyimpanan_table.tempat_penyimpanan, jenis_penindakan_table.jenis_penindakan, status_kendaraan_table.status_kendaraan, type_kendaraan_table.type_kendaraan, data_penindakan_table.tahun_perakitan, data_penindakan_table.kode_trayek, data_penindakan_table.jenis_pelanggaran, data_penindakan_table.pasal_pelanggaran, data_penindakan_table.lokasi_penindakan, data_penindakan_table.barang_bukti, data_penindakan_table.tanggal_sidang, lokasi_sidang_table.lokasi_sidang, data_penindakan_table.nama_petugas,  data_penindakan_table.nama_pemilik')
+                ->join('ukpd_table', 'ukpd_table.id = data_penindakan_table.ukpd_id')
+                ->join('jenis_kendaraan_table', 'jenis_kendaraan_table.id = data_penindakan_table.jenis_kendaraan_id')
+                ->join('type_kendaraan_table', 'type_kendaraan_table.id = data_penindakan_table.type_kendaraan_id')
+                ->join('jenis_penindakan_table', 'jenis_penindakan_table.id = data_penindakan_table.jenis_penindakan_id')
+                ->join('tempat_penyimpanan_table', 'tempat_penyimpanan_table.id = data_penindakan_table.tempat_penyimpanan_id')
+                ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id')
+                ->join('lokasi_sidang_table', 'lokasi_sidang_table.id = data_penindakan_table.lokasi_sidang_id')
+                ->where(["data_penindakan_table.ukpd_id" => $ukpd_id])
+                ->where("data_penindakan_table.tanggal_penindakan BETWEEN '$tanggal_awal' AND '$tanggal_akhir'")
+                ->orderBy('data_penindakan_table.tanggal_penindakan desc')
+                ->get()->getResultObject();
+        }
+    }
+
+
     public function getDataPenindakanDataTable()
     {
         $db = db_connect();

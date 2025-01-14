@@ -299,14 +299,27 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form_export" autocomplete="off" class="row g-3" action="/operator/export_excel" method="post">
+                <form id="form_export" autocomplete="off" class="row g-3" action="/operator/export_excel" method="get">
                     <?= csrf_field(); ?>
 
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <label for="ukpd_id" class="form-label">Silahkan Pilih :</label>
+                        <select name="ukpd_id" id="ukpd_id" class="form-select" required>
+                            <option value="">--Silahkan Pilih--</option>
+                            <option value="null">Semua Data</option>
+                            <option value="1">Bidang Dalops</option>
+                            <option value="2">Sudinhub Kota Adm. Jakarta Pusat</option>
+                            <option value="3">Sudinhub Kota Adm. Jakarta Barat</option>
+                            <option value="4">Sudinhub Kota Adm. Jakarta Utara</option>
+                            <option value="5">Sudinhub Kota Adm. Jakarta Timur</option>
+                            <option value="6">Sudinhub Kota Adm. Jakarta Selatan</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
                         <label for="tanggal_awal" class="form-label">Tanggal Awal :</label>
                         <input type="date" class="form-control" id="tanggal_awal" name="tanggal_awal" required />
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label for="tanggal_akhir" class="form-label">Tanggal Akhir : </label>
                         <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" required />
                     </div>
