@@ -443,7 +443,7 @@
                     <td style="text-align: center">NIP. 197208151992031004 </td>
                 </tr>
             </table>
-            <!-- <img src="ttd/ttd_12.png" alt="ttd_data" style="width: 180px; height: 130px; margin-left:400px; margin-top:-150px" class="ttd_digital"> -->
+            <img src="ttd/ttd_12.png" alt="ttd_data" style="width: 180px; height: 130px; margin-left:400px; margin-top:-150px" class="ttd_digital">
         <?php endif; ?>
     </div>
     <div class="footer">
