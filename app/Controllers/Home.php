@@ -81,6 +81,11 @@ class Home extends BaseController
 
         $tahun = date('Y');
 
+        $jumlah_data_penindakan = $this->dataPenindakanModel->where("YEAR(tanggal_penindakan)", $tahun)->countAllResults();
+        $jumlah_so = $this->dataPenindakanModel->where("YEAR(tanggal_penindakan)", $tahun)->where(["jenis_penindakan_id" => 1])->countAllResults();
+        $jumlah_tilang = $this->dataPenindakanModel->where("YEAR(tanggal_penindakan)", $tahun)->where(["jenis_penindakan_id" => 2])->countAllResults();
+
+
         $data = [
             'title' => 'Dinas Perhubungan Prov. DKI Jakarta',
             'so_dalops' => $so_dalops,
@@ -114,6 +119,10 @@ class Home extends BaseController
             'bap_timur_perhari' => $bap_timur_perhari,
             'bulan' => $bulan_data,
             'tahun' => $tahun,
+
+            'jumlah_penindakan' => $jumlah_data_penindakan,
+            'jumlah_so' => $jumlah_so,
+            'jumlah_tilang' => $jumlah_tilang,
         ];
         return view('landing_page/landing_page_v', $data);
     }

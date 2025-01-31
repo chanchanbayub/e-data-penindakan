@@ -185,7 +185,7 @@
 
         <div class=" pagetitle">
             <span>Data Penindakan Persyaratan Teknis dan Laik Jalan Dinas Perhubungan Provinsi DKI Jakarta</span><br>
-            <span>Periode 02 Januari s/d <?= date('d F Y') ?></span>
+            <span>Periode 02 Januari s/d <?= date_indo(date('Y-m-d'))  ?> </span>
         </div><!-- End Page Title -->
 
         <section class="section dashboard">
@@ -380,6 +380,66 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=" pagetitle">
+                            <span>Data Penindakan Persyaratan Teknis dan Laik Jalan Dinas Perhubungan Provinsi DKI Jakarta</span><br>
+                            <span>Periode 2 Januari s/d <?= date_indo(date('Y-m-d'))  ?></span>
+                        </div><!-- End Page Title -->
+
+
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card info-card sales-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total <span>| Penindakan </span></h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-car-front"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6><?= number_format($jumlah_penindakan) ?> </h6>
+                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card info-card sales-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total <span>| Penindakan Stop Operasi </span></h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-car-front"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6><?= number_format($jumlah_so) ?> </h6>
+                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card info-card sales-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total <span>| Penindakan Tilang Dishub </span></h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-car-front"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6><?= number_format($jumlah_tilang) ?> </h6>
+                                            <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Kendaraan</span>
+
                                         </div>
                                     </div>
                                 </div>

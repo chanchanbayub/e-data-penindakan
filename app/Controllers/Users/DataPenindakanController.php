@@ -63,8 +63,6 @@ class DataPenindakanController extends BaseController
                 $jumlahSO = count($so);
                 $jumlahBAP = count($bap);
 
-
-
                 $alert = [
                     'data_penindakan' => $data_penindakan,
                     'so' => $jumlahSO,
