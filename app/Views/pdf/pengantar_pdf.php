@@ -195,10 +195,6 @@
                     <p id="p3">Jalan Perserikatan Nomor 1 Telepon 4704242 Faksimile 4704242</p>
                     <p id="p4">E-mail : sudinhubjaktim@gmail.com </p>
                 <?php elseif ($pengeluaran->ukpd_id == 6) :  ?>
-                    <p id="sudin">Kota Administrasi Jakarta Timur</p>
-                    <p id="p3">Jalan Perserikatan Nomor 1 Telepon 4704242 Faksimile 4704242</p>
-                    <p id="p4">E-mail : sudinhubjaktim@gmail.com </p>
-                <?php elseif ($pengeluaran->ukpd_id == 6) :  ?>
                     <p id="sudin">Kota Administrasi Jakarta Selatan</p>
                     <p id="p3">Jl MT Haryono Kav. 45 - 46 Lt.4 Telp. 79160069 Fax.79160071</p>
                     <!-- <p id="p4">E-mail : sudinhubjaktim@gmail.com </p> -->
