@@ -307,7 +307,7 @@
 
                     <div class="form-group">
                         <input type="hidden" name="id_edit" id="id_edit" class="form-control">
-                        <input type="text" name="pengantar_lama" id="pengantar_lama" class="form-control">
+                        <input type="hidden" name="pengantar_lama" id="pengantar_lama" class="form-control">
                         <input type="hidden" name="data_penindakan_id" id="data_penindakan_id" class="form-control" disabled>
                         <label for="nomor_kendaraan_edit" class="col-form-label">Nomor Kendaraan :</label>
                         <div class="col-md-12">

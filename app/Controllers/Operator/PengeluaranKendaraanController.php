@@ -601,15 +601,17 @@ class PengeluaranKendaraanController extends BaseController
                 $status_kendaraan_id = $this->request->getVar('status_kendaraan_id');
                 $pengantar_sidang = $this->request->getFile('pengantar_sidang');
 
-                $nama_pengantar = $pengantar_sidang->getRandomName();
-
-                $pengantar_sidang_data = $this->pengantarSidangModel->where(["pengeluaran_kendaraan_id" => $id])->get()->getRowObject();
-
-                if ($pengantar_sidang_data != null) {
-                    $pengantar_lama_data = 'pengantar_sidang/' . $pengantar_lama;
-
-                    if (file_exists($pengantar_lama_data)) {
-                        unlink($pengantar_lama_data);
+                if ($pengantar_sidang->getError() == 4) {
+                    $nama_pengantar = $pengantar_lama;
+                } else {
+                    $pengantar_sidang_data = $this->pengantarSidangModel->where(["pengeluaran_kendaraan_id" => $id])->get()->getRowObject();
+                    if ($pengantar_sidang_data != null) {
+                        $pengantar_lama_data = 'pengantar_sidang/' . $pengantar_lama;
+                        if (file_exists($pengantar_lama_data)) {
+                            unlink($pengantar_lama_data);
+                            $nama_pengantar = $pengantar_sidang->getRandomName();
+                            $pengantar_sidang->move('pengantar_sidang', $nama_pengantar);
+                        }
                     }
                 }
 
@@ -631,7 +633,7 @@ class PengeluaranKendaraanController extends BaseController
                     'pengantar_sidang' => $nama_pengantar
                 ]);
 
-                $pengantar_sidang->move('pengantar_sidang', $nama_pengantar);
+
 
                 $alert = [
                     'success' => 'Surat Pengeluaran Berhasil di Ubah !'
