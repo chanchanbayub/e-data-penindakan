@@ -53,6 +53,7 @@ class PengeluaranKendaraanController extends BaseController
         $this->pengantarSidangModel = new PengantarModel();
     }
 
+
     public function index()
     {
         if (session()->get('role_management_id') != 3) {
@@ -487,6 +488,7 @@ class PengeluaranKendaraanController extends BaseController
             $id = $this->request->getVar('id');
 
             $pengeluaran_kendaraan = $this->pengeluaranKendaraanModel->getPengeluaranKendaraanWhereId($id);
+            // dd($pengeluaran_kendaraan);
 
             return json_encode($pengeluaran_kendaraan);
         }
@@ -588,6 +590,7 @@ class PengeluaranKendaraanController extends BaseController
                 ];
             } else {
                 $id = $this->request->getVar('id');
+                $pengantar_lama = $this->request->getVar('pengantar_lama');
                 $data_penindakan_id = $this->request->getVar('data_penindakan_id');
                 $nomor_surat_pengeluaran = $this->request->getVar('nomor_surat_pengeluaran');
                 $nomor_rangka = $this->request->getVar('nomor_rangka');
@@ -596,6 +599,19 @@ class PengeluaranKendaraanController extends BaseController
                 $nama_pemilik = $this->request->getVar('nama_pemilik');
                 $tanggal_keluar = $this->request->getVar('tanggal_keluar');
                 $status_kendaraan_id = $this->request->getVar('status_kendaraan_id');
+                $pengantar_sidang = $this->request->getFile('pengantar_sidang');
+
+                $nama_pengantar = $pengantar_sidang->getRandomName();
+
+                $pengantar_sidang_data = $this->pengantarSidangModel->where(["pengeluaran_kendaraan_id" => $id])->get()->getRowObject();
+
+                if ($pengantar_sidang_data != null) {
+                    $pengantar_lama_data = 'pengantar_sidang/' . $pengantar_lama;
+
+                    if (file_exists($pengantar_lama_data)) {
+                        unlink($pengantar_lama_data);
+                    }
+                }
 
                 $this->pengeluaranKendaraanModel->update($id, [
                     'data_penindakan_id' => strtolower($data_penindakan_id),
@@ -610,6 +626,12 @@ class PengeluaranKendaraanController extends BaseController
                     'status_kendaraan_id' => $status_kendaraan_id,
                     'nama_pemilik' => $nama_pemilik
                 ]);
+
+                $this->pengantarSidangModel->update($pengantar_sidang_data->id, [
+                    'pengantar_sidang' => $nama_pengantar
+                ]);
+
+                $pengantar_sidang->move('pengantar_sidang', $nama_pengantar);
 
                 $alert = [
                     'success' => 'Surat Pengeluaran Berhasil di Ubah !'

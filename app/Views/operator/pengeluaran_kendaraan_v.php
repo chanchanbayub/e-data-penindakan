@@ -285,8 +285,6 @@
             <div class="modal-body">
                 <form id="edit_data" autocomplete="off">
                     <?= csrf_field(); ?>
-
-
                     <div class="form-group">
                         <label for="nomor_surat_pengeluaran" class="col-form-label">Nomor Surat Pengeluaran:</label>
                         <input type="text" name="nomor_surat_pengeluaran" id="nomor_surat_pengeluaran" class="form-control">
@@ -309,6 +307,7 @@
 
                     <div class="form-group">
                         <input type="hidden" name="id_edit" id="id_edit" class="form-control">
+                        <input type="text" name="pengantar_lama" id="pengantar_lama" class="form-control">
                         <input type="hidden" name="data_penindakan_id" id="data_penindakan_id" class="form-control" disabled>
                         <label for="nomor_kendaraan_edit" class="col-form-label">Nomor Kendaraan :</label>
                         <div class="col-md-12">
@@ -394,6 +393,14 @@
                                 </div>
                             </div>
                             <span class="invalid-feedback error-nama-pemilik"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pengantar_sidang_data" class="col-form-label">Pengantar Sidang (Kosongkan Jika Tidak di Edit) :</label>
+                        <input type="file" name="pengantar_sidang" id="pengantar_sidang_data" class="form-control">
+                        <div class=" invalid-feedback error-pengantar">
+
                         </div>
                     </div>
 
@@ -656,6 +663,7 @@
             },
             success: function(response) {
                 $("#id_edit").val(response.id);
+                $("#pengantar_lama").val(response.pengantar_sidang);
                 $("#data_penindakan_id").val(response.data_penindakan_id);
                 $("#nomor_kendaraan_edit").val(`${response.kode_wilayah_awal} ${response.nomor_kendaraan} ${response.kode_wilayah_akhir}`);
 
@@ -688,23 +696,32 @@
         let tanggal_keluar = $('#tanggal_keluar').val();
         let nama_pemilik = $('#nama_pemilik_edit').val();
         let status_kendaraan_id = $('#status_kendaraan_id').val();
+        let pengantar_sidang = $('#pengantar_sidang_data').val();
+        let pengantar_lama = $('#pengantar_lama').val();
 
+        let formData = new FormData(this);
+
+        formData.append('id', id);
+        formData.append('data_penindakan_id', data_penindakan_id);
+        formData.append('nomor_surat_pengeluaran', nomor_surat_pengeluaran);
+        formData.append('nomor_rangka', nomor_rangka);
+        formData.append('nomor_mesin', nomor_mesin);
+        formData.append('alamat_pemilik_kendaraan', alamat_pemilik_kendaraan);
+        formData.append('tanggal_keluar', tanggal_keluar);
+        formData.append('nama_pemilik', nama_pemilik);
+        formData.append('status_kendaraan_id', status_kendaraan_id);
+        formData.append('pengantar_sidang', pengantar_sidang);
+        formData.append('pengantar_lama', pengantar_lama);
 
         $.ajax({
             url: '/operator/pengeluaran_kendaraan/update',
-            method: 'post',
-            dataType: 'JSON',
-            data: {
-                id: id,
-                data_penindakan_id: data_penindakan_id,
-                nomor_surat_pengeluaran: nomor_surat_pengeluaran,
-                nomor_rangka: nomor_rangka,
-                nomor_mesin: nomor_mesin,
-                alamat_pemilik_kendaraan: alamat_pemilik_kendaraan,
-                tanggal_keluar: tanggal_keluar,
-                nama_pemilik: nama_pemilik,
-                status_kendaraan_id: status_kendaraan_id,
-            },
+            data: formData,
+            dataType: 'json',
+            enctype: 'multipart/form-data',
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            cache: false,
             beforeSend: function() {
                 $('.update').html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>Loading...");
                 $('.update').prop('disabled', true);
