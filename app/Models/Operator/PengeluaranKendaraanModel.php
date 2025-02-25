@@ -107,7 +107,7 @@ class PengeluaranKendaraanModel extends Model
             ->join('type_kendaraan_table', 'type_kendaraan_table.id = data_penindakan_table.type_kendaraan_id')
             ->join('lokasi_sidang_table', 'lokasi_sidang_table.id = data_penindakan_table.lokasi_sidang_id')
             ->join('status_kendaraan_table', 'status_kendaraan_table.id = data_penindakan_table.status_kendaraan_id')
-            ->join('pengantar_table', 'pengantar_table.pengeluaran_kendaraan_id = pengeluaran_kendaraan_table.id')
+            ->join('pengantar_table', 'pengantar_table.pengeluaran_kendaraan_id = pengeluaran_kendaraan_table.id', 'left')
             ->where(["pengeluaran_kendaraan_table.id" => $id])
             ->orderBy('pengeluaran_kendaraan_table.id desc')
             ->get()->getRowObject();

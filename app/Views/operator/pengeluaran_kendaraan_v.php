@@ -440,7 +440,7 @@
                 <form id="form_ajukan_pengeluaran" autocomplete="off">
                     <?= csrf_field(); ?>
                     <div class="form-group">
-                        <input type="hidden" name="pengeluaran_kendaraan_id" id="pengeluaran_kendaraan_id" class="form-control">
+                        <input type="text" name="pengeluaran_kendaraan_id" id="pengeluaran_kendaraan_id" class="form-control">
                         <label for="pengantar_sidang" class="col-form-label">Upload Pengantar & Kwitansi Sidang (PDF) Max : (2MB) :</label>
                         <input type="file" name="pengantar_sidang" id="pengantar_sidang" class="form-control">
                         <div class="invalid-feedback error-pengantar">
@@ -821,6 +821,7 @@
                 id: id,
             },
             success: function(response) {
+                console.log(response);
                 $("#pengeluaran_kendaraan_id").val(response.id);
             }
         });
