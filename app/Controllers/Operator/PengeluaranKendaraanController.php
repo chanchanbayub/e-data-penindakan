@@ -488,7 +488,6 @@ class PengeluaranKendaraanController extends BaseController
             $id = $this->request->getVar('id');
 
             $pengeluaran_kendaraan = $this->pengeluaranKendaraanModel->getPengeluaranKendaraanWhereId($id);
-            // dd($pengeluaran_kendaraan);
 
             return json_encode($pengeluaran_kendaraan);
         }
@@ -611,6 +610,10 @@ class PengeluaranKendaraanController extends BaseController
                             unlink($pengantar_lama_data);
                             $nama_pengantar = $pengantar_sidang->getRandomName();
                             $pengantar_sidang->move('pengantar_sidang', $nama_pengantar);
+
+                            $this->pengantarSidangModel->update($pengantar_sidang_data->id, [
+                                'pengantar_sidang' => $nama_pengantar
+                            ]);
                         }
                     }
                 }
@@ -628,11 +631,6 @@ class PengeluaranKendaraanController extends BaseController
                     'status_kendaraan_id' => $status_kendaraan_id,
                     'nama_pemilik' => $nama_pemilik
                 ]);
-
-                $this->pengantarSidangModel->update($pengantar_sidang_data->id, [
-                    'pengantar_sidang' => $nama_pengantar
-                ]);
-
 
 
                 $alert = [
