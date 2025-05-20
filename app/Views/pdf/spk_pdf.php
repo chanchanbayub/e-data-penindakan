@@ -170,7 +170,12 @@
                 <td align="center">
                     <p id="p1"> pemerintah daerah khusus ibu kota jakarta</p>
                     <p id="p2"> dinas perhubungan</p>
-                    <p id="p3">Jalan Taman Jatibaru Nomor 1 Telepon 3501349 Faksimile 3455264</p>
+                    <?php if (date('Y/m/d') == $pengeluaran->tanggal_keluar) : ?>
+                        <p id="p3">Gedung Graha Lestari, Jalan Kesehatan No 48, Kelurahan Petojo Selatan,</p>
+                        <p id="p4">Kecamatan Gambir, Kota Administrasi Jakarta Pusat</p>
+                    <?php else : ?>
+                        <p id="p3">Jalan Taman Jatibaru Nomor 1 Telepon 3501349 Faksimile 3455264</p>
+                    <?php endif; ?>
                     <p id="p4">Website : www.dishub.jakarta.go.id E-mail : dishub@jakarta.go.id </p>
                     <p id="p4">J A K A R T A</p>
                 </td>
