@@ -171,7 +171,7 @@
                     <p id="p1"> pemerintah daerah khusus ibu kota jakarta</p>
                     <p id="p2"> dinas perhubungan</p>
 
-                    <?php if (date('Y-m-d') == $pengeluaran->tanggal_keluar) : ?>
+                    <?php if ($pengeluaran->tanggal_keluar >= $tanggal_kop) : ?>
                         <p id="p3">Gedung Graha Lestari, Jalan Kesehatan No 48, Kelurahan Petojo Selatan,</p>
                         <p id="p4">Kecamatan Gambir, Kota Administrasi Jakarta Pusat</p>
                     <?php else : ?>
@@ -185,9 +185,15 @@
                 </td> -->
             </tr>
             <tr>
-                <td colspan="3" align="right" id="p5">
-                    Kode Pos : 10150
-                </td>
+                <?php if ($pengeluaran->tanggal_keluar >= $tanggal_kop) : ?>
+                    <td colspan="3" align="right" id="p5">
+                        Kode Pos : 10160
+                    </td>
+                <?php else : ?>
+                    <td colspan="3" align="right" id="p5">
+                        Kode Pos : 10150
+                    </td>
+                <?php endif; ?>
             </tr>
         </table>
 
