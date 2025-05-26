@@ -40,7 +40,7 @@
     }
 
     #p1 {
-        font-size: 18px;
+        font-size: 17px;
         text-transform: uppercase;
         line-height: 15px;
         letter-spacing: 0px;
@@ -168,12 +168,17 @@
                     <img class="logo" src="assets/img/logo.png" alt="logo" />
                 </td>
                 <td align="center">
-                    <p id="p1"> pemerintah daerah khusus ibu kota jakarta</p>
-                    <p id="p2"> dinas perhubungan</p>
+                    <?php if ($pengeluaran->tanggal_keluar >= $tanggal_kop) : ?>
+                        <p id="p1"> pemerintah provinsi daerah khusus ibu kota jakarta <br> dinas perhubungan </p>
+                        <p id="p2" style="font-size: 19; font-weight: bold;  line-height: 5px; letter-spacing:0;"> Bidang Pengendalian Operasional <br> Lalu Lintas dan Angkutan jalan</p>
+                    <?php else : ?>
+                        <p id="p1"> pemerintah provinsi daerah khusus ibu kota jakarta</p>
+                        <p id="p2"> dinas perhubungan</p>
+                    <?php endif; ?>
 
                     <?php if ($pengeluaran->tanggal_keluar >= $tanggal_kop) : ?>
-                        <p id="p3">Gedung Graha Lestari, Jalan Kesehatan No 48, Kelurahan Petojo Selatan,</p>
-                        <p id="p4">Kecamatan Gambir, Kota Administrasi Jakarta Pusat</p>
+                        <p id="p3">Gedung Graha Lestari, Jalan Kesehatan No 48, Jakarta Pusat Telepon:-,</p>
+                        <!-- <p id="p4">Kecamatan Gambir, Kota Administrasi Jakarta Pusat</p> -->
                     <?php else : ?>
                         <p id="p3">Jalan Taman Jatibaru Nomor 1 Telepon 3501349 Faksimile 3455264</p>
                     <?php endif; ?>
