@@ -150,7 +150,7 @@
 
     .ttd_data {
         margin: 0 auto;
-        padding-left: 60px;
+        /* padding-left: 60px; */
         width: 100%;
         box-sizing: border-box;
     }
