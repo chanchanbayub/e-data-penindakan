@@ -361,7 +361,7 @@
                 <td style=" color: white;width:35%">Kepala Suku Dinas </td>
                 <td style="color: white; width:25%"></td>
                 <?php if ($pengeluaran->ukpd_id == 3) : ?>
-                    <td style="text-align: center;">Plt. Kepala Suku Dinas Perhubungan</td>
+                    <td style="text-align: center;">a.n. Plt. Kepala Suku Dinas Perhubungan</td>
                 <?php else : ?>
                     <td style="text-align: center;">Kepala Suku Dinas Perhubungan</td>
                 <?php endif; ?>
@@ -372,7 +372,7 @@
                 <?php if ($pengeluaran->ukpd_id == 2) : ?>
                     <td style="text-align: center;">Kota Administrasi Jakarta Pusat, </td>
                 <?php elseif ($pengeluaran->ukpd_id == 3): ?>
-                    <td style="text-align: center;">Kota Administrasi Jakarta Barat, </td>
+                    <td style="text-align: center;">Kota Administrasi Jakarta Barat, <br> Kepala Seksi Pengendalian Operasional </td>
                 <?php elseif ($pengeluaran->ukpd_id == 4): ?>
                     <td style="text-align: center;">Kota Administrasi Jakarta Utara, </td>
                 <?php elseif ($pengeluaran->ukpd_id == 5): ?>
