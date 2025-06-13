@@ -150,7 +150,7 @@
 
     .ttd_data {
         margin: 0 auto;
-        padding-left: 80px;
+        padding-left: 75px;
         width: 100%;
         box-sizing: border-box;
     }
@@ -358,7 +358,7 @@
     <div class="ttd_data">
         <table id="ttd">
             <tr>
-                <td style=" color: white;width:35%">Kepala Suku Dinas </td>
+                <td style="color: white;width:35%">Kepala Suku Dinas </td>
                 <td style="color: white; width:25%"></td>
                 <?php if ($pengeluaran->ukpd_id == 3) : ?>
                     <td style="text-align: center;">a.n. Plt. Kepala Suku Dinas Perhubungan</td>
@@ -410,20 +410,11 @@
             </tr>
             <tr>
                 <td>
-                    1. Wakil Kepala Dinas Perhubungan Provinsi DKI Jakarta;
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    2. Kabid Pengendalian Operasional LLAJ Dinas Perhubungan Provinsi DKI Jakarta;
-                </td>
-            </tr>
-            <tr>
-                <td>
+                    1. Wakil Kepala Dinas Perhubungan Provinsi DKI Jakarta;<br>
+                    2. Kabid Pengendalian Operasional LLAJ Dinas Perhubungan Provinsi DKI Jakarta; <br>
                     3. Kabid Angkutan Jalan Dinas Perhubungan Provinsi DKI Jakarta.
                 </td>
             </tr>
-
         </table>
     </div>
 
