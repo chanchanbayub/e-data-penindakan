@@ -470,14 +470,15 @@
             </tr>
             <tr>
                 <td>
-                    1. Kepala Dinas Perhubungan Prov. DKI Jakarta;
-                </td>
-            </tr>
-            <tr>
-                <td>
+                    1. Kepala Dinas Perhubungan Prov. DKI Jakarta;<br>
                     2. Sekretaris Dinas Perhubungan Provinsi Dki Jakarta.
                 </td>
             </tr>
+            <!-- <tr>
+                <td>
+
+                </td>
+            </tr> -->
 
         </table>
     </div>
