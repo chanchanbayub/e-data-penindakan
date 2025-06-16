@@ -448,6 +448,99 @@
 
                         <!-- End Sales Card -->
 
+                        <div class=" pagetitle">
+                            <span>Data Penindakan Persyaratan Teknis dan Laik Jalan Dinas Perhubungan Provinsi DKI Jakarta</span><br>
+                            <span>Berdasarkan Klasifikasi Pelanggaran</span>
+                        </div><!-- End Page Title -->
+
+                        <section class="section dashboard">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title"></h5>
+                                            <!-- Small tables -->
+                                            <div class="table-responsive-sm">
+                                                <table class="table table-bordered  ">
+                                                    <thead align="center">
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th>Klasifikasi Pelanggaran</th>
+                                                            <th>Jumlah</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr align="center">
+                                                            <th scope="row">1</th>
+                                                            <td align="left">STUK Habis Masa Berlaku / Tanpa STUK</td>
+                                                            <td><?= number_format($jp_1) ?></td>
+                                                        </tr>
+                                                        <tr align="center">
+                                                            <th scope="row">2</th>
+                                                            <td align="left">Persyaratan Teknis Laik Jalan</td>
+                                                            <td><?= number_format($jp_2) ?></td>
+                                                        </tr>
+                                                        <tr align="center">
+                                                            <th scope="row">3</th>
+                                                            <td align="left">Over Dimensi dan Over Loading</td>
+                                                            <td><?= number_format($jp_3) ?></td>
+                                                        </tr>
+                                                        <tr align="center">
+                                                            <th scope="row">4</th>
+                                                            <td align="left">Tata Cara Muat / Penggandengan / Penempelan</td>
+                                                            <td><?= number_format($jp_4) ?></td>
+                                                        </tr>
+                                                        <tr align="center">
+                                                            <th scope="row">5</th>
+                                                            <td align="left">Perlengkapan / Modifikasi Kendaraan Bermotor</td>
+                                                            <td><?= number_format($jp_5) ?></td>
+                                                        </tr>
+                                                        <tr align="center">
+                                                            <th scope="row">6</th>
+                                                            <td align="left">Trayek Angkutan Umum</td>
+                                                            <td><?= number_format($jp_6) ?></td>
+                                                        </tr>
+                                                        <tr align="center">
+                                                            <th scope="row">7</th>
+                                                            <td align="left">Trayek Angkutan Barang</td>
+                                                            <td><?= number_format($jp_7) ?></td>
+                                                        </tr>
+                                                        <tr align="center">
+                                                            <th scope="row">8</th>
+                                                            <td align="left">Rambu/Marka</td>
+                                                            <td><?= number_format($jp_8) ?></td>
+                                                        </tr>
+                                                        <tr align="center">
+                                                            <th scope="row">9</th>
+                                                            <td align="left">Keselamatan Lalu Lintas / Mengemudi</td>
+                                                            <td><?= number_format($jp_9) ?></td>
+                                                        </tr>
+                                                        <tr align="center">
+                                                            <th scope="row">10</th>
+                                                            <td align="left">Batas Usia Kendaraan Bermotor Umum</td>
+                                                            <td><?= number_format($jp_10) ?></td>
+                                                        </tr>
+                                                        <tr align="center">
+                                                            <th scope="row">11</th>
+                                                            <td align="left">Lainnya</td>
+                                                            <td><?= number_format($jp_11) ?></td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr align="center">
+                                                            <th colspan="2">Total</th>
+                                                            <th><?= number_format($jp_1 + $jp_2 + $jp_3 + $jp_4 + $jp_5 + $jp_6 + $jp_7 + $jp_8 + $jp_9 + $jp_10 + $jp_11) ?></th>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                            <!-- End small tables -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
                         <!-- Reports -->
                         <div class="col-lg-6">
                             <div class="card">

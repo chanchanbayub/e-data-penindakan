@@ -116,4 +116,13 @@ class DataPenindakanModel extends Model
             ->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
             ->orderBy('data_penindakan_table.id desc')->countAllResults();
     }
+
+    public function getPasalPelanggaran($pasal_pelanggaran_1, $tahun)
+    {
+        return $this->table($this->table)
+            ->select('COUNT(data_penindakan_table.pasal_pelanggaran) as total_pasal')
+            ->where(["data_penindakan_table.pasal_pelanggaran" => $pasal_pelanggaran_1])
+            ->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)
+            ->orderBy('data_penindakan_table.id desc')->countAllResults();
+    }
 }

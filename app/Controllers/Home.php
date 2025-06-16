@@ -85,6 +85,38 @@ class Home extends BaseController
         $jumlah_so = $this->dataPenindakanModel->where("YEAR(tanggal_penindakan)", $tahun)->where(["jenis_penindakan_id" => 1])->countAllResults();
         $jumlah_tilang = $this->dataPenindakanModel->where("YEAR(tanggal_penindakan)", $tahun)->where(["jenis_penindakan_id" => 2])->countAllResults();
 
+        $komponen_1 = $this->dataPenindakanModel->getPasalPelanggaran("288", $tanggal_hari_ini);
+
+        $komponen_2 = $this->dataPenindakanModel->getPasalPelanggaran("285", $tanggal_hari_ini);
+        $komponen_3 = $this->dataPenindakanModel->getPasalPelanggaran("286", $tanggal_hari_ini);
+
+        $komponen_4 = $this->dataPenindakanModel->getPasalPelanggaran("307", $tanggal_hari_ini);
+
+        $komponen_5 = $this->dataPenindakanModel->getPasalPelanggaran("287", $tanggal_hari_ini);
+        $komponen_6 = $this->dataPenindakanModel->getPasalPelanggaran("305", $tanggal_hari_ini);
+        $komponen_7 = $this->dataPenindakanModel->getPasalPelanggaran("306", $tanggal_hari_ini);
+
+        $komponen_8 = $this->dataPenindakanModel->getPasalPelanggaran("277", $tanggal_hari_ini);
+        $komponen_9 = $this->dataPenindakanModel->getPasalPelanggaran("279", $tanggal_hari_ini);
+
+        $komponen_10 = $this->dataPenindakanModel->getPasalPelanggaran("276", $tanggal_hari_ini);
+        $komponen_11 = $this->dataPenindakanModel->getPasalPelanggaran("302", $tanggal_hari_ini);
+        $komponen_12 = $this->dataPenindakanModel->getPasalPelanggaran("308", $tanggal_hari_ini);
+
+        $komponen_13 = $this->dataPenindakanModel->getPasalPelanggaran("301", $tanggal_hari_ini);
+
+        $komponen_14 = $this->dataPenindakanModel->getPasalPelanggaran("287", $tanggal_hari_ini);
+
+        $komponen_15 = $this->dataPenindakanModel->getPasalPelanggaran("289", $tanggal_hari_ini);
+        $komponen_16 = $this->dataPenindakanModel->getPasalPelanggaran("293", $tanggal_hari_ini);
+        $komponen_17 = $this->dataPenindakanModel->getPasalPelanggaran("298", $tanggal_hari_ini);
+        $komponen_18 = $this->dataPenindakanModel->getPasalPelanggaran("300", $tanggal_hari_ini);
+        $komponen_19 = $this->dataPenindakanModel->getPasalPelanggaran("303", $tanggal_hari_ini);
+        $komponen_20 = $this->dataPenindakanModel->getPasalPelanggaran("304", $tanggal_hari_ini);
+
+        $komponen_21 = $this->dataPenindakanModel->getPasalPelanggaran("278", $tanggal_hari_ini);
+
+
 
         $data = [
             'title' => 'Dinas Perhubungan Prov. DKI Jakarta',
@@ -123,6 +155,20 @@ class Home extends BaseController
             'jumlah_penindakan' => $jumlah_data_penindakan,
             'jumlah_so' => $jumlah_so,
             'jumlah_tilang' => $jumlah_tilang,
+
+
+            'jp_1' => $komponen_1,
+            'jp_2' => $komponen_2 + $komponen_3,
+            'jp_3' => $komponen_4,
+            'jp_4' => $komponen_5 + $komponen_6 + $komponen_7,
+            'jp_5' => $komponen_8 + $komponen_9,
+            'jp_6' => $komponen_10 + $komponen_11 + $komponen_12,
+            'jp_7' => $komponen_13,
+            'jp_8' => $komponen_14,
+            'jp_9' => $komponen_15 + $komponen_16 + $komponen_17 + $komponen_18 + $komponen_19 + $komponen_20,
+            'jp_10' => 0,
+            'jp_11' => $komponen_21,
+
         ];
         return view('landing_page/landing_page_v', $data);
     }
