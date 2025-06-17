@@ -115,7 +115,7 @@ class Home extends BaseController
         $komponen_20 = $this->dataPenindakanModel->getPasalPelanggaran("304", $tanggal_hari_ini);
 
         $komponen_21 = $this->dataPenindakanModel->getPasalPelanggaran("278", $tanggal_hari_ini);
-
+        $komponen_22 = $this->dataPenindakanModel->getPasalPelanggaran("141", $tanggal_hari_ini);
 
 
         $data = [
@@ -167,7 +167,7 @@ class Home extends BaseController
             'jp_8' => $komponen_14,
             'jp_9' => $komponen_15 + $komponen_16 + $komponen_17 + $komponen_18 + $komponen_19 + $komponen_20,
             'jp_10' => 0,
-            'jp_11' => $komponen_21,
+            'jp_11' => $komponen_21 + $komponen_22,
 
         ];
         return view('landing_page/landing_page_v', $data);

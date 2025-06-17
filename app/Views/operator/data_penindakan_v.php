@@ -193,8 +193,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="pasal_pelanggaran" class="col-form-label">Pasal Pelanggaran :</label>
-                        <input type="text" name="pasal_pelanggaran" id="pasal_pelanggaran" class="form-control">
+                        <label for="pasal_pelanggaran" class="col-form-label">Pasal Pelanggaran (cth:288) :</label>
+                        <input type="number" name="pasal_pelanggaran" id="pasal_pelanggaran" class="form-control">
                         <div class="invalid-feedback error-pasal-pelanggaran">
 
                         </div>
