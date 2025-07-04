@@ -647,7 +647,9 @@
 
         $db = \Config\Database::connect();
         $januari = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 1)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
+
         $februari = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 2)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
+
         $maret = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 3)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
         $april = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 4)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
         $mei = $db->table('data_penindakan_table')->where('MONTH(data_penindakan_table.tanggal_penindakan)', 5)->where('YEAR(data_penindakan_table.tanggal_penindakan)', $tahun)->countAllResults();
@@ -757,7 +759,7 @@
                     ],
                     datasets: [{
                         label: `Jumlah Penindakan Tahun ${date.getFullYear()}`,
-                        data: [<?= $januari ?>, <?= $februari ?>, <?= $maret ?>, <?= $april ?>, <?= $mei ?>, <?= $juni ?>, <?= $juli ?>, <?= $juli ?>, <?= $agustus ?>, <?= $september ?>, <?= $oktober ?>, <?= $november ?>, <?= $desember ?>, ],
+                        data: [<?= $januari ?>, <?= $februari ?>, <?= $maret ?>, <?= $april ?>, <?= $mei ?>, <?= $juni ?>, <?= $juli ?>, <?= $agustus ?>, <?= $september ?>, <?= $oktober ?>, <?= $november ?>, <?= $desember ?>, ],
                         backgroundColor: [
                             'rgb(255, 99, 132)',
                             'rgb(54, 162, 235)',
