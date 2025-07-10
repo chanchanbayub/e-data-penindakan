@@ -487,7 +487,7 @@
                                                         </tr>
                                                         <tr align="center">
                                                             <th scope="row">4</th>
-                                                            <td align="left">Tata Cara Muat / Penggandengan / Penempelan</td>
+                                                            <td align="left">Angkutan Barang Khusus / Penggandengan / Penempelan</td>
                                                             <td><?= number_format($jp_4) ?></td>
                                                         </tr>
                                                         <tr align="center">
