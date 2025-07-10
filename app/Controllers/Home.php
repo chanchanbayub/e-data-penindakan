@@ -117,6 +117,61 @@ class Home extends BaseController
         $komponen_21 = $this->dataPenindakanModel->getPasalPelanggaran("278", $tanggal_hari_ini);
         $komponen_22 = $this->dataPenindakanModel->getPasalPelanggaran("141", $tanggal_hari_ini);
 
+        $komponen_23 = $this->dataPenindakanModel->getPasalPelanggaran("277 uu 22/2009", $tanggal_hari_ini);
+        $komponen_24 = $this->dataPenindakanModel->getPasalPelanggaran('277 uualj', $tanggal_hari_ini);
+        $komponen_25 = $this->dataPenindakanModel->getPasalPelanggaran('277 uulaj', $tanggal_hari_ini);
+
+        $komponen_26 = $this->dataPenindakanModel->getPasalPelanggaran("278 uu 22/2009", $tanggal_hari_ini);
+        $komponen_27 = $this->dataPenindakanModel->getPasalPelanggaran("278 uulaj", $tanggal_hari_ini);
+
+        $komponen_28 = $this->dataPenindakanModel->getPasalPelanggaran("285 uu 22/2009", $tanggal_hari_ini);
+        $komponen_29 = $this->dataPenindakanModel->getPasalPelanggaran("285 uulaj", $tanggal_hari_ini);
+        $komponen_30 = $this->dataPenindakanModel->getPasalPelanggaran("2858 uulaj", $tanggal_hari_ini);
+
+        $komponen_31 = $this->dataPenindakanModel->getPasalPelanggaran("287 uu 22/2009", $tanggal_hari_ini);
+        $komponen_32 = $this->dataPenindakanModel->getPasalPelanggaran("287 uulaj", $tanggal_hari_ini);
+
+
+        $komponen_33 = $this->dataPenindakanModel->getPasalPelanggaran("288 (3 ) uu 22/2009", $tanggal_hari_ini);
+        $komponen_34 = $this->dataPenindakanModel->getPasalPelanggaran("288 (3) ,308 uu 22/2009", $tanggal_hari_ini);
+        $komponen_35 = $this->dataPenindakanModel->getPasalPelanggaran("288 (3) muu 22/2009", $tanggal_hari_ini);
+        $komponen_36 = $this->dataPenindakanModel->getPasalPelanggaran("288 (3) uu 22/2009", $tanggal_hari_ini);
+        $komponen_37 = $this->dataPenindakanModel->getPasalPelanggaran("288 (3) uu 22009", $tanggal_hari_ini);
+        $komponen_38 = $this->dataPenindakanModel->getPasalPelanggaran("288 uu 22/2009", $tanggal_hari_ini);
+        $komponen_39 = $this->dataPenindakanModel->getPasalPelanggaran("288 uualj", $tanggal_hari_ini);
+        $komponen_40 = $this->dataPenindakanModel->getPasalPelanggaran("288 uulah", $tanggal_hari_ini);
+        $komponen_41 = $this->dataPenindakanModel->getPasalPelanggaran("288 uulaj", $tanggal_hari_ini);
+
+        $komponen_42 = $this->dataPenindakanModel->getPasalPelanggaran("289 uu /2009", $tanggal_hari_ini);
+        $komponen_43 = $this->dataPenindakanModel->getPasalPelanggaran("289 uu 22/ 2009", $tanggal_hari_ini);
+        $komponen_44 = $this->dataPenindakanModel->getPasalPelanggaran("289 uu 22/2009", $tanggal_hari_ini);
+        $komponen_45 = $this->dataPenindakanModel->getPasalPelanggaran("289 uulaj", $tanggal_hari_ini);
+
+        $komponen_46 = $this->dataPenindakanModel->getPasalPelanggaran("302 uu 22/2009", $tanggal_hari_ini);
+
+        $komponen_47 = $this->dataPenindakanModel->getPasalPelanggaran("303 uu 22/2009", $tanggal_hari_ini);
+        $komponen_48 = $this->dataPenindakanModel->getPasalPelanggaran("303 uulaj", $tanggal_hari_ini);
+
+        $komponen_49 = $this->dataPenindakanModel->getPasalPelanggaran("307 syarat muatan", $tanggal_hari_ini);
+        $komponen_50 = $this->dataPenindakanModel->getPasalPelanggaran("307 ulaj", $tanggal_hari_ini);
+        $komponen_51 = $this->dataPenindakanModel->getPasalPelanggaran("307 uu 22/2007", $tanggal_hari_ini);
+        $komponen_52 = $this->dataPenindakanModel->getPasalPelanggaran("307 uu 22/2009", $tanggal_hari_ini);
+        $komponen_53 = $this->dataPenindakanModel->getPasalPelanggaran("307 uualj", $tanggal_hari_ini);
+        $komponen_54 = $this->dataPenindakanModel->getPasalPelanggaran("307 uulaj", $tanggal_hari_ini);
+        $komponen_55 = $this->dataPenindakanModel->getPasalPelanggaran("307,278 uu 22/2009", $tanggal_hari_ini);
+        $komponen_56 = $this->dataPenindakanModel->getPasalPelanggaran("307/285", $tanggal_hari_ini);
+        $komponen_57 = $this->dataPenindakanModel->getPasalPelanggaran("307/289", $tanggal_hari_ini);
+        $komponen_60 = $this->dataPenindakanModel->getPasalPelanggaran("psl 118 (2) perda no. 5 tahun 2014 jo psl 307 jo psl 169 (1) uu no. 22 tahun 2009 dengan denda rp 50", $tanggal_hari_ini);
+
+        $komponen_58 = $this->dataPenindakanModel->getPasalPelanggaran("308 uu 22/2009", $tanggal_hari_ini);
+        $komponen_59 = $this->dataPenindakanModel->getPasalPelanggaran("308 uulaj", $tanggal_hari_ini);
+
+        $komponen_61 = $this->dataPenindakanModel->getPasalPelanggaran("psl 254 perda 5 tahun 2014 jo psl 285 jo pasal 106 (3) jo pasal 48 (3) dengan denda rp 250.000", $tanggal_hari_ini);
+
+        $komponen_62 = $this->dataPenindakanModel->getPasalPelanggaran("pasal 276 jo pasal 36 uu no. 22 tahun 2009 dengan denda rp 500.000", $tanggal_hari_ini);
+
+        // dd($komponen_60);
+
 
         $data = [
             'title' => 'Dinas Perhubungan Prov. DKI Jakarta',
@@ -157,17 +212,17 @@ class Home extends BaseController
             'jumlah_tilang' => $jumlah_tilang,
 
 
-            'jp_1' => $komponen_1,
-            'jp_2' => $komponen_2 + $komponen_3,
-            'jp_3' => $komponen_4,
+            'jp_1' => $komponen_1 + $komponen_33 + $komponen_34 + $komponen_35 + $komponen_36 + $komponen_37 + $komponen_38 + $komponen_39 + $komponen_40 + $komponen_41,
+            'jp_2' => $komponen_2 + $komponen_3 + $komponen_28 + $komponen_29 + $komponen_30,
+            'jp_3' => $komponen_4 + $komponen_49 + $komponen_50 + $komponen_51 + $komponen_52 + $komponen_53 + $komponen_54 + $komponen_55 + $komponen_56 + $komponen_57 + $komponen_60 + $komponen_62,
             'jp_4' => $komponen_5 + $komponen_6 + $komponen_7,
-            'jp_5' => $komponen_8 + $komponen_9,
-            'jp_6' => $komponen_10 + $komponen_11 + $komponen_12,
+            'jp_5' => $komponen_8 + $komponen_9 + $komponen_23 + $komponen_24 + $komponen_25,
+            'jp_6' => $komponen_10 + $komponen_11 + $komponen_12 + $komponen_46 + $komponen_58 + $komponen_59,
             'jp_7' => $komponen_13,
-            'jp_8' => $komponen_14,
-            'jp_9' => $komponen_15 + $komponen_16 + $komponen_17 + $komponen_18 + $komponen_19 + $komponen_20,
+            'jp_8' => $komponen_14 + $komponen_31 + $komponen_32 + $komponen_61,
+            'jp_9' => $komponen_15 + $komponen_16 + $komponen_17 + $komponen_18 + $komponen_19 + $komponen_20 + $komponen_42 + $komponen_43 + $komponen_44 + $komponen_45 + $komponen_47 + $komponen_48,
             'jp_10' => 0,
-            'jp_11' => $komponen_21 + $komponen_22,
+            'jp_11' => $komponen_21 + $komponen_22 + $komponen_26 + $komponen_27,
 
         ];
         return view('landing_page/landing_page_v', $data);
