@@ -30,6 +30,8 @@ class PdfController extends BaseController
         helper(['format']);
 
         $date = date_create("2025-05-20");
+
+        $rotasi = date_create("2025-11-21");
         // dd(date_format($date, 'Y-m-d'));
 
 
@@ -42,7 +44,8 @@ class PdfController extends BaseController
         $data = [
             'pengeluaran' => $cetak_spk,
             'pejabat' => $pejabatPenandaTangan,
-            'tanggal_kop' => date_format($date, 'Y-m-d')
+            'tanggal_kop' => date_format($date, 'Y-m-d'),
+            'tanggal_rotasi' => date_format($rotasi, 'Y-m-d')
         ];
 
         $html = view('pdf/spk_pdf', $data);
