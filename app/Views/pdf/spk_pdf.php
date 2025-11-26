@@ -25,8 +25,6 @@
 
     #kopSurat {
         width: 100%;
-
-        /* border: 1px solid black; */
         box-sizing: border-box;
     }
 
@@ -473,6 +471,7 @@
                         <td style="text-align: center">NIP. 197212171996021001 </td>
                     </tr>
             </table>
+            <img src="ttd/ttd_yayat_s.png" alt="ttd_data" style="width: 180px; height: 130px; margin-left:400px; margin-top:-150px" class="ttd_digital">
         <?php else : ?>
             <tr>
                 <td style="color: white;">NAMA LENGKAP</td>

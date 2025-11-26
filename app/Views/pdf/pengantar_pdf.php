@@ -286,7 +286,7 @@
         <table id="content">
             <tr>
                 <td>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sesuai Dengan Surat Keputusan Kepala Dinas Peruhubungan Provinsi DKI Jakarta Nomor : e-0007 tentang Surat Pengeluaran Kendaraan Stop Operasi Karena Pelanggaran Persyaratan Teknis dan Kelaikan Jalan Kendaraan Bermotor, maka dengan ini kami mengajukan surat pengeluaran kendaraan bermotor sebagai berikut:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sesuai Dengan Surat Keputusan Kepala Dinas Perhubungan Provinsi DKI Jakarta Nomor : e-0007 tentang Surat Pengeluaran Kendaraan Stop Operasi Karena Pelanggaran Persyaratan Teknis dan Kelaikan Jalan Kendaraan Bermotor, maka dengan ini kami mengajukan surat pengeluaran kendaraan bermotor sebagai berikut:
                 </td>
             </tr>
         </table>
@@ -361,9 +361,9 @@
                 <td style="color: white;width:35%">Kepala Suku Dinas </td>
                 <td style="color: white; width:25%"></td>
                 <?php if ($pengeluaran->ukpd_id == 3) : ?>
-                    <td style="text-align: center;">a.n. Plt. Kepala Suku Dinas Perhubungan</td>
+                    <td style="text-align: center;">Kepala Suku Dinas Perhubungan</td>
                 <?php elseif ($pengeluaran->ukpd_id == 6) : ?>
-                    <td style="text-align: center;">Plh. Kepala Suku Dinas Perhubungan</td>
+                    <td style="text-align: center;">Kepala Suku Dinas Perhubungan</td>
                 <?php else : ?>
                     <td style="text-align: center;">Kepala Suku Dinas Perhubungan</td>
                 <?php endif; ?>
@@ -374,7 +374,7 @@
                 <?php if ($pengeluaran->ukpd_id == 2) : ?>
                     <td style="text-align: center;">Kota Administrasi Jakarta Pusat, </td>
                 <?php elseif ($pengeluaran->ukpd_id == 3): ?>
-                    <td style="text-align: center;">Kota Administrasi Jakarta Barat, <br> Kepala Seksi Pengendalian Operasional </td>
+                    <td style="text-align: center;">Kota Administrasi Jakarta Barat, </td>
                 <?php elseif ($pengeluaran->ukpd_id == 4): ?>
                     <td style="text-align: center;">Kota Administrasi Jakarta Utara, </td>
                 <?php elseif ($pengeluaran->ukpd_id == 5): ?>
